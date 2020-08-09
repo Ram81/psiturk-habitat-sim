@@ -1,0 +1,21 @@
+# Configs
+config.txt
+
+# Database
+participants.db
+
+# Log reports
+.psiturk_history
+server.log
+
+# Editor
+.vscode
+
+# Experiment data
+*.csv
+
+# Python packages
+__pycache__/
+
+# Assets
+data/
