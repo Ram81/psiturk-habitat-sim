@@ -6,6 +6,45 @@ body {
     color: black;
     font-weight: 300; 
     font-size: 13pt;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#container {
+  width:100%;
+  position:relative;
+}
+
+#controls {
+  color: white;
+  margin-bottom:1em;
+  text-align:center;
+}
+
+/* text assistance */
+#text-assistance-1, #text-assistance-2 {
+  display:inline-block;
+  position:absolute;
+  top:3em;
+  width:calc(45% - 320px);
+  text-align:left;
+}
+
+#text-assistance-1 img, #text-assistance-2 img, #status img {
+  height:3em;
+}
+
+#text-assistance-1 s, #text-assistance-2 s {
+  opacity: 50%;
+}
+
+#text-assistance-1 {
+  left:0;
+  margin-left:1em;
+}
+#text-assistance-2 {
+  right:0;
+  margin-right:1em;
 }
 
 
@@ -29,9 +68,21 @@ h1 {
 
 
 /* these are all the same for now, but easy to modify individually */
-#container-not-an-ad, #container-error, #container-exp, #container-consent, #container-instructions, #container-questionnaire {
+#container-not-an-ad, #container-error, #container-consent, #container-instructions {
     background: white;
     margin: 30px;
+}
+
+#container-exp, #container-questionnaire {
+  background: #2f363f;
+  color: white;
+  padding: 30px;
+  font-size:15px;
+  overflow-x: hidden;
+}
+
+.instructions {
+  color:#444444;
 }
 
 /* ad.html  - the ad that people view first */
