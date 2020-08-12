@@ -9,15 +9,16 @@
     <div id="status-description"></div> -->
     <div id="instructions">
     </div>
+    <div id="task-instruction"></div>
     <div id="container">
       <div id="sizer">
         <div id="expander">
           <div id="listener">
             <canvas id="canvas" width="640" height="480"></canvas>
-            <canvas id="topdown" width="640" height="480"></canvas>
-            <canvas id="semantic" width="640" height="480" style="transform: scaleY(-1)"></canvas>
+            <canvas id="topdown" width="640" height="480" style="visibility:collapse;height:1px;min-height:1px;"></canvas>
+            <canvas id="semantic" width="640" height="480" style="transform: scaleY(-1);visibility:collapse;height:1px;min-height:1px"></canvas>
             <canvas id="radar"></canvas>
-            <pre id="log"></pre>
+            <pre id="log" style="visibility:collapse;height:1px;min-height:1px;"></pre>
             <div id="scope"></div>
             <div id="status">Initialization...</div>
             <div id="status-description"></div>

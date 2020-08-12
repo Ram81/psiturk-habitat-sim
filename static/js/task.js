@@ -68,6 +68,7 @@ var HabitatExperiment = function() {
   const runStep = function() {
     const showViewer = function() {
       $("#instructions").hide();
+      $("#task-instruction").show();
       $("#container").show();
       if(SimInitialized()) {
         window.demo.task.bindKeys();
@@ -75,21 +76,14 @@ var HabitatExperiment = function() {
     };
     const showInstructions = function() {
       $("#instructions").show();
+      $("#task-instruction").hide();
       $("#container").hide();
       if(SimInitialized()) {
         window.demo.task.unbindKeys();
       }
     };
+
     let step = steps[_self.iStep];
-    if(step instanceof Array) {
-      if(SimInitialized()) {
-        step = step[0];
-      }
-      else {
-        console.log("WARNING: Couldn't determine assistanceCondition. Using 0");
-        step = step[0];
-      }
-    }
     console.log("iStep:", _self.iStep, "step:", step);
     window.step = step;
     psiTurk.recordTrialData({'type':"runStep",'phase':'TEST','iStep':_self.iStep,'step':step});
@@ -108,6 +102,7 @@ var HabitatExperiment = function() {
     } else if(step === "viewer") {
       // Initialize experiment episode
       showViewer();
+      window.demo.runInit();
     } else {
       $("#instructions").html(psiTurk.getPage(step))
       showInstructions();
@@ -121,9 +116,15 @@ var HabitatExperiment = function() {
         }
       };
       waitForStartEnable();
-	}
-	$("#next").click(window.finishTrial);
-    $("#prev").click(function() {
+	  }
+    
+    $("#next").unbind('click').bind('click', function(e) {
+      e.preventDefault();
+      window.finishTrial();
+    });
+
+    $("#prev").unbind('click').bind('click', function(e) {
+      e.preventDefault();
       if(_self.iStep - 1 >= 0) {
         --_self.iStep;
         runStep();
@@ -131,8 +132,8 @@ var HabitatExperiment = function() {
     });
   }
 
-  window.finishTrial = function(doReset = false) {
-      psiTurk.recordTrialData({'type':"finishStep",'phase':'TEST'});
+  window.finishTrial = function(doReset = true) {
+      psiTurk.recordTrialData({'type':"finishStep", 'phase':'TEST'});
       ++_self.iStep;
 
       if(_self.iStep < steps.length) {

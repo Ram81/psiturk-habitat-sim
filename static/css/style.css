@@ -21,32 +21,19 @@ body {
   text-align:center;
 }
 
-/* text assistance */
-#text-assistance-1, #text-assistance-2 {
-  display:inline-block;
-  position:absolute;
-  top:3em;
-  width:calc(45% - 320px);
-  text-align:left;
+/* task instructions */
+
+#task-instruction {
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 15px;
 }
 
-#text-assistance-1 img, #text-assistance-2 img, #status img {
-  height:3em;
+#task-instruction-nav {
+  padding: 20px 15px;
 }
-
-#text-assistance-1 s, #text-assistance-2 s {
-  opacity: 50%;
-}
-
-#text-assistance-1 {
-  left:0;
-  margin-left:1em;
-}
-#text-assistance-2 {
-  right:0;
-  margin-right:1em;
-}
-
 
 /* text styling */
 strong {
