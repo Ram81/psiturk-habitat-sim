@@ -13,12 +13,15 @@ window.psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 
 var steps = [
   "instructions/instruct-1.html",
+  "flythrough",
+  "instructions/instruct-2.html",
   "viewer"
 ];
 
 // All pages to be loaded
 var pages = [
   "instructions/instruct-1.html",
+  "instructions/instruct-2.html",
   "viewer.html",
   "postquestionnaire.html"
 ];
@@ -43,18 +46,6 @@ var HabitatExperiment = function() {
 
   var startTime = new Date().getTime();
 
-  var response_handler = function(e) {
-    const keyCode = e.keyCode;
-
-	const rt = new Date().getTime() - startTime;
-    psiTurk.recordTrialData({
-      'phase':"TEST",
-      'keyCode':keyCode,
-      'rt':rt
-    });
-  };
-
-
   psiTurk.recordTrialData({'type':"platformInfo",'navigator':window.navigator});
 
   // Load the viewer.html snippet into the body of the page
@@ -74,7 +65,7 @@ var HabitatExperiment = function() {
   // Start the test
   _self = this;
   _self.iStep = 0;
-  const DoStep = function() {
+  const runStep = function() {
     const showViewer = function() {
       $("#instructions").hide();
       $("#container").show();
@@ -101,12 +92,13 @@ var HabitatExperiment = function() {
     }
     console.log("iStep:", _self.iStep, "step:", step);
     window.step = step;
-    psiTurk.recordTrialData({'type':"DoStep",'phase':'TEST','iStep':_self.iStep,'step':step});
+    psiTurk.recordTrialData({'type':"runStep",'phase':'TEST','iStep':_self.iStep,'step':step});
+
     if(step === "flythrough") {
       showViewer();
       const waitForFlythrough = function() {
         if(SimInitialized()) {
-          window.demo.doFlythrough();
+          window.demo.runFlythrough();
         } else {
           console.log("Sim not initialized yet. Waiting");
           window.setTimeout(waitForFlythrough, 1000);
@@ -116,7 +108,6 @@ var HabitatExperiment = function() {
     } else if(step === "viewer") {
       // Initialize experiment episode
       showViewer();
-      //window.demo.doTask();
     } else {
       $("#instructions").html(psiTurk.getPage(step))
       showInstructions();
@@ -135,7 +126,7 @@ var HabitatExperiment = function() {
     $("#prev").click(function() {
       if(_self.iStep - 1 >= 0) {
         --_self.iStep;
-        DoStep();
+        runStep();
       }
     });
   }
@@ -149,15 +140,15 @@ var HabitatExperiment = function() {
           window.demo.task.reset();
         }
 
-        DoStep();
+        runStep();
       } else {
         if(SimInitialized())
           window.demo.task.unbindKeys();
-        //$("body").unbind("keydown"); // Unbind keys
+
         window.currentview = new Questionnaire();
       }
   };
-  DoStep();
+  runStep();
 };
 
 

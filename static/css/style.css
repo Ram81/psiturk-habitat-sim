@@ -68,16 +68,16 @@ h1 {
 
 
 /* these are all the same for now, but easy to modify individually */
-#container-not-an-ad, #container-error, #container-consent, #container-instructions {
+#container-not-an-ad, #container-error, #container-consent {
     background: white;
     margin: 30px;
 }
 
-#container-exp, #container-questionnaire {
+#container-exp, #container-questionnaire, #container-instructions {
   background: #2f363f;
   color: white;
   padding: 30px;
-  font-size:15px;
+  font-size: 15px;
   overflow-x: hidden;
 }
 
