@@ -3,7 +3,7 @@
     <div class="hidden" id="warning"></div>
     <h1>Object Rearrangement Experiment</h1>
     <div id="controls">
-      CONTROLS: W to move forward, arrow keys to look up/down/left/right, H to pick/place objects, N to submit the HIT
+      CONTROLS: W to move forward, arrow keys to look up/down/left/right, A/D to turn left/right, H to pick/place objects, N to submit the HIT
     </div>
     <!-- <div id="status">Initialization...</div>
     <div id="status-description"></div> -->
@@ -15,6 +15,9 @@
         <div id="expander">
           <div id="listener">
             <canvas id="canvas" width="640" height="480"></canvas>
+            <div class="inventory-center">
+              <canvas id="inventory" width="80" height="80"></canvas>
+            </div>
             <canvas id="topdown" width="640" height="480" style="visibility:collapse;height:1px;min-height:1px;"></canvas>
             <canvas id="semantic" width="640" height="480" style="transform: scaleY(-1);visibility:collapse;height:1px;min-height:1px"></canvas>
             <canvas id="radar"></canvas>

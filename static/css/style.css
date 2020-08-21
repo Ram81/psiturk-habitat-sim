@@ -21,6 +21,11 @@ body {
   text-align:center;
 }
 
+.inventory-center {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
 /* task instructions */
 
 #task-instruction {
@@ -98,6 +103,7 @@ h1 {
 #trial {
   margin: 0 auto;
   width: 800px;
+  height: 900px;
   text-align: center;
 }
 
