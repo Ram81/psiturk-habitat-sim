@@ -78,6 +78,11 @@ h1 {
   color:#444444;
 }
 
+.viewer-nav {
+  margin-top: 200px;
+  text-align: center;
+}
+
 /* ad.html  - the ad that people view first */
 #adlogo {
     width: 140px;

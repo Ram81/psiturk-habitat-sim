@@ -18,10 +18,19 @@ var steps = [
   "viewer"
 ];
 
+var stepActionMap = {
+  "instructions/instruct-1.html": "navigation/start.html",
+  "instructions/instruct-2.html": "navigation/middle.html",
+  "viewer": "navigation/end.html",
+};
+
 // All pages to be loaded
 var pages = [
   "instructions/instruct-1.html",
   "instructions/instruct-2.html",
+  "navigation/start.html",
+  "navigation/end.html",
+  "navigation/middle.html",
   "viewer.html",
   "postquestionnaire.html"
 ];
@@ -66,10 +75,15 @@ var HabitatExperiment = function() {
   _self = this;
   _self.iStep = 0;
   const runStep = function() {
-    const showViewer = function() {
+    const showViewer = function(isFlythrough) {
       $("#instructions").hide();
       $("#task-instruction").show();
       $("#container").show();
+      if (isFlythrough) {
+        $('#actions-nav').hide();
+      } else {
+        $('#actions-nav').show();
+      }
       if(SimInitialized()) {
         window.demo.task.bindKeys();
       }
@@ -78,6 +92,7 @@ var HabitatExperiment = function() {
       $("#instructions").show();
       $("#task-instruction").hide();
       $("#container").hide();
+      $('#actions-nav').show();
       if(SimInitialized()) {
         window.demo.task.unbindKeys();
       }
@@ -89,7 +104,7 @@ var HabitatExperiment = function() {
     psiTurk.recordTrialData({'type':"runStep",'phase':'TEST','iStep':_self.iStep,'step':step});
 
     if(step === "flythrough") {
-      showViewer();
+      showViewer(true);
       const waitForFlythrough = function() {
         if(SimInitialized()) {
           window.demo.runFlythrough();
@@ -101,10 +116,12 @@ var HabitatExperiment = function() {
       waitForFlythrough();
     } else if(step === "viewer") {
       // Initialize experiment episode
-      showViewer();
+      showViewer(false);
+      $("#actions-nav").html(psiTurk.getPage(stepActionMap[step]));
       window.demo.runInit();
     } else {
       $("#instructions").html(psiTurk.getPage(step))
+      $("#actions-nav").html(psiTurk.getPage(stepActionMap[step]))
       showInstructions();
       const waitForStartEnable = function() {
         if(SimInitialized()) {
@@ -117,7 +134,7 @@ var HabitatExperiment = function() {
       };
       waitForStartEnable();
 	  }
-    
+
     $("#next").unbind('click').bind('click', function(e) {
       e.preventDefault();
       window.finishTrial();
