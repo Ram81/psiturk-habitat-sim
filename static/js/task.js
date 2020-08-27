@@ -12,25 +12,29 @@ window.psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 // they are not used in this code code yet but may become useful
 
 var steps = [
-  "instructions/instruct-1.html",
+  "instructions/instruct-general.html",
+  "instructions/instruct-flythrough.html",
   "flythrough",
-  "instructions/instruct-2.html",
+  "instructions/instruct-task.html",
   "viewer"
 ];
 
 var stepActionMap = {
-  "instructions/instruct-1.html": "navigation/start.html",
-  "instructions/instruct-2.html": "navigation/middle.html",
-  "viewer": "navigation/end.html",
+  "instructions/instruct-general.html": "navigation/start.html",
+  "instructions/instruct-flythrough.html": "navigation/skip.html",
+  "instructions/instruct-task.html": "navigation/middle.html",
+  "viewer": "navigation/end.html"
 };
 
 // All pages to be loaded
 var pages = [
-  "instructions/instruct-1.html",
-  "instructions/instruct-2.html",
+  "instructions/instruct-general.html",
+  "instructions/instruct-flythrough.html",
+  "instructions/instruct-task.html",
   "navigation/start.html",
   "navigation/end.html",
   "navigation/middle.html",
+  "navigation/skip.html",
   "viewer.html",
   "postquestionnaire.html"
 ];
@@ -137,6 +141,12 @@ var HabitatExperiment = function() {
 
     $("#next").unbind('click').bind('click', function(e) {
       e.preventDefault();
+      window.finishTrial();
+    });
+
+    $("#skip").unbind('click').bind('click', function(e) {
+      e.preventDefault();
+      ++_self.iStep;
       window.finishTrial();
     });
 
