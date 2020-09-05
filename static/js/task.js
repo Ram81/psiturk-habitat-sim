@@ -15,6 +15,8 @@ var steps = [
   "instructions/instruct-general.html",
   "instructions/instruct-flythrough.html",
   "flythrough",
+  "instructions/instruct-training.html",
+  "training",
   "instructions/instruct-task.html",
   "viewer"
 ];
@@ -22,6 +24,7 @@ var steps = [
 var stepActionMap = {
   "instructions/instruct-general.html": "navigation/start.html",
   "instructions/instruct-flythrough.html": "navigation/skip.html",
+  "instructions/instruct-training.html": "navigation/skip.html",
   "instructions/instruct-task.html": "navigation/middle.html",
   "viewer": "navigation/end.html"
 };
@@ -30,6 +33,7 @@ var stepActionMap = {
 var pages = [
   "instructions/instruct-general.html",
   "instructions/instruct-flythrough.html",
+  "instructions/instruct-training.html",
   "instructions/instruct-task.html",
   "navigation/start.html",
   "navigation/end.html",
@@ -118,6 +122,9 @@ var HabitatExperiment = function() {
         }
       };
       waitForFlythrough();
+    } else if (step === "training") {
+      showViewer(true);
+      window.demo.runTrainingTask();
     } else if(step === "viewer") {
       // Initialize experiment episode
       showViewer(false);
