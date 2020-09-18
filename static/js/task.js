@@ -11,6 +11,16 @@ window.psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 //var mycounterbalance = counterbalance;  // they tell you which condition you have been assigned to
 // they are not used in this code code yet but may become useful
 
+var taskTitleMap = {
+  "flythrough": "Environment flythrough",
+  "training": "Training task",
+  "viewer": "Final task",
+  "instructions/instruct-general.html": "Object Rearrangement Experiment",
+  "instructions/instruct-flythrough.html": "Environment flythrough",
+  "instructions/instruct-training.html": "Training task",
+  "instructions/instruct-task.html": "Final task"
+};
+
 var steps = [
   "instructions/instruct-general.html",
   "instructions/instruct-flythrough.html",
@@ -96,6 +106,7 @@ var HabitatExperiment = function() {
         window.demo.task.bindKeys();
       }
     };
+
     const showInstructions = function() {
       $("#instructions").show();
       $("#task-instruction").hide();
@@ -106,11 +117,17 @@ var HabitatExperiment = function() {
       }
     };
 
+    const setTaskTitle = function(task) {
+      $("#task-title").html("<h1>" + taskTitleMap[task] + "</h1>");
+    }
+
+
     let step = steps[_self.iStep];
     console.log("iStep:", _self.iStep, "step:", step);
     window.step = step;
     psiTurk.recordTrialData({'type':"runStep",'phase':'TEST','iStep':_self.iStep,'step':step});
 
+    setTaskTitle(step);
     if(step === "flythrough") {
       showViewer(true);
       const waitForFlythrough = function() {
