@@ -34,10 +34,12 @@
 
         <p> Please note that you can’t walk through walls, furniture or objects.</p>
         <p> To pick up any object you have to point the crosshair which is at the center of the camera to the object you want to grab.
-            The items you pick up and are a part of the agent body. Note that you can only carry one object at a time.
-             If you try to grab a second object simultaenously the first object which was picked up will be dropped if there is no collision with any other object.
+            If you are within <b>1.25m</b> of the object you'll see a bounding box around the object which indicatest that you can grab the object. Note that you can only carry one object at a time.
+             If you try to grab a second object simultaenously the first object which was picked up will be dropped.
               Also note that objects not highlighted are not pickable. You have to be close enough to an object to pick it up.
-                 Try moving closer to the object if you are unable to pick it up. Objects can be dropped anywhere in the scene where there is no collision with another highlighted.
+                 Try moving closer to the object if you are unable to pick it up.
+                  If you point the crosshair at a location within <b>1.25m</b> radius of agent position the object will be placed at the location pointed by crosshair.
+                   Otherwise the object will be dropped <b>1m</b> in front of the agent position from a height of <b>1.5m</b>.
         </p>
         
         <p>The task is given as a instruction at the top of the experiment page.</p>
