@@ -79,10 +79,6 @@ var HabitatExperiment = function() {
   psiTurk.showPage('viewer.html');
   psiTurk.recordTrialData({'type':"loadViewer",'phase':'TEST'});
 
-  // Register the response handler that is defined above to handle any
-  // key down events.
-  //$("body").focus().keydown(response_handler);
-
   const SimInitialized = function() {
     return !!(window.demo &&
               window.demo.task &&
