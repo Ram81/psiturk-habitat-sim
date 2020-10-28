@@ -36,6 +36,7 @@ var stepActionMap = {
   "instructions/instruct-flythrough.html": "navigation/skip.html",
   "instructions/instruct-training.html": "navigation/skip.html",
   "instructions/instruct-task.html": "navigation/middle.html",
+  "training": "navigation/next.html",
   "viewer": "navigation/end.html"
 };
 
@@ -49,6 +50,7 @@ var pages = [
   "navigation/end.html",
   "navigation/middle.html",
   "navigation/skip.html",
+  "navigation/next.html",
   "viewer.html",
   "postquestionnaire.html"
 ];
@@ -93,6 +95,7 @@ var HabitatExperiment = function() {
       $("#instructions").hide();
       $("#task-instruction").show();
       $("#container").show();
+      $("#text-assistance-1").show();
       if (isFlythrough) {
         $('#actions-nav').hide();
       } else {
@@ -107,6 +110,7 @@ var HabitatExperiment = function() {
       $("#instructions").show();
       $("#task-instruction").hide();
       $("#container").hide();
+      $("#text-assistance-1").hide();
       $('#actions-nav').show();
       if(SimInitialized()) {
         window.demo.task.unbindKeys();
@@ -136,7 +140,8 @@ var HabitatExperiment = function() {
       };
       waitForFlythrough();
     } else if (step === "training") {
-      showViewer(true);
+      showViewer(false);
+      $("#actions-nav").html(psiTurk.getPage(stepActionMap[step]))
       window.demo.runTrainingTask();
     } else if(step === "viewer") {
       // Initialize experiment episode
