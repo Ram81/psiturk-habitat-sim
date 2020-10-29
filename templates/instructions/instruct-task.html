@@ -15,6 +15,7 @@
                 To navigate through the room and pick/place items, you can use the following keyboard controls:
                 <ul>
                     <li>W: To move forward</li>
+                    <li>S: To move backward</li>
                     <li>Spacebar: Pick up an item/place the picked item back</li>
                 </ul>
             </p>
@@ -33,12 +34,14 @@
         </div>
 
         <p> Please note that you can’t walk through walls, furniture or objects.</p>
+        <p> When you pick up an item to carry it to another location, it will be displayed in your inventory menu at the bottom of the screen.
+            Note that you can only carry one item at a time! </p>
         <p> To pick up any object you have to point the crosshair which is at the center of the camera to the object you want to grab.
-            If you are within <b>1.25m</b> of the object you'll see a bounding box around the object which indicatest that you can grab the object. Note that you can only carry one object at a time.
+            If you are within <b>1.5m</b> of the object you'll see a bounding box around the object which indicates that you can grab the object. Note that you can only carry one object at a time.
              If you try to grab a second object simultaenously the first object which was picked up will be dropped.
-              Also note that objects not highlighted are not pickable. You have to be close enough to an object to pick it up.
+              Also note that objects not highlighted are not pickable. You have to be close enough to an object to be able to pick it up.
                  Try moving closer to the object if you are unable to pick it up.
-                  If you point the crosshair at a location within <b>1.25m</b> radius of agent position the object will be placed at the location pointed by crosshair.
+                  If you point the crosshair at a location within <b>1.5m</b> radius of agent position the object will be placed at the location pointed by crosshair.
                    Otherwise the object will be dropped <b>1m</b> in front of the agent position from a height of <b>1.5m</b>.
         </p>
         
