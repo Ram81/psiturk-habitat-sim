@@ -16,7 +16,7 @@
                 <ul>
                     <li>W: To move forward</li>
                     <li>S: To move backward</li>
-                    <li>Spacebar: Pick up an item/place the picked item back</li>
+                    <li>Spacebar: Pick/Place an object</li>
                 </ul>
             </p>
         </div>
@@ -34,33 +34,28 @@
         </div>
 
         <p> Please note that you can’t walk through walls, furniture or objects.</p>
-        <p> When you pick up an item to carry it to another location, it will be displayed in your inventory menu at the bottom of the screen.
-            Note that you can only carry one item at a time! </p>
-        <p> To pick up any object you have to point the crosshair which is at the center of the camera to the object you want to grab.
-            If you are within <b>1.5m</b> of the object you'll see a bounding box around the object which indicates that you can grab the object. Note that you can only carry one object at a time.
-             If you try to grab a second object simultaenously the first object which was picked up will be dropped.
-              Also note that objects not highlighted are not pickable. You have to be close enough to an object to be able to pick it up.
-                 Try moving closer to the object if you are unable to pick it up.
-                  If you point the crosshair at a location within <b>1.5m</b> radius of agent position the object will be placed at the location pointed by crosshair.
-                   Otherwise the object will be dropped <b>1m</b> in front of the agent position from a height of <b>1.5m</b>.
+        <p> When you pick up an object to carry it to another location, it will be displayed in your inventory menu at the bottom of the screen.
+             Note that you can only carry one object at a time. </p>
+        <p> To pick up any object you have to aim the crosshair to the object you want to pick.
+             If you are within <b>1.5m</b> of the object you'll see a bounding box around the object which indicates that you can pick the object.
+              If you try to pick a second object the first object which was picked up will be dropped.
+               Also note that objects not highlighted are not pickable. You have to be close enough to an object to be able to pick it up. Try moving closer to the object if you are unable to pick it up.
+                Try moving closer to the object if you are unable to pick it up.
+        </p>
+        <p>
+            To place an object you have to aim the crosshair at the location you want to place it at.
+             If you point the crosshair at a location within <b>1.5m</b> radius of robot position the object will be placed at the location pointed by crosshair.
+                Otherwise the object will be dropped <b>1m</b> in front of the robot position from a height of <b>1.5m</b>.
         </p>
         
-        <p>The task is given as a instruction at the top of the experiment page.</p>
-
-        <div>
-            <p>
-                To submit your HIT use the Submit HIT button.
-            </p>
+        <p>The task like “Put the coffee mug on the table” is given as an instruction above the environment.</p>
+    
+        <p>Please click the Next button when you are ready.</p>
         </div>
-
-        <p>Please click the Next button when you are ready!</p>
-
 
         <script type="text/javascript">
         //console.log(psiTurk.getInstructionIndicator())
         </script>
-
-    </div>
 
     <hr />
 
