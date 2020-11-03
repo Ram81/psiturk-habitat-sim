@@ -4,7 +4,7 @@ import pandas as pd
 
 from sqlalchemy import create_engine, MetaData, Table
 
-db_url = "sqlite:///experiment_data/data_10_31_2020_1.db"
+db_url = "sqlite:///experiment_data/data_11_02_2020.db"
 table_name = "turkdemo"
 data_column_name = "datastring"
 # boilerplace sqlalchemy setup
@@ -47,6 +47,6 @@ for record in output_data:
 # Put all subjects' trial data into a dataframe object from the
 # 'pandas' python library: one option among many for analysis
 data_frame = pd.DataFrame(output_data)
-data_frame.to_csv("./data_1.csv", index=False, headers=False)
+data_frame.to_csv("./data_1.csv", index=False, header=False)
 
 print(data_frame.columns.values)

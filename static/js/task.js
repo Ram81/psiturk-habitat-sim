@@ -108,7 +108,7 @@ var HabitatExperiment = function() {
 
     const showInstructions = function() {
       $("#instructions").show();
-      $("#task-instruction").hide();
+      //$("#task-instruction").hide();
       $("#container").hide();
       $("#text-assistance-1").hide();
       $('#actions-nav').show();
@@ -151,6 +151,7 @@ var HabitatExperiment = function() {
     } else {
       $("#instructions").html(psiTurk.getPage(step))
       $("#actions-nav").html(psiTurk.getPage(stepActionMap[step]))
+      $("#task-instruction").html("");
       showInstructions();
       const waitForStartEnable = function() {
         if(SimInitialized()) {
