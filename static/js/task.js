@@ -87,9 +87,48 @@ var HabitatExperiment = function() {
               window.demo.task.initialized);
   };
 
+
+  const getParameterByName = function(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  };
+
+  const getSkipFlythroughTrainingFlag = function() {
+    var url = window.location.href;
+    var splitteUrl = url.split("/");
+    var hostUrl = splitteUrl[0] + "//" + splitteUrl[2];
+
+    // Build request
+    var requestUrl = hostUrl + "/api/v0/worker_flythrough_training_skip";
+    console.log(requestUrl);
+    let request = new XMLHttpRequest();
+    request.open("POST", requestUrl)
+    request.send(JSON.stringify({
+        "workerId": getParameterByName("workerId")
+    }));
+    request.onload = () => {
+        if (request.status == 200) {
+            console.log(request.response);
+            _self.skipTrainingResponse = JSON.parse(request.response);
+            return request.response;
+        } else {
+          return {};
+        }
+    }
+  };
+
+  getSkipFlythroughTrainingFlag();
+
   // Start the test
   _self = this;
   _self.iStep = 0;
+  _self.flythroughComplete = false;
+  _self.trainingComplete = false;
+
   const runStep = function() {
     const showViewer = function(isFlythrough) {
       $("#instructions").hide();
@@ -129,6 +168,7 @@ var HabitatExperiment = function() {
 
     setTaskTitle(step);
     if(step === "flythrough") {
+      _self.flythroughComplete = true;
       showViewer(true);
       const waitForFlythrough = function() {
         if(SimInitialized()) {
@@ -140,6 +180,7 @@ var HabitatExperiment = function() {
       };
       waitForFlythrough();
     } else if (step === "training") {
+      _self.trainingComplete = true;
       showViewer(false);
       $("#actions-nav").html(psiTurk.getPage(stepActionMap[step]))
       window.demo.runTrainingTask();
@@ -189,6 +230,29 @@ var HabitatExperiment = function() {
       psiTurk.recordTrialData({'type':"finishStep", 'phase':'TEST'});
       ++_self.iStep;
 
+      console.log(_self);
+
+      console.log(_self.skipTrainingResponse["flythrough_complete"]);
+      console.log(_self.skipTrainingResponse["flythrough_complete"] == true);
+
+      if (_self.skipTrainingResponse["flythrough_complete"] == true) {
+        if (steps[_self.iStep] == "instructions/instruct-flythrough.html") {
+          window.finishTrial();
+        }
+        if (steps[_self.iStep] == "flythrough") {
+          window.finishTrial();
+        }
+      }
+
+      if (_self.skipTrainingResponse["training_task_complete"] == true) {
+        if (steps[_self.iStep] == "instructions/instruct-training.html") {
+          window.finishTrial();
+        }
+        if (steps[_self.iStep] == "training") {
+          window.finishTrial();
+        }
+      }
+
       if(_self.iStep < steps.length) {
         if(doReset && SimInitialized()) {
           window.demo.task.reset();
@@ -199,7 +263,7 @@ var HabitatExperiment = function() {
         if(SimInitialized())
           window.demo.task.unbindKeys();
 
-        window.currentview = new Questionnaire();
+        window.currentview = new Questionnaire(_self.flythroughComplete, _self.trainingComplete);
       }
   };
   runStep();
@@ -210,7 +274,7 @@ var HabitatExperiment = function() {
 * Questionnaire *
 ****************/
 
-var Questionnaire = function() {
+var Questionnaire = function(flythroughComplete, trainingComplete) {
 
   var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
 
@@ -242,7 +306,7 @@ var Questionnaire = function() {
 
       psiTurk.recordUnstructuredData(name, this.value);
     });
-    return responsesFilled && checkedRadioNames.size === radioNames.size;
+    return responsesFilled;
 
   };
   const record_responses = function() {
@@ -251,18 +315,6 @@ var Questionnaire = function() {
 
     $('textarea').each( function(i, val) {
       psiTurk.recordUnstructuredData(this.id, this.value);
-    });
-    $('select').each( function(i, val) {
-      psiTurk.recordUnstructuredData(this.id, this.value);
-    });
-    $('input').each( function(i, val) {
-      // Only record checked radio buttons
-      if(val.type === "radio" && !val.checked)
-        return;
-      if(this.id && this.id !== "")
-        psiTurk.recordUnstructuredData(this.id, this.value);
-      else
-        psiTurk.recordUnstructuredData(this.name, this.value);
     });
   };
 
@@ -275,6 +327,7 @@ var Questionnaire = function() {
     document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
     reprompt = setTimeout(prompt_resubmit, 10000);
 
+    record_hit_data();
     psiTurk.saveData({
       success: function() {
           clearInterval(reprompt);
@@ -284,32 +337,52 @@ var Questionnaire = function() {
     });
   };
 
+  getParameterByName = function(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  };
+
+  record_hit_data = function() {
+    var url = window.location.href;
+    var splitteUrl = url.split("/");
+    var hostUrl = splitteUrl[0] + "//" + splitteUrl[2];
+
+    // Build request
+    var requestUrl = hostUrl + "/api/v0/worker_hit_complete";
+    let request = new XMLHttpRequest();
+    request.open("POST", requestUrl)
+    request.send(JSON.stringify({
+        "hitId": getParameterByName("hitId"),
+        "assignmentId": getParameterByName("assignmentId"),
+        "workerId": getParameterByName("workerId"),
+        "flythroughComplete": flythroughComplete,
+        "trainingTaskComplete": trainingComplete,
+        "taskComplete": true
+    }));
+    request.onload = () => {
+        if (request.status == 200) {
+            console.log("success!");
+        }
+    }
+  };
+
   // Load the questionnaire snippet
   psiTurk.showPage('postquestionnaire.html');
   psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'begin'});
 
   $("#next").click(function () {
-    if(check_responses()) {
-      record_responses();
-      psiTurk.saveData({
-            success: function(){
-                psiTurk.completeHIT(); // when finished saving compute bonus, the quit
-            },
-            error: prompt_resubmit});
-    }
-    else {
-      const msg = "Please answer all the questions!";
-      const status = document.getElementById("questionnairestatus");
-      if(status) {
-        status.style = "color:red";
-        status.innerHTML = msg;
-      }
-      else
-        console.warn(msg);
-    }
-  });
-
-
+    record_responses();
+    record_hit_data();
+    psiTurk.saveData({
+          success: function(){
+              psiTurk.completeHIT(); // when finished saving compute bonus, the quit
+          },
+          error: prompt_resubmit});
+    });
 };
 
 // Task object to keep track of the current phase

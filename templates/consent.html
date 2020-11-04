@@ -17,6 +17,60 @@
             function onexit() {
               self.close(); // no harm, no foul here
             }
+
+            function getParameterByName(name, url = window.location.href) {
+                name = name.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+
+            function redirect() {
+                var url = window.location.href;
+                var splitteUrl = url.split("/");
+                var hostUrl = splitteUrl[0] + "//" + splitteUrl[2];
+
+                // Build request
+                var requestUrl = hostUrl + "/api/v0/completed_episodes";
+                let request = new XMLHttpRequest();
+                request.open("POST", requestUrl)
+                request.send(JSON.stringify({
+                    "hitId": getParameterByName("hitId"),
+                    "assignmentId": getParameterByName("assignmentId"),
+                    "workerId": getParameterByName("workerId"),
+                    "taskIds": [1],
+                    "episodeIds": [0, 1, 2],
+                    "perEpisodeLimit": 2
+                }));
+                request.onload = () => {
+                    if (request.status == 200) {
+                        console.log(request.response);
+                        var response = JSON.parse(request.response);
+                        console.log(response);
+                        var taskId = response["taskId"];
+                        var episodeId = response["episodeId"];
+
+                        var mode = getParameterByName("mode");
+
+                        if (response["all_episodes_completed"] == true) {
+                            window.location = "/allcomplete.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
+                        } else if (response["no_episodes_available"] == true) {
+                            window.location = "/noepisodeavailable.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
+                        } else if (response["already_complete"] == true) {
+                            window.location = "/allcomplete.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
+                        } else if (response["retry"] == true) {
+                            window.location = "/retrytask.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
+                        } else {
+                            var hitUrl = "/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode + "&enablePhysics=true&defaultPhysConfig=default.phys_scene_config.json&task=" + taskId + "&episodeId=" + episodeId;
+                            window.location = hitUrl;
+                        }
+                    } else {
+                        console.log("Oops!");
+                    }
+                }
+            }
         </script>
 		<style>
 			@media print {
@@ -47,7 +101,8 @@
                 </div>
 
                 <center>
-                    <button type="button" class="btn btn-primary btn-lg" onClick="window.location='/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&enablePhysics=true&defaultPhysConfig=default.phys_scene_config.json&task=1&episodeId='+ Math.floor(Math.random() * 25) +''">
+                    <button type="button" class="btn btn-primary btn-lg" id="hit-start-button" onClick="redirect()">
+                         <!-- onClick="window.location='/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&enablePhysics=true&defaultPhysConfig=default.phys_scene_config.json&task=1&episodeId='+ Math.floor(Math.random() * 25) +''"> -->
                     <span class="glyphicon glyphicon-ok"></span> I agree 
                     </button>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
