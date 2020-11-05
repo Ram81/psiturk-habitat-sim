@@ -17,7 +17,7 @@ from psiturk.db import db_session, init_db
 from psiturk.models import Participant
 from json import dumps, loads
 
-from python.models import WorkerHitData
+from db_scripts.models import WorkerHitData
 
 # load the configuration options
 config = PsiturkConfig()
@@ -136,7 +136,7 @@ def get_completed_episodes():
             task_episode_id_hit_count_map[unique_task_id] += 1
 
         worker_episodes = WorkerHitData.query.\
-            filter(and_(WorkerHitData.hit_id == hit_id, WorkerHitData.worker_id == worker_id))
+            filter(WorkerHitData.worker_id == worker_id)
         
         worker_task_episode_map = {}
         for worker_episode in worker_episodes:

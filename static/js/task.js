@@ -104,7 +104,6 @@ var HabitatExperiment = function() {
 
     // Build request
     var requestUrl = hostUrl + "/api/v0/worker_flythrough_training_skip";
-    console.log(requestUrl);
     let request = new XMLHttpRequest();
     request.open("POST", requestUrl)
     request.send(JSON.stringify({
@@ -112,7 +111,6 @@ var HabitatExperiment = function() {
     }));
     request.onload = () => {
         if (request.status == 200) {
-            console.log(request.response);
             _self.skipTrainingResponse = JSON.parse(request.response);
             return request.response;
         } else {
@@ -208,7 +206,15 @@ var HabitatExperiment = function() {
 
     $("#next").unbind('click').bind('click', function(e) {
       e.preventDefault();
-      window.finishTrial();
+      if (steps[_self.iStep] == "viewer") {
+        if (window.demo.task.validateTask()) {
+          window.finishTrial();
+        } else {
+          document.getElementById("hit-complete-message").innerHTML = "<h4>Please complete the task to submit HIT</h4>";
+        }
+      } else {
+        window.finishTrial();
+      }
     });
 
     $("#skip").unbind('click').bind('click', function(e) {
@@ -229,11 +235,6 @@ var HabitatExperiment = function() {
   window.finishTrial = function(doReset = true) {
       psiTurk.recordTrialData({'type':"finishStep", 'phase':'TEST'});
       ++_self.iStep;
-
-      console.log(_self);
-
-      console.log(_self.skipTrainingResponse["flythrough_complete"]);
-      console.log(_self.skipTrainingResponse["flythrough_complete"] == true);
 
       if (_self.skipTrainingResponse["flythrough_complete"] == true) {
         if (steps[_self.iStep] == "instructions/instruct-flythrough.html") {
