@@ -210,7 +210,7 @@ var HabitatExperiment = function() {
         if (window.demo.task.validateTask()) {
           window.finishTrial();
         } else {
-          document.getElementById("hit-complete-message").innerHTML = "<h4>Please complete the task to submit HIT</h4>";
+          document.getElementById("hit-complete-message").innerHTML = "<h4>Please complete the task to submit</h4>";
         }
       } else {
         window.finishTrial();
