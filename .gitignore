@@ -18,6 +18,10 @@ server.log
 __pycache__/
 
 # Assets
-data/
+data/scenes/
+data/test_assets/
 db/
 experiment_data/
+
+# Temp files
+.DS_Store
