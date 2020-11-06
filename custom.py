@@ -47,7 +47,7 @@ def get_current_time():
     return datetime.datetime.now(datetime.timezone.utc)
 
 
-def is_incomplete_hit_data(worker_hit_data):
+def is_incomplete_hit_data(worker_hit_data, assignment_id=""):
     current_time = get_current_time()
     # Check if HIT was completed
     if worker_hit_data.task_complete:
@@ -56,7 +56,9 @@ def is_incomplete_hit_data(worker_hit_data):
     # Check if HIT was started 30 minutes ago and is still in progress
     task_start_time = worker_hit_data.task_start_time.replace(tzinfo=utc)
     time_diff_in_minutes = (current_time - task_start_time).total_seconds() / 60.0
-    if time_diff_in_minutes > 10 and worker_hit_data.task_in_progress:
+    if time_diff_in_minutes <= 12 and worker_hit_data.task_in_progress and worker_hit_data.assignment_id == assignment_id:
+        return True
+    if time_diff_in_minutes > 12 and worker_hit_data.task_in_progress:
         return True
     return False
 
@@ -119,8 +121,7 @@ def get_completed_episodes():
         episode_ids = request_data["episodeIds"]
         task_episode_limit = request_data["perEpisodeLimit"]
 
-        episodes = WorkerHitData.query.\
-            filter(WorkerHitData.hit_id == hit_id)
+        episodes = WorkerHitData.query.all()
 
         task_episode_id_hit_count_map = {}
         for episode in episodes:
@@ -129,7 +130,7 @@ def get_completed_episodes():
             unique_task_id = get_unique_task_id(task_id, episode_id)
 
             # Ignore incomplete HITs when counting in limit
-            if is_incomplete_hit_data(episode):
+            if is_incomplete_hit_data(episode, assignment_id):
                 continue
             if not task_episode_id_hit_count_map.get(unique_task_id):
                 task_episode_id_hit_count_map[unique_task_id] = 0
@@ -144,7 +145,7 @@ def get_completed_episodes():
             episode_id = worker_episode.episode_id
             unique_task_id = get_unique_task_id(task_id, episode_id)
             # Ignore incomplete HITs when counting in limit
-            if is_incomplete_hit_data(worker_episode):
+            if is_incomplete_hit_data(worker_episode, assignment_id):
                 continue
             if not worker_task_episode_map.get(unique_task_id):
                 worker_task_episode_map[unique_task_id] = 0
