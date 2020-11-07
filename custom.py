@@ -18,6 +18,7 @@ from psiturk.models import Participant
 from json import dumps, loads
 
 from db_scripts.models import WorkerHitData
+from dateutil import parser
 
 # load the configuration options
 config = PsiturkConfig()
@@ -214,6 +215,8 @@ def worker_hit_complete():
         worker_hit_data.flythrough_complete = request_data["flythroughComplete"]
         worker_hit_data.training_task_complete = request_data["trainingTaskComplete"]
         worker_hit_data.task_complete = request_data["taskComplete"]
+        worker_hit_data.flythrough_end_time = parser.parse(request_data["flythroughEndTime"])
+        worker_hit_data.training_end_time = parser.parse(request_data["trainingEndTime"])
         worker_hit_data.task_end_time = datetime.datetime.now(datetime.timezone.utc)
         db_session.commit()
         resp = {"worker_hit_data_added": "success"}

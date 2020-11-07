@@ -126,6 +126,8 @@ var HabitatExperiment = function() {
   _self.iStep = 0;
   _self.flythroughComplete = false;
   _self.trainingComplete = false;
+  _self.flythroughEndTime = null;
+  _self.trainingEndTime = null;
 
   const runStep = function() {
     const showViewer = function(isFlythrough) {
@@ -234,6 +236,13 @@ var HabitatExperiment = function() {
 
   window.finishTrial = function(doReset = true) {
       psiTurk.recordTrialData({'type':"finishStep", 'phase':'TEST'});
+      // Record end time of each step
+      if (steps[_self.iStep] == "flythrough") {
+        _self.flythroughEndTime = new Date().toISOString();
+      } else if (steps[_self.iStep] == "training") {
+        _self.trainingEndTime = new Date().toISOString();
+      }
+
       ++_self.iStep;
 
       if (_self.skipTrainingResponse["flythrough_complete"] == true) {
@@ -264,7 +273,8 @@ var HabitatExperiment = function() {
         if(SimInitialized())
           window.demo.task.unbindKeys();
 
-        window.currentview = new Questionnaire(_self.flythroughComplete, _self.trainingComplete);
+        window.currentview = new Questionnaire(_self.flythroughComplete, _self.trainingComplete,
+           _self.flythroughEndTime, _self.trainingEndTime);
       }
   };
   runStep();
@@ -275,7 +285,7 @@ var HabitatExperiment = function() {
 * Questionnaire *
 ****************/
 
-var Questionnaire = function(flythroughComplete, trainingComplete) {
+var Questionnaire = function(flythroughComplete, trainingComplete, flythroughEndTime, trainingEndTime) {
 
   var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
 
@@ -362,7 +372,9 @@ var Questionnaire = function(flythroughComplete, trainingComplete) {
         "workerId": getParameterByName("workerId"),
         "flythroughComplete": flythroughComplete,
         "trainingTaskComplete": trainingComplete,
-        "taskComplete": true
+        "taskComplete": true,
+        "trainingEndTime": trainingEndTime,
+        "flythroughEndTime": flythroughEndTime
     }));
     request.onload = () => {
         if (request.status == 200) {
