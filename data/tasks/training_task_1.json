@@ -27,7 +27,7 @@
             "motionType": "STATIC"
           },
           {
-            "object": "colored_wood_blocks",
+            "object": "colored wood blocks",
             "objectIcon": "/data/test_assets/objects/colored_wood_blocks.png",
             "objectHandle": "/data/objects/colored_wood_blocks.phys_properties.json",
             "position": [1.4270246028900146,-0.16419634222984314,-5.193271636962891],

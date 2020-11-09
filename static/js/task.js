@@ -388,6 +388,7 @@ var Questionnaire = function(flythroughComplete, trainingComplete, flythroughEnd
   psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'begin'});
 
   $("#next").click(function () {
+    document.getElementById("submitting-info").innerHTML = "<div><h5> Please do no close the browser tab</h5> <br/> <h5>Submitting.....</h5></div>"
     record_responses();
     record_hit_data();
     psiTurk.saveData({
