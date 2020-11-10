@@ -18,13 +18,14 @@ var taskTitleMap = {
   "instructions/instruct-general.html": "Object Rearrangement Experiment",
   "instructions/instruct-flythrough.html": "Environment flythrough",
   "instructions/instruct-training.html": "Training task",
-  "instructions/instruct-task.html": "Final task"
+  "instructions/instruct-task.html": "Final task",
+  "instructions/replay.html": "Task demo",
 };
 
 var steps = [
   "instructions/instruct-general.html",
   "instructions/instruct-flythrough.html",
-  "flythrough",
+  "instructions/replay.html",
   "instructions/instruct-training.html",
   "training",
   "instructions/instruct-task.html",
@@ -37,7 +38,8 @@ var stepActionMap = {
   "instructions/instruct-training.html": "navigation/skip.html",
   "instructions/instruct-task.html": "navigation/middle.html",
   "training": "navigation/next.html",
-  "viewer": "navigation/end.html"
+  "viewer": "navigation/end.html",
+  "instructions/replay.html": "navigation/middle.html"
 };
 
 // All pages to be loaded
@@ -46,6 +48,7 @@ var pages = [
   "instructions/instruct-flythrough.html",
   "instructions/instruct-training.html",
   "instructions/instruct-task.html",
+  "instructions/replay.html",
   "navigation/start.html",
   "navigation/end.html",
   "navigation/middle.html",
@@ -107,7 +110,8 @@ var HabitatExperiment = function() {
     let request = new XMLHttpRequest();
     request.open("POST", requestUrl)
     request.send(JSON.stringify({
-        "workerId": getParameterByName("workerId")
+        "workerId": getParameterByName("workerId"),
+        "mode": getParameterByName("mode")
     }));
     request.onload = () => {
         if (request.status == 200) {
@@ -135,6 +139,8 @@ var HabitatExperiment = function() {
       $("#task-instruction").show();
       $("#container").show();
       $("#text-assistance-1").show();
+      $('#actions-nav-instructions').hide();
+      $('#actions-nav-instructions').html("");
       if (isFlythrough) {
         $('#actions-nav').hide();
       } else {
@@ -145,12 +151,25 @@ var HabitatExperiment = function() {
       }
     };
 
-    const showInstructions = function() {
+    const showInstructions = function(isFlythrough) {
       $("#instructions").show();
-      //$("#task-instruction").hide();
       $("#container").hide();
-      $("#text-assistance-1").hide();
-      $('#actions-nav').show();
+      if (isFlythrough) {
+        setFlythroughTaskInstruction();
+        $("#text-assistance-1").show();
+        $("#task-instruction").show();
+        $('#actions-nav-instructions').html("");
+        $('#actions-nav-instructions').hide();
+        $('#actions-nav').html(psiTurk.getPage(stepActionMap[step]));
+        $('#actions-nav').show();
+      } else {
+        $("#task-instruction").html("");
+        $("#text-assistance-1").hide();
+        $('#actions-nav').hide();
+        $('#actions-nav').html("");
+        $("#actions-nav-instructions").html(psiTurk.getPage(stepActionMap[step]))
+        $('#actions-nav-instructions').show();
+      }
       if(SimInitialized()) {
         window.demo.task.unbindKeys();
       }
@@ -160,6 +179,20 @@ var HabitatExperiment = function() {
       $("#task-title").html("<h1>" + taskTitleMap[task] + "</h1>");
     }
 
+    const setFlythroughTaskInstruction = function() {
+      $("#task-instruction").html("<hr> <h1>Task: Place the cheezit box on the red plate</h1> <hr>");
+      let objectIconTags = {};
+      objectIconTags["objects"] = ["<div><img src='/data/test_assets/objects/cracker_box.png' style='border: 3px solid grey'/><div class='img-caption'>Cheezit box</div></div>"];
+      objectIconTags["receptacles"] = ["<div><img src='/data/test_assets/objects/plate.png' style='border: 3px solid grey'/><div class='img-caption'>Red plate</div></div>"];
+      $("#text-assistance-1").html(
+          "<div class='object-type'> Object: </div> <ul>" +
+          objectIconTags["objects"].join("\n") +
+          "</ul>" +
+          "<br/><div class='object-type'> Receptacle: </div> <ul>" +
+          objectIconTags["receptacles"].join("\n") +
+          "</ul>"
+      );
+    }
 
     let step = steps[_self.iStep];
     console.log("iStep:", _self.iStep, "step:", step);
@@ -191,9 +224,8 @@ var HabitatExperiment = function() {
       window.demo.runInit();
     } else {
       $("#instructions").html(psiTurk.getPage(step))
-      $("#actions-nav").html(psiTurk.getPage(stepActionMap[step]))
-      $("#task-instruction").html("");
-      showInstructions();
+      let isFlythrough = step.includes("replay");
+      showInstructions(isFlythrough);
       const waitForStartEnable = function() {
         if(SimInitialized()) {
           document.getElementById("next").disabled = false;
@@ -212,7 +244,7 @@ var HabitatExperiment = function() {
         if (window.demo.task.validateTask()) {
           window.finishTrial();
         } else {
-          document.getElementById("hit-complete-message").innerHTML = "<h4>Please complete the task to submit</h4>";
+          document.getElementById("hit-complete-message").innerHTML = "<h4>The object has not been placed on the receptacle</h4>";
         }
       } else {
         window.finishTrial();

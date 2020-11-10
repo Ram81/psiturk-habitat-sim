@@ -166,3 +166,13 @@ h1 {
 #feedback {
   width: 80%;
 }
+
+/* actions nav */
+#actions-nav {
+  position: absolute;
+  top: 20em;
+  width:calc(45% - 320px);
+  text-align: center;
+  right: 0;
+  margin-left: 1em;
+}

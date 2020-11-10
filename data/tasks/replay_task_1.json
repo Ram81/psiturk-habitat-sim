@@ -1,23 +1,42 @@
 {
-  "episodes": [
-    {
-      "episode_id": "0",
-      "scene_id": "empty_house.glb",
-      "task": {
-        "instruction": "Place the soccer ball on the colored wood blocks",
-        "type": "arrangement",
-        "goals": {
-          "objectToReceptacleMap": {
-            "0": [1],
-            "1": [0]
+    "episodes": [
+      {
+        "episode_id": "0",
+        "scene_id": "empty_house.glb",
+        "task": {
+          "instruction": "Place the soccer ball on the colored wood blocks",
+          "type": "arrangement",
+          "goals": {
+            "objectToReceptacleMap": {
+              "0": [1],
+              "1": [0]
+            }
           }
-        }
-      },
-
-      "start_position": [1.5194286108016968, -0.2089587301015854, -5.94008207321167],
-      "start_rotation": [0, 0.6166006885637774, 0, 0.7872760575952222],
-      "objects": [
-      ]
-    }
-  ]
-}
+        },
+  
+        "start_position": [-4.5867, -0.208959, 1.75358],
+        "start_rotation": [0, -0.0654379, 0, -0.997857],
+        "objects": [
+            {
+              "object": "soccer ball",
+              "objectIcon": "/data/test_assets/objects/mini_soccer_ball.png",
+              "objectHandle": "/data/objects/mini_soccer_ball.phys_properties.json",
+              "position": [-5.783302307128906,0.7680940628051758,-4.312789440155029],
+              "rotation": [0.0, 0.0, 0.0, 1.0],
+              "isReceptacle": false,
+              "motionType": "STATIC"
+            },
+            {
+              "object": "colored wood blocks",
+              "objectIcon": "/data/test_assets/objects/colored_wood_blocks.png",
+              "objectHandle": "/data/objects/colored_wood_blocks.phys_properties.json",
+              "position": [1.4270246028900146,-0.16419634222984314,-5.193271636962891],
+              "rotation": [0.0, 0.0, 0.0, 1.0],
+              "isReceptacle": true,
+              "motionType": "STATIC"
+            }
+        ]
+      }
+    ]
+  }
+  

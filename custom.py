@@ -71,7 +71,7 @@ def get_worker_hit_data(unique_id):
         return None
 
 
-def create_worker_hit_data(unique_id, task_id, worker_id, assignment_id, hit_id, episode_id):
+def create_worker_hit_data(unique_id, task_id, worker_id, assignment_id, hit_id, episode_id, mode):
     try:
         worker_hit_data = get_worker_hit_data(unique_id)
         if worker_hit_data is None:
@@ -83,7 +83,8 @@ def create_worker_hit_data(unique_id, task_id, worker_id, assignment_id, hit_id,
                 hit_id=hit_id,
                 episode_id=episode_id,
                 task_in_progress=True,
-                task_start_time=get_current_time()
+                task_start_time=get_current_time(),
+                mode=mode
             )
             db_session.add(worker_hit_data)
         else:
@@ -96,6 +97,7 @@ def create_worker_hit_data(unique_id, task_id, worker_id, assignment_id, hit_id,
             worker_hit_data.episode_id = episode_id
             worker_hit_data.task_in_progress = True
             worker_hit_data.task_start_time = get_current_time()
+            worker_hit_data.mode = mode
         db_session.commit()
 
         return worker_hit_data, None
@@ -121,8 +123,9 @@ def get_completed_episodes():
         task_ids = request_data["taskIds"]
         episode_ids = request_data["episodeIds"]
         task_episode_limit = request_data["perEpisodeLimit"]
+        mode = request_data["mode"]
 
-        episodes = WorkerHitData.query.all()
+        episodes = WorkerHitData.query.filter(WorkerHitData.mode == mode)
 
         task_episode_id_hit_count_map = {}
         for episode in episodes:
@@ -138,7 +141,7 @@ def get_completed_episodes():
             task_episode_id_hit_count_map[unique_task_id] += 1
 
         worker_episodes = WorkerHitData.query.\
-            filter(WorkerHitData.worker_id == worker_id)
+            filter(and_(WorkerHitData.worker_id == worker_id, WorkerHitData.mode == mode))
         
         worker_task_episode_map = {}
         for worker_episode in worker_episodes:
@@ -181,7 +184,7 @@ def get_completed_episodes():
         unique_id = "{}:{}".format(worker_id, assignment_id)
         worker_hit_data, result = create_worker_hit_data(
             unique_id, task_id, worker_id,
-            assignment_id, hit_id, episode_id
+            assignment_id, hit_id, episode_id, mode
         )
 
         if worker_hit_data is None or result == "error":
@@ -235,13 +238,15 @@ def worker_flythrough_training_skip():
 
     try:
         worker_id = request_data["workerId"]
+        mode = request_data["mode"]
+
         flythrough_seen_count = WorkerHitData.query.\
-            filter(and_(WorkerHitData.flythrough_complete == True, WorkerHitData.worker_id == worker_id)).count()
+            filter(and_(WorkerHitData.flythrough_complete == True, WorkerHitData.worker_id == worker_id, WorkerHitData.mode == mode)).count()
 
         flythrough_seen = (flythrough_seen_count > 0)
         
         training_task_seen_count = WorkerHitData.query.\
-            filter(and_(WorkerHitData.training_task_complete == True, WorkerHitData.worker_id == worker_id)).count()
+            filter(and_(WorkerHitData.training_task_complete == True, WorkerHitData.worker_id == worker_id, WorkerHitData.mode == mode)).count()
         
         training_task_seen = (training_task_seen_count > 0)
 

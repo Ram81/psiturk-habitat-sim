@@ -35,6 +35,7 @@ class WorkerHitData(Base):
     task_end_time = Column(DateTime)
     training_end_time = Column(DateTime)
     flythrough_end_time = Column(DateTime)
+    mode = Column(String(128))
 
     def __repr__(self):
         return "<User(uniqueid='%s')>" % (self.uniqueid)
