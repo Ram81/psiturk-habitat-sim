@@ -241,11 +241,14 @@ var HabitatExperiment = function() {
     $("#next").unbind('click').bind('click', function(e) {
       e.preventDefault();
       if (steps[_self.iStep] == "viewer") {
-        if (window.demo.task.validateTask()) {
-          window.finishTrial();
-        } else {
-          document.getElementById("hit-complete-message").innerHTML = "<h4>The object has not been placed on the receptacle</h4>";
-        }
+        document.getElementById("hit-complete-message").innerHTML = "<h4>Validating....</h4>";
+        setTimeout(function() {
+          if (window.demo.task.validateTask()) {
+            window.finishTrial();
+          } else {
+            document.getElementById("hit-complete-message").innerHTML = "<h4>The object has not been placed on the receptacle</h4>";
+          }
+        }, 3000);
       } else {
         window.finishTrial();
       }

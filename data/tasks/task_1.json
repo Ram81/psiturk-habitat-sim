@@ -411,7 +411,7 @@
                 -0.44215599317248905
             ],
             "task": {
-                "instruction": "Place the apple on the red bowl",
+                "instruction": "Place the apple in the red bowl",
                 "type": "arrangement",
                 "goals": {
                     "objectToReceptacleMap": {
@@ -609,7 +609,7 @@
                 0.9997539262190633
             ],
             "task": {
-                "instruction": "Place the orange on the red bowl",
+                "instruction": "Place the orange in the red bowl",
                 "type": "arrangement",
                 "goals": {
                     "objectToReceptacleMap": {
@@ -1269,7 +1269,7 @@
                 0.2526375001279532
             ],
             "task": {
-                "instruction": "Place the apple on the red bowl",
+                "instruction": "Place the apple in the red bowl",
                 "type": "arrangement",
                 "goals": {
                     "objectToReceptacleMap": {
@@ -1467,7 +1467,7 @@
                 0.4075589396057186
             ],
             "task": {
-                "instruction": "Place the orange on the red bowl",
+                "instruction": "Place the orange in the red bowl",
                 "type": "arrangement",
                 "goals": {
                     "objectToReceptacleMap": {
