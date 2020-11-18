@@ -54,6 +54,19 @@ class AuthTokens(Base):
         return "<AuthToken(authtoken='%s')>" % (self.authtoken)
 
 
+class ApprovedHits(Base):
+    """
+    Object representation of approved HITs
+    """
+    __tablename__ = "approved_hits"
+
+    uniqueid = Column(String(128), primary_key=True)
+    assignment_id = Column(String(128), nullable=False)
+    worker_id = Column(String(128), nullable=False)
+    mode = Column(String(128))
+    is_approved = Column(String(128), nullable=True)
+
+
 def create_table():
     Base.metadata.create_all(bind=engine)
 

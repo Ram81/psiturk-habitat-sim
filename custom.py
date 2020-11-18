@@ -11,13 +11,15 @@ from sqlalchemy import or_, and_
 from psiturk.psiturk_config import PsiturkConfig
 from psiturk.experiment_errors import ExperimentError, InvalidUsage
 from psiturk.user_utils import PsiTurkAuthorization, nocache
+from psiturk.amt_services_wrapper import MTurkServicesWrapper
+from psiturk.psiturk_config import PsiturkConfig
 
 # # Database setup
 from psiturk.db import db_session, init_db
 from psiturk.models import Participant
 from json import dumps, loads
 
-from db_scripts.models import WorkerHitData, AuthTokens
+from db_scripts.models import WorkerHitData, AuthTokens, ApprovedHits
 from dateutil import parser
 
 # load the configuration options
@@ -268,25 +270,98 @@ def worker_flythrough_training_skip():
         abort(404)  # again, bad to display HTML, but...
 
 
-@custom_code.route('/api/v0/get_all_unapproved_hits', methods=['POST'])
-def get_completed_hits():
+@custom_code.route('/api/v0/approve_hit', methods=['POST'])
+def approve_hit():
     request_data = loads(request.data)
-    current_app.logger.error("Data /api/v0/get_all_unapproved_hits {}".format(request_data))
-    if not "auth_token" in request_data.keys():
+    current_app.logger.error("Data /api/v0/approve_hit {}".format(request_data))
+    if not "authToken" in request_data.keys() or not "uniqueId" in request_data.keys():
         raise ExperimentError('improper_inputs')
 
     try:
-        auth_token = request_data["auth_token"]
+        auth_token = request_data["authToken"]
+        unique_id = request_data["uniqueId"]
+        mode = request_data["mode"]
+        is_approved = request_data["isApproved"]
+        worker_id = unique_id.split(":")[0]
+        assignment_id=unique_id.split(":")[1]
         user = get_user_auth_token(auth_token)
 
+        is_sandbox = mode in ["debug", "sandbox"]
+
         if user is None:
-            current_app.logger.error("Unauthorized /api/v0/get_all_unapproved_hits {}".format(auth_token))
-            response = {}
-            return jsonify(**response)
+            current_app.logger.error("Unauthorized /api/v0/get_all_unapproved_hits {} -- {}".format(is_sandbox, auth_token))
+            return Response('Invalid auth token!', 401)
         
-        hits = WorkerHitData.query.filter(WorkerHitData.task_complete == True)
+        existing_hit_count = ApprovedHits.query.\
+            filter(and_(ApprovedHits.uniqueid == unique_id, ApprovedHits.mode == mode)).count()
         
+        if existing_hit_count == 1:
+            return Response('Already approved!', 203)
         
+        if existing_hit_count > 1:
+            return Response('Multiple HITs with same assignmentId!', 203)
+        
+        approved_hit = ApprovedHits(
+            uniqueid=unique_id,
+            worker_id=worker_id,
+            assignment_id=assignment_id,
+            mode=mode,
+            is_approved=str(is_approved)
+        )
+
+        db_session.add(approved_hit)
+        db_session.commit()
+
+        try:
+            amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
+            current_app.logger.error("In HIT approve/reject using api: {}".format(is_approved))
+            if is_approved == True:
+                amt_services_wrapper.approve_assignment_by_assignment_id(assignment_id, all_studies=False)
+            else:
+                current_app.logger.error("In HIT rejection using api: {}".format(is_approved))
+                response = amt_services_wrapper.reject_assignment(assignment_id, all_studies=False)
+                current_app.logger.error("Done HIT rejection using api: {}".format(response))
+        except Exception as e:
+            current_app.logger.error("Error get amt_services_wrapper {}".format(e))
+
+        return Response('Approved!', 200)
     except Exception as e:
-        current_app.logger.error("Error /api/v0/get_all_unapproved_hits {}".format(e))
+        current_app.logger.error("Error /api/v0/approve_hit {}".format(e))
+        abort(404)  # again, bad to display HTML, but...
+
+
+@custom_code.route('/api/v0/is_approved', methods=['POST'])
+def is_hit_already_approved():
+    request_data = loads(request.data)
+    current_app.logger.error("Data /api/v0/is_approved {}".format(request_data))
+    if not "authToken" in request_data.keys() or not "uniqueId" in request_data.keys():
+        raise ExperimentError('improper_inputs')
+
+    try:
+        auth_token = request_data["authToken"]
+        unique_id = request_data["uniqueId"]
+        mode = request_data["mode"]
+        user = get_user_auth_token(auth_token)
+
+        is_sandbox = mode in ["debug", "sandbox"]
+
+        if user is None:
+            current_app.logger.error("Unauthorized /api/v0/is_approved {} -- {}".format(is_sandbox, auth_token))
+            return Response('Invalid auth token!', 401)
+        
+        existing_hit = ApprovedHits.query.\
+            filter(and_(ApprovedHits.uniqueid == unique_id, ApprovedHits.mode == mode))
+
+        if existing_hit.count() == 1 and existing_hit[0].is_approved == "True":
+            return Response('HIT already approved!', 200)
+        
+        if existing_hit.count() == 1 and existing_hit[0].is_approved == "False":
+            return Response('HIT rejected!', 208)
+        
+        if existing_hit.count() > 1:
+            return Response('Multiple HITs with same assignmentId!', 205)
+        
+        return Response("Not already approved", 203)
+    except Exception as e:
+        current_app.logger.error("Error /api/v0/approve_hit {}".format(e))
         abort(404)  # again, bad to display HTML, but...

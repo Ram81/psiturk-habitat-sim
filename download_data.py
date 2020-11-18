@@ -6,7 +6,7 @@ import pandas as pd
 from sqlalchemy import create_engine, MetaData, Table
 
 
-def dump_hit_data(db_path, dump_path):
+def dump_hit_data(db_path, dump_path, dump_prefix):
     db_url = "sqlite:///" + db_path
     table_name = "turkdemo"
     data_column_name = "datastring"
@@ -49,10 +49,10 @@ def dump_hit_data(db_path, dump_path):
     print(df.columns.values)
     print(len(df.uniqueid.unique()))
 
-    split_hit_data_as_csv(df, dump_path)
+    split_hit_data_as_csv(df, dump_path, dump_prefix)
 
 
-def split_hit_data_as_csv(df, dump_path):
+def split_hit_data_as_csv(df, dump_path, dump_prefix):
     gdf = df.groupby("uniqueid")
     group_indices = [gdf.get_group(key) for key in gdf.groups]
 
@@ -62,18 +62,21 @@ def split_hit_data_as_csv(df, dump_path):
         group_df = group_df.reset_index(drop=True)
         
         print("HIT: {}, Length: {}".format(i, len(group_df)))
-        group_df.to_csv("{}/data_{}.csv".format(dump_path, i), index=False, header=False)
+        group_df.to_csv("{}/{}_{}.csv".format(dump_path, dump_prefix, i), index=False, header=False)
         i += 1
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--db_path", type=str, default="db/participants.db"
+        "--db_path", type=str, default="participants.db"
     )
     parser.add_argument(
         "--dump_path", type=str, default="../habitat-lab/data/hit_data"
     )
+    parser.add_argument(
+        "--prefix", type=str, default="hit_data"
+    )
     args = parser.parse_args()
 
-    dump_hit_data(args.db_path, args.dump_path)
+    dump_hit_data(args.db_path, args.dump_path, args.prefix)
