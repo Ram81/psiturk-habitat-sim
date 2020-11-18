@@ -225,6 +225,9 @@ var HabitatExperiment = function() {
     } else {
       $("#instructions").html(psiTurk.getPage(step))
       let isFlythrough = step.includes("replay");
+      if (isFlythrough) {
+        _self.flythroughComplete = true;
+      }
       showInstructions(isFlythrough);
       const waitForStartEnable = function() {
         if(SimInitialized()) {
@@ -272,7 +275,7 @@ var HabitatExperiment = function() {
   window.finishTrial = function(doReset = true) {
       psiTurk.recordTrialData({'type':"finishStep", 'phase':'TEST'});
       // Record end time of each step
-      if (steps[_self.iStep] == "flythrough") {
+      if (steps[_self.iStep] == "instructions/replay.html") {
         _self.flythroughEndTime = new Date().toISOString();
       } else if (steps[_self.iStep] == "training") {
         _self.trainingEndTime = new Date().toISOString();
@@ -284,7 +287,7 @@ var HabitatExperiment = function() {
         if (steps[_self.iStep] == "instructions/instruct-flythrough.html") {
           window.finishTrial();
         }
-        if (steps[_self.iStep] == "flythrough") {
+        if (steps[_self.iStep] == "instructions/replay.html") {
           window.finishTrial();
         }
       }
@@ -423,7 +426,7 @@ var Questionnaire = function(flythroughComplete, trainingComplete, flythroughEnd
   psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'begin'});
 
   $("#next").click(function () {
-    document.getElementById("submitting-info").innerHTML = "<div><h5> Please do no close the browser tab</h5> <br/> <h5>Submitting.....</h5></div>"
+    document.getElementById("submitting-info").innerHTML = "<div><h5> Please do not close the browser tab</h5> <br/> <h5>Submitting.....</h5></div>"
     record_responses();
     record_hit_data();
     psiTurk.saveData({

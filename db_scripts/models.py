@@ -41,6 +41,19 @@ class WorkerHitData(Base):
         return "<User(uniqueid='%s')>" % (self.uniqueid)
 
 
+class AuthTokens(Base):
+    """
+    Object representation of admin auth tokens
+    """
+    __tablename__ = "auth_tokens"
+
+    authtoken = Column(String(128), primary_key=True)
+    user_name = Column(String(128), nullable=False)
+
+    def __repr__(self):
+        return "<AuthToken(authtoken='%s')>" % (self.authtoken)
+
+
 def create_table():
     Base.metadata.create_all(bind=engine)
 

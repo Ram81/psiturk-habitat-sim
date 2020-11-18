@@ -17,7 +17,7 @@ from psiturk.db import db_session, init_db
 from psiturk.models import Participant
 from json import dumps, loads
 
-from db_scripts.models import WorkerHitData
+from db_scripts.models import WorkerHitData, AuthTokens
 from dateutil import parser
 
 # load the configuration options
@@ -57,9 +57,9 @@ def is_incomplete_hit_data(worker_hit_data, assignment_id=""):
     # Check if HIT was started 30 minutes ago and is still in progress
     task_start_time = worker_hit_data.task_start_time.replace(tzinfo=utc)
     time_diff_in_minutes = (current_time - task_start_time).total_seconds() / 60.0
-    if time_diff_in_minutes <= 12 and worker_hit_data.task_in_progress and worker_hit_data.assignment_id == assignment_id:
+    if time_diff_in_minutes <= 60 and worker_hit_data.task_in_progress and worker_hit_data.assignment_id == assignment_id:
         return True
-    if time_diff_in_minutes > 12 and worker_hit_data.task_in_progress:
+    if time_diff_in_minutes > 60 and worker_hit_data.task_in_progress:
         return True
     return False
 
@@ -67,6 +67,13 @@ def is_incomplete_hit_data(worker_hit_data, assignment_id=""):
 def get_worker_hit_data(unique_id):
     try:
         return WorkerHitData.query.get(unique_id)
+    except Exception:
+        return None
+
+
+def get_user_auth_token(auth_token):
+    try:
+        return AuthTokens.query.get(auth_token)
     except Exception:
         return None
 
@@ -258,4 +265,28 @@ def worker_flythrough_training_skip():
         return jsonify(**resp)
     except Exception as e:
         current_app.logger.error("Error /api/v0/worker_hit_complete {}".format(e))
+        abort(404)  # again, bad to display HTML, but...
+
+
+@custom_code.route('/api/v0/get_all_unapproved_hits', methods=['POST'])
+def get_completed_hits():
+    request_data = loads(request.data)
+    current_app.logger.error("Data /api/v0/get_all_unapproved_hits {}".format(request_data))
+    if not "auth_token" in request_data.keys():
+        raise ExperimentError('improper_inputs')
+
+    try:
+        auth_token = request_data["auth_token"]
+        user = get_user_auth_token(auth_token)
+
+        if user is None:
+            current_app.logger.error("Unauthorized /api/v0/get_all_unapproved_hits {}".format(auth_token))
+            response = {}
+            return jsonify(**response)
+        
+        hits = WorkerHitData.query.filter(WorkerHitData.task_complete == True)
+        
+        
+    except Exception as e:
+        current_app.logger.error("Error /api/v0/get_all_unapproved_hits {}".format(e))
         abort(404)  # again, bad to display HTML, but...
