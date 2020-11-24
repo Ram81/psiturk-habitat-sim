@@ -62,7 +62,7 @@
                         } else if (response["retry"] == true) {
                             window.location = "/retrytask.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
                         } else {
-                            var hitUrl = "/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode + "&enablePhysics=true&defaultPhysConfig=default.phys_scene_config.json&task=" + taskId + "&episodeId=" + episodeId;
+                            var hitUrl = "/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode + "&enablePhysics=true&defaultPhysConfig=default.physics_config.json&task=" + taskId + "&episodeId=" + episodeId;
                             window.location = hitUrl;
                         }
                     } else {

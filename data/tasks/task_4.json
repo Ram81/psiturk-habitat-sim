@@ -20,7 +20,7 @@
             "objects": [
                 {
                     "object": "soccer ball",
-                    "objectHandle": "/data/objects/mini_soccer_ball.phys_properties.json",
+                    "objectHandle": "/data/objects/mini_soccer_ball.object_config.json",
                     "objectIcon": "/data/test_assets/objects/mini_soccer_ball.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -39,7 +39,7 @@
                 },
                 {
                     "object": "colored wood block",
-                    "objectHandle": "/data/objects/colored_wood_blocks.phys_properties.json",
+                    "objectHandle": "/data/objects/colored_wood_blocks.object_config.json",
                     "objectIcon": "/data/test_assets/objects/colored_wood_blocks.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -78,7 +78,7 @@
             "objects": [
                 {
                     "object": "cheezit box",
-                    "objectHandle": "/data/objects/cracker_box.phys_properties.json",
+                    "objectHandle": "/data/objects/cracker_box.object_config.json",
                     "objectIcon": "/data/test_assets/objects/cracker_box.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -97,7 +97,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -136,7 +136,7 @@
             "objects": [
                 {
                     "object": "tomato soup can",
-                    "objectHandle": "/data/objects/tomato_soup_can.phys_properties.json",
+                    "objectHandle": "/data/objects/tomato_soup_can.object_config.json",
                     "objectIcon": "/data/test_assets/objects/tomato_soup_can.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -155,7 +155,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -194,7 +194,7 @@
             "objects": [
                 {
                     "object": "masterchef can",
-                    "objectHandle": "/data/objects/master_chef_can.phys_properties.json",
+                    "objectHandle": "/data/objects/master_chef_can.object_config.json",
                     "objectIcon": "/data/test_assets/objects/master_chef_can.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -213,7 +213,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -252,7 +252,7 @@
             "objects": [
                 {
                     "object": "toy airplane",
-                    "objectHandle": "/data/objects/toy_airplane.phys_properties.json",
+                    "objectHandle": "/data/objects/toy_airplane.object_config.json",
                     "objectIcon": "/data/test_assets/objects/toy_airplane.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -271,7 +271,7 @@
                 },
                 {
                     "object": "colored wood block",
-                    "objectHandle": "/data/objects/colored_wood_blocks.phys_properties.json",
+                    "objectHandle": "/data/objects/colored_wood_blocks.object_config.json",
                     "objectIcon": "/data/test_assets/objects/colored_wood_blocks.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -310,7 +310,7 @@
             "objects": [
                 {
                     "object": "apple",
-                    "objectHandle": "/data/objects/apple.phys_properties.json",
+                    "objectHandle": "/data/objects/apple.object_config.json",
                     "objectIcon": "/data/test_assets/objects/apple.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -329,7 +329,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -368,7 +368,7 @@
             "objects": [
                 {
                     "object": "apple",
-                    "objectHandle": "/data/objects/apple.phys_properties.json",
+                    "objectHandle": "/data/objects/apple.object_config.json",
                     "objectIcon": "/data/test_assets/objects/apple.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -387,7 +387,7 @@
                 },
                 {
                     "object": "red bowl",
-                    "objectHandle": "/data/objects/bowl.phys_properties.json",
+                    "objectHandle": "/data/objects/bowl.object_config.json",
                     "objectIcon": "/data/test_assets/objects/bowl.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -426,7 +426,7 @@
             "objects": [
                 {
                     "object": "banana",
-                    "objectHandle": "/data/objects/banana.phys_properties.json",
+                    "objectHandle": "/data/objects/banana.object_config.json",
                     "objectIcon": "/data/test_assets/objects/banana.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -445,7 +445,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -484,7 +484,7 @@
             "objects": [
                 {
                     "object": "orange",
-                    "objectHandle": "/data/objects/orange.phys_properties.json",
+                    "objectHandle": "/data/objects/orange.object_config.json",
                     "objectIcon": "/data/test_assets/objects/orange.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -503,7 +503,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -542,7 +542,7 @@
             "objects": [
                 {
                     "object": "orange",
-                    "objectHandle": "/data/objects/orange.phys_properties.json",
+                    "objectHandle": "/data/objects/orange.object_config.json",
                     "objectIcon": "/data/test_assets/objects/orange.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -561,7 +561,7 @@
                 },
                 {
                     "object": "red bowl",
-                    "objectHandle": "/data/objects/bowl.phys_properties.json",
+                    "objectHandle": "/data/objects/bowl.object_config.json",
                     "objectIcon": "/data/test_assets/objects/bowl.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -600,7 +600,7 @@
             "objects": [
                 {
                     "object": "red mug",
-                    "objectHandle": "/data/objects/mug.phys_properties.json",
+                    "objectHandle": "/data/objects/mug.object_config.json",
                     "objectIcon": "/data/test_assets/objects/mug.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -619,7 +619,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -658,7 +658,7 @@
             "objects": [
                 {
                     "object": "mustard bottle",
-                    "objectHandle": "/data/objects/mustard_bottle.phys_properties.json",
+                    "objectHandle": "/data/objects/mustard_bottle.object_config.json",
                     "objectIcon": "/data/test_assets/objects/mustard_bottle.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -677,7 +677,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -716,7 +716,7 @@
             "objects": [
                 {
                     "object": "hammer",
-                    "objectHandle": "/data/objects/hammer.phys_properties.json",
+                    "objectHandle": "/data/objects/hammer.object_config.json",
                     "objectIcon": "/data/test_assets/objects/hammer.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -735,7 +735,7 @@
                 },
                 {
                     "object": "wood block",
-                    "objectHandle": "/data/objects/wood_block.phys_properties.json",
+                    "objectHandle": "/data/objects/wood_block.object_config.json",
                     "objectIcon": "/data/test_assets/objects/wood_block.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -774,7 +774,7 @@
             "objects": [
                 {
                     "object": "soccer ball",
-                    "objectHandle": "/data/objects/mini_soccer_ball.phys_properties.json",
+                    "objectHandle": "/data/objects/mini_soccer_ball.object_config.json",
                     "objectIcon": "/data/test_assets/objects/mini_soccer_ball.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -793,7 +793,7 @@
                 },
                 {
                     "object": "colored wood block",
-                    "objectHandle": "/data/objects/colored_wood_blocks.phys_properties.json",
+                    "objectHandle": "/data/objects/colored_wood_blocks.object_config.json",
                     "objectIcon": "/data/test_assets/objects/colored_wood_blocks.png",
                     "objectId": 1,
                     "isReceptacle": true,
@@ -832,7 +832,7 @@
             "objects": [
                 {
                     "object": "cheezit box",
-                    "objectHandle": "/data/objects/cracker_box.phys_properties.json",
+                    "objectHandle": "/data/objects/cracker_box.object_config.json",
                     "objectIcon": "/data/test_assets/objects/cracker_box.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -851,7 +851,7 @@
                 },
                 {
                     "object": "red plate",
-                    "objectHandle": "/data/objects/plate.phys_properties.json",
+                    "objectHandle": "/data/objects/plate.object_config.json",
                     "objectIcon": "/data/test_assets/objects/plate.png",
                     "objectId": 1,
                     "isReceptacle": true,

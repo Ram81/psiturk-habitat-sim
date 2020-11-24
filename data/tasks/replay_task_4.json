@@ -28,7 +28,7 @@
             "objects": [
                 {
                     "object": "soccer ball",
-                    "objectHandle": "/data/objects/mini_soccer_ball.phys_properties.json",
+                    "objectHandle": "/data/objects/mini_soccer_ball.object_config.json",
                     "objectIcon": "/data/test_assets/objects/mini_soccer_ball.png",
                     "objectId": 0,
                     "isReceptacle": false,
@@ -47,7 +47,7 @@
                 },
                 {
                     "object": "colored wood block",
-                    "objectHandle": "/data/objects/colored_wood_blocks.phys_properties.json",
+                    "objectHandle": "/data/objects/colored_wood_blocks.object_config.json",
                     "objectIcon": "/data/test_assets/objects/colored_wood_blocks.png",
                     "objectId": 1,
                     "isReceptacle": true,
