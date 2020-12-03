@@ -217,7 +217,6 @@ def get_completed_episodes():
 @custom_code.route('/api/v0/worker_hit_complete', methods=['POST'])
 def worker_hit_complete():
     request_data = loads(request.data)
-    current_app.logger.error("Data /api/v0/worker_hit_complete {}".format(request_data))
     if not is_valid_request(request_data):
         raise ExperimentError('improper_inputs')
     unique_id = "{}:{}".format(request_data["workerId"], request_data["assignmentId"])
@@ -241,7 +240,6 @@ def worker_hit_complete():
 @custom_code.route('/api/v0/worker_flythrough_training_skip', methods=['POST'])
 def worker_flythrough_training_skip():
     request_data = loads(request.data)
-    current_app.logger.error("Data /api/v0/worker_hit_complete {}".format(request_data))
     if not "workerId" in request_data.keys():
         raise ExperimentError('improper_inputs')
 
@@ -273,7 +271,6 @@ def worker_flythrough_training_skip():
 @custom_code.route('/api/v0/approve_hit', methods=['POST'])
 def approve_hit():
     request_data = loads(request.data)
-    current_app.logger.error("Data /api/v0/approve_hit {}".format(request_data))
     if not "authToken" in request_data.keys() or not "uniqueId" in request_data.keys():
         raise ExperimentError('improper_inputs')
 
@@ -333,7 +330,6 @@ def approve_hit():
 @custom_code.route('/api/v0/is_approved', methods=['POST'])
 def is_hit_already_approved():
     request_data = loads(request.data)
-    current_app.logger.error("Data /api/v0/is_approved {}".format(request_data))
     if not "authToken" in request_data.keys() or not "uniqueId" in request_data.keys():
         raise ExperimentError('improper_inputs')
 
