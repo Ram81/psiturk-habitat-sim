@@ -111,7 +111,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    from_date = datetime.strptime(args.from_date, "%Y-%m-%d")
+    from_date = datetime.strptime(args.from_date, "%Y-%m-%d %H:%M")
     print("from: " + str(from_date))
 
     dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode)

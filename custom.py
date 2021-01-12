@@ -19,7 +19,7 @@ from psiturk.db import db_session, init_db
 from psiturk.models import Participant
 from json import dumps, loads
 
-from db_scripts.models import WorkerHitData, AuthTokens, ApprovedHits
+from db_scripts.models import WorkerHitData, AuthTokens, ApprovedHits, HitEpisodeLimit
 from dateutil import parser
 
 # load the configuration options
@@ -56,7 +56,7 @@ def is_incomplete_hit_data(worker_hit_data, assignment_id=""):
     if worker_hit_data.task_complete:
         return False
 
-    # Check if HIT was started 30 minutes ago and is still in progress
+    # Check if HIT was started 60 minutes ago and is still in progress
     task_start_time = worker_hit_data.task_start_time.replace(tzinfo=utc)
     time_diff_in_minutes = (current_time - task_start_time).total_seconds() / 60.0
     if time_diff_in_minutes <= 60 and worker_hit_data.task_in_progress and worker_hit_data.assignment_id == assignment_id:
@@ -102,8 +102,6 @@ def create_worker_hit_data(unique_id, task_id, worker_id, assignment_id, hit_id,
             worker_hit_data.task_id = task_id
             worker_hit_data.worker_id = worker_id
             worker_hit_data.assignment_id = assignment_id
-            worker_hit_data.hit_id = hit_id
-            worker_hit_data.episode_id = episode_id
             worker_hit_data.task_in_progress = True
             worker_hit_data.task_start_time = get_current_time()
             worker_hit_data.mode = mode
@@ -134,8 +132,16 @@ def get_completed_episodes():
         task_episode_limit = request_data["perEpisodeLimit"]
         mode = request_data["mode"]
 
-        episodes = WorkerHitData.query.filter(WorkerHitData.mode == mode)
+        # Use in cases where num asssignments per HIT is greater than total number of episodes
+        # try:
+        #     hit_episode_limit = HitEpisodeLimit.query.get(hit_id)
+        #     task_episode_limit = hit_episode_limit.num_hit_per_episode
+        #     current_app.logger.error("HIT limit from db for id: {}, limit {}".format(hit_id, task_episode_limit))
+        # except Exception as e:
+        #     current_app.logger.error("Error getting HIT limit from db for id: {}, exception {}".format(hit_id, e))
 
+        # episodes = WorkerHitData.query.filter(and_(WorkerHitData.mode == mode, WorkerHitData.hit_id == hit_id))
+        episodes = WorkerHitData.query.filter(WorkerHitData.mode == mode)
         task_episode_id_hit_count_map = {}
         for episode in episodes:
             task_id = episode.task_id
@@ -195,6 +201,7 @@ def get_completed_episodes():
             unique_id, task_id, worker_id,
             assignment_id, hit_id, episode_id, mode
         )
+        current_app.logger.error(eligible_task_episode)
 
         if worker_hit_data is None or result == "error":
             response = {"retry": True}
@@ -205,8 +212,8 @@ def get_completed_episodes():
             return jsonify(**response)
 
         response = {
-            "taskId": task_id,
-            "episodeId": episode_id
+            "taskId": worker_hit_data.task_id,
+            "episodeId": worker_hit_data.episode_id
         }
         return jsonify(**response)
 
@@ -358,6 +365,66 @@ def is_hit_already_approved():
             return Response('Multiple HITs with same assignmentId!', 205)
         
         return Response("Not already approved", 203)
+    except Exception as e:
+        current_app.logger.error("Error /api/v0/approve_hit {}".format(e))
+        abort(404)  # again, bad to display HTML, but...
+
+
+@custom_code.route('/api/v0/create_hits', methods=['POST'])
+def create_hits():
+    request_data = loads(request.data)
+    if not "authToken" in request_data.keys():
+        raise ExperimentError('improper_inputs')
+
+    try:
+        auth_token = request_data["authToken"]
+        mode = request_data["mode"]
+        num_workers = request_data["numWorkers"]
+        reward = request_data["reward"]
+        duration = request_data["duration"]
+        episode_per_hit = request_data["episode_per_hit"]
+        num_hits = request_data["numHits"]
+        user = get_user_auth_token(auth_token)
+
+        is_sandbox = mode in ["debug", "sandbox"]
+
+        if user is None:
+            current_app.logger.error("Unauthorized /api/v0/get_all_unapproved_hits {} -- {}".format(is_sandbox, auth_token))
+            return Response('Invalid auth token!', 401)
+
+        try:
+            hit_ids = []
+            for i in range(num_hits):
+                amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
+                current_app.logger.error("In HIT create using api")
+                response = amt_services_wrapper.create_hit(num_workers=num_workers, reward=reward, duration=duration)
+                current_app.logger.error("HIT {} created for config".format(response))
+                current_app.logger.error("HIT {} created for config".format(response.data))
+                hit_id = response.data["hit_id"]
+                current_app.logger.error("HIT {} created for config:\n num_workers: {}, reward: {}, duration: {}".format(hit_id, num_workers, reward, duration))
+
+                hit_episode_limit = HitEpisodeLimit(
+                    uniqueid=hit_id,
+                    hit_id=hit_id,
+                    num_hit_per_episode=episode_per_hit,
+                    mode=mode,
+                    created_at=datetime.datetime.now(datetime.timezone.utc)
+                )
+                db_session.add(hit_episode_limit)
+                db_session.commit()
+                
+                hit_ids.append(hit_id)
+
+                current_app.logger.error("HIT episode limit created for HIT id: {}, num_hit_per_episode : {}".format(hit_id, episode_per_hit))
+            response = {
+                "hit_id": hit_ids,
+                "num_hit_per_episode": episode_per_hit
+            }
+            return jsonify(**response)
+        except Exception as e:
+            current_app.logger.error("Error get amt_services_wrapper {}".format(e))
+            return jsonify(**{"error": "Error occurred when creating HIT!"})
+
     except Exception as e:
         current_app.logger.error("Error /api/v0/approve_hit {}".format(e))
         abort(404)  # again, bad to display HTML, but...

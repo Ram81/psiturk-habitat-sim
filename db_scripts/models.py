@@ -67,6 +67,19 @@ class ApprovedHits(Base):
     is_approved = Column(String(128), nullable=True)
 
 
+class HitEpisodeLimit(Base):
+    """
+    Object representation of approved HITs
+    """
+    __tablename__ = "hit_episode_limit"
+
+    uniqueid = Column(String(128), primary_key=True)
+    hit_id = Column(String(128), nullable=False)
+    num_hit_per_episode = Column(Integer)
+    mode = Column(String(128))
+    created_at = Column(DateTime)
+
+
 def create_table():
     Base.metadata.create_all(bind=engine)
 
