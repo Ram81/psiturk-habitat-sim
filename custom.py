@@ -318,6 +318,7 @@ def approve_hit():
 
         try:
             amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
+            amt_services_wrapper.set_sandbox(is_sandbox)
             current_app.logger.error("In HIT approve/reject using api: {}".format(is_approved))
             if is_approved == True:
                 amt_services_wrapper.approve_assignment_by_assignment_id(assignment_id, all_studies=False)
@@ -396,6 +397,7 @@ def create_hits():
             hit_ids = []
             for i in range(num_hits):
                 amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
+                amt_services_wrapper.set_sandbox(is_sandbox)
                 current_app.logger.error("In HIT create using api")
                 response = amt_services_wrapper.create_hit(num_workers=num_workers, reward=reward, duration=duration)
                 current_app.logger.error("HIT {} created for config".format(response))
