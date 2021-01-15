@@ -75,7 +75,9 @@ class HitEpisodeLimit(Base):
 
     uniqueid = Column(String(128), primary_key=True)
     hit_id = Column(String(128), nullable=False)
-    num_hit_per_episode = Column(Integer)
+    task_id = Column(Integer)
+    episode_id = Column(Integer)
+    num_assignments = Column(Integer)
     mode = Column(String(128))
     created_at = Column(DateTime)
 

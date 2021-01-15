@@ -41,7 +41,7 @@
                     "assignmentId": getParameterByName("assignmentId"),
                     "workerId": getParameterByName("workerId"),
                     "taskIds": [0],
-                    "episodeIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    "episodeIds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                     "perEpisodeLimit": 5,
                     "mode": getParameterByName("mode"),
                 }));
@@ -52,6 +52,7 @@
                         var episodeId = response["episodeId"];
 
                         var mode = getParameterByName("mode");
+                        console.log(response);
 
                         if (response["all_episodes_completed"] == true) {
                             window.location = "/allcomplete.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
@@ -61,6 +62,8 @@
                             window.location = "/allcomplete.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
                         } else if (response["retry"] == true) {
                             window.location = "/retrytask.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
+                        } else if (response["hit_limit_get_fail"] == true) {
+                            window.location = "/limitfailure.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
                         } else {
                             var hitUrl = "/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode + "&enablePhysics=true&defaultPhysConfig=default.physics_config.json&task=" + taskId + "&episodeId=" + episodeId;
                             window.location = hitUrl;

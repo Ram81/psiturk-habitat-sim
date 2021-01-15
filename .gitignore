@@ -23,6 +23,7 @@ data/test_assets/
 db/
 experiment_data/
 data/training_results/
+data/hit_data/video/
 
 # Temp files
 .DS_Store

@@ -127,21 +127,30 @@ def get_completed_episodes():
         hit_id = request_data["hitId"]
         worker_id = request_data["workerId"]
         assignment_id = request_data["assignmentId"]
-        task_ids = request_data["taskIds"]
-        episode_ids = request_data["episodeIds"]
         task_episode_limit = request_data["perEpisodeLimit"]
         mode = request_data["mode"]
 
         # Use in cases where num asssignments per HIT is greater than total number of episodes
-        # try:
-        #     hit_episode_limit = HitEpisodeLimit.query.get(hit_id)
-        #     task_episode_limit = hit_episode_limit.num_hit_per_episode
-        #     current_app.logger.error("HIT limit from db for id: {}, limit {}".format(hit_id, task_episode_limit))
-        # except Exception as e:
-        #     current_app.logger.error("Error getting HIT limit from db for id: {}, exception {}".format(hit_id, e))
+        task_ids = []
+        episode_ids = []
+        try:
+            hit_episode_limit = HitEpisodeLimit.query.get(hit_id)
+            task_episode_limit = hit_episode_limit.num_assignments
+            hit_task_id = hit_episode_limit.task_id
+            hit_episode_id = hit_episode_limit.episode_id
+            task_ids = [hit_task_id]
+            episode_ids = [hit_episode_id]
+            current_app.logger.error("HIT limit from db for id: {}, limit {}".format(hit_id, task_episode_limit))
+        except Exception as e:
+            current_app.logger.error("HIT limit from db get failed: {}".format(e))
+            if mode != "debug":
+                response = {"hit_limit_get_fail": True, "error": "Error occured when getting hit limit"}
+                return jsonify(**response)
+            # fallback to default task episode ids
+            task_ids = request_data["taskIds"]
+            episode_ids = request_data["episodeIds"]
 
-        # episodes = WorkerHitData.query.filter(and_(WorkerHitData.mode == mode, WorkerHitData.hit_id == hit_id))
-        episodes = WorkerHitData.query.filter(WorkerHitData.mode == mode)
+        episodes = WorkerHitData.query.filter(and_(WorkerHitData.mode == mode, WorkerHitData.hit_id == hit_id))
         task_episode_id_hit_count_map = {}
         for episode in episodes:
             task_id = episode.task_id
@@ -219,6 +228,10 @@ def get_completed_episodes():
 
     except TemplateNotFound:
         abort(404)
+    except Exception as e:
+        current_app.logger.error("Error occurred get complete episode {}".format(e))
+        response = {"error": "Some error occured while allocating HIT"}
+        return jsonify(**response)
 
 
 @custom_code.route('/api/v0/worker_hit_complete', methods=['POST'])
@@ -383,8 +396,8 @@ def create_hits():
         num_workers = request_data["numWorkers"]
         reward = request_data["reward"]
         duration = request_data["duration"]
-        episode_per_hit = request_data["episode_per_hit"]
-        num_hits = request_data["numHits"]
+        task_episode_id_map = request_data["taskEpsiodeMap"]
+        num_assignments = request_data["numAssignments"]
         user = get_user_auth_token(auth_token)
 
         is_sandbox = mode in ["debug", "sandbox"]
@@ -395,7 +408,7 @@ def create_hits():
 
         try:
             hit_ids = []
-            for i in range(num_hits):
+            for task_id, episode_id in task_episode_id_map.items():
                 amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
                 amt_services_wrapper.set_sandbox(is_sandbox)
                 current_app.logger.error("In HIT create using api")
@@ -408,7 +421,9 @@ def create_hits():
                 hit_episode_limit = HitEpisodeLimit(
                     uniqueid=hit_id,
                     hit_id=hit_id,
-                    num_hit_per_episode=episode_per_hit,
+                    task_id=task_id,
+                    episode_id=episode_id,
+                    num_assignments=num_assignments,
                     mode=mode,
                     created_at=datetime.datetime.now(datetime.timezone.utc)
                 )
@@ -417,10 +432,11 @@ def create_hits():
                 
                 hit_ids.append(hit_id)
 
-                current_app.logger.error("HIT episode limit created for HIT id: {}, num_hit_per_episode : {}".format(hit_id, episode_per_hit))
+                current_app.logger.error("HIT episode limit created for HIT id: {}, num_assignments : {}".format(hit_id, num_assignments))
             response = {
                 "hit_id": hit_ids,
-                "num_hit_per_episode": episode_per_hit
+                "task_episode_id_map": task_episode_id_map,
+                "num_assignments": num_assignments
             }
             return jsonify(**response)
         except Exception as e:

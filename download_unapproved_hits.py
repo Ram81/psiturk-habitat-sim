@@ -44,13 +44,15 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox"):
     already_approved_unique_ids = get_approved_unique_ids()
     exclude.extend(already_approved_unique_ids)
 
-    #print(rows[0].keys())
-
     for row in rows:
         #hit_date = datetime.strptime(row['endhit'], "%Y-%m-%d %H:%M:%S.%f")
         hit_date = row['endhit']
         if row['mode'] != mode:
             continue
+        if hit_date is None:
+            continue
+        if row['uniqueid'] == 'A301F4BXHGHEYJ:3NQL1CS15TBMBU344HVJRB592Y7YV4':
+            print(row['status'])
         # only use subjects who completed experiment and aren't excluded
         if row['status'] in statuses and row['uniqueid'] not in exclude and from_date < hit_date:
             data.append(row[data_column_name])
@@ -61,9 +63,17 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox"):
     # parse each participant's datastring as json object
     # and take the 'data' sub-object
     output_data = []
+    question_data = []
 
     for part in data:
-        output_data.extend(json.loads(part)['data'])
+        if len(json.loads(part)['data']) > 0:
+            output_data.extend(json.loads(part)['data'])
+            if len(json.loads(part)['questiondata']['feedback']) > 0:
+                question_data.append({
+                    "workerId": json.loads(part)["workerId"],
+                    "assignmentId": json.loads(part)["assignmentId"],
+                    "feedback": json.loads(part)['questiondata']['feedback'],
+                })
 
     # insert uniqueid field into trialdata in case it wasn't added
     # in experiment:
@@ -74,6 +84,9 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox"):
     df = pd.DataFrame(output_data)
     print(df.columns.values)
     print(len(df.uniqueid.unique()))
+    print(question_data)
+    feedback_df = pd.DataFrame(question_data)
+    feedback_df.to_csv("feedback_{}.csv".format(from_date.strftime("%Y-%m-%d")), index=False)
 
     split_hit_data_as_csv(df, dump_path, dump_prefix)
 
