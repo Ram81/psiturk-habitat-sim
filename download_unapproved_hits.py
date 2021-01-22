@@ -51,8 +51,6 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox"):
             continue
         if hit_date is None:
             continue
-        if row['uniqueid'] == 'A301F4BXHGHEYJ:3NQL1CS15TBMBU344HVJRB592Y7YV4':
-            print(row['status'])
         # only use subjects who completed experiment and aren't excluded
         if row['status'] in statuses and row['uniqueid'] not in exclude and from_date < hit_date:
             data.append(row[data_column_name])
@@ -84,7 +82,6 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox"):
     df = pd.DataFrame(output_data)
     print(df.columns.values)
     print(len(df.uniqueid.unique()))
-    print(question_data)
     feedback_df = pd.DataFrame(question_data)
     feedback_df.to_csv("feedback_{}.csv".format(from_date.strftime("%Y-%m-%d")), index=False)
 
@@ -120,11 +117,14 @@ if __name__ == "__main__":
         "--mode", type=str, default="sandbox"
     )
     parser.add_argument(
-        "--from-date", type=str, default="2020-11-01"
+        "--from-date", type=str, default="2020-11-01 00:00"
     )
     args = parser.parse_args()
 
     from_date = datetime.strptime(args.from_date, "%Y-%m-%d %H:%M")
+    if args.from_date == "2020-11-01 00:00":
+        from_date = datetime.now()
+        from_date = from_date.replace(hour=0, minute=0, second=0, microsecond=0)
     print("from: " + str(from_date))
 
     dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode)

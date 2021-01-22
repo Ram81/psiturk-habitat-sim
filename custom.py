@@ -35,6 +35,9 @@ custom_code = Blueprint('custom_code', __name__,
 
 utc=pytz.UTC
 
+scenes = ["empty_house.glb", "empty_house.glb", "big_house.glb", "hour.glb", "house_with_empty_room.glb"]
+episode_instructons = ["empty_house.glb", "empty_house.glb", "big_house.glb", "hour.glb", "house_with_empty_room.glb"]
+
 
 def is_valid_request(request_data):
     if not "hitId" in request_data.keys() or not "workerId" in request_data.keys() or not "assignmentId" in request_data.keys():
@@ -403,7 +406,7 @@ def create_hits():
         is_sandbox = mode in ["debug", "sandbox"]
 
         if user is None:
-            current_app.logger.error("Unauthorized /api/v0/get_all_unapproved_hits {} -- {}".format(is_sandbox, auth_token))
+            current_app.logger.error("Unauthorized /api/v0/create_hits {} -- {}".format(is_sandbox, auth_token))
             return Response('Invalid auth token!', 401)
 
         try:
@@ -445,4 +448,141 @@ def create_hits():
 
     except Exception as e:
         current_app.logger.error("Error /api/v0/approve_hit {}".format(e))
+        abort(404)  # again, bad to display HTML, but...
+
+
+@custom_code.route('/api/v0/approve_hit_by_hit_id', methods=['POST'])
+def approve_hit_by_hit_id():
+    request_data = loads(request.data)
+    if not "authToken" in request_data.keys() and not "hitId" in request_data.keys():
+        raise ExperimentError('improper_inputs')
+
+    try:
+        auth_token = request_data["authToken"]
+        mode = request_data["mode"]
+        hit_id = request_data["hitId"]
+        user = get_user_auth_token(auth_token)
+
+        is_sandbox = mode in ["debug", "sandbox"]
+
+        if user is None:
+            current_app.logger.error("Unauthorized /api/v0/approve_hit_by_hit_id {} -- {}".format(is_sandbox, auth_token))
+            return Response('Invalid auth token!', 401)
+
+        try:
+            current_app.logger.error("approve hit by hitid {} -- {}".format(hit_id, mode))
+            amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
+            amt_services_wrapper.set_sandbox(is_sandbox)
+            response = amt_services_wrapper.get_assignments(hit_ids=[hit_id], assignment_status="Submitted")
+            current_app.logger.error("approve hit by hitid {}".format(response.data))
+
+            assignments = response.data["assignments"]
+            assignment_unique_id_map = {}
+            for assignment in assignments:
+                assignment_id = assignment.assignmentid
+                worker_id = assignment.assignmentid
+                unique_id = "{}:{}".format(worker_id, assignment_id)
+                assignment_unique_id_map[assignment_id] = unique_id
+
+            current_app.logger.error("In approve HIT by hit id api. Submitted assignment count: {}".format(len(assignment_unique_id_map.keys())))
+            response = amt_services_wrapper.approve_assignments_for_hit(hit_id=hit_id)
+
+            approved_assignments = response.data["results"]
+            saved_assignments = []
+            for assignment in approved_assignments:
+                unique_id = assignment_unique_id_map.get(assignment_id)
+                worker_id = unique_id.split(":")[0]
+                assignment_id = unique_id.split(":")[1]
+                if unique_id is not None:
+                    approved_hit = ApprovedHits(
+                        uniqueid=unique_id,
+                        worker_id=worker_id,
+                        assignment_id=assignment_id,
+                        mode=mode,
+                        is_approved=str(True)
+                    )
+
+                    db_session.add(approved_hit)
+                saved_assignments.append(assignment["assignment_id"])
+            db_session.commit()
+            current_app.logger.error("Approved assignments for HIT {}, total approved: {}, total saved: {}".format(hit_id, len(approved_assignments), len(saved_assignments)))
+            response = {
+                "hit_id": hit_id,
+                "assignments": list(assignment_unique_id_map.keys())
+            }
+            return jsonify(**response)
+        except Exception as e:
+            current_app.logger.error("Error get amt_services_wrapper {}".format(e))
+            return jsonify(**{"error": "Error occurred when approving assignments for HIT!"})
+
+    except Exception as e:
+        current_app.logger.error("Error /api/v0/approve_hit_by_hit_id {}".format(e))
+        abort(404)  # again, bad to display HTML, but...
+
+
+@custom_code.route('/api/v0/get_hits_assignment_submitted_count', methods=['POST'])
+def get_hits_assignment_submitted_count():
+    request_data = loads(request.data)
+    if not "authToken" in request_data.keys():
+        raise ExperimentError('improper_inputs')
+
+    try:
+        auth_token = request_data["authToken"]
+        mode = request_data["mode"]
+        user = get_user_auth_token(auth_token)
+
+        is_sandbox = mode in ["debug", "sandbox"]
+
+        if user is None:
+            current_app.logger.error("Unauthorized /api/v0/get_hits_assignment_submitted_count {} -- {}".format(is_sandbox, auth_token))
+            return Response('Invalid auth token!', 401)
+
+        try:
+            hit_ids = []
+            all_hit_episode_limt = HitEpisodeLimit.query.all()
+
+            hit_task_map = {}
+            for hit_episode_limit in all_hit_episode_limt:
+                hit_id = hit_episode_limit.hit_id
+                hit_ids.append(hit_id)
+                hit_task_map[hit_id] = {
+                    "hit_id": hit_id,
+                    "task_id": hit_episode_limit.task_id,
+                    "episode_id": hit_episode_limit.episode_id,
+                    "num_assignments": hit_episode_limit.num_assignments,
+                    "submitted_assignments": [],
+                    "approved_assignments": []
+                }
+
+            amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
+            amt_services_wrapper.set_sandbox(is_sandbox)
+            
+            response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Submitted")
+            assignments = response.data["assignments"]
+            for assignment in assignments:
+                hit_id = assignment.hitid
+                assignment_id = assignment.assignmentid
+                hit_task_map[hit_id]["submitted_assignments"].append(assignment_id)
+            
+            response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Approved")
+            assignments = response.data["assignments"]
+            for assignment in assignments:
+                hit_id = assignment.hitid
+                assignment_id = assignment.assignmentid
+                hit_task_map[hit_id]["approved_assignments"].append(assignment_id)
+            
+            current_app.logger.error("Total HITS {}".format(len(hit_task_map.keys())))
+            resp = []
+            for i in range(10):
+                resp.append(list(hit_task_map.values())[0])
+            response = {
+                "hit_meta": resp #list(hit_task_map.values())
+            }
+            return jsonify(**response)
+        except Exception as e:
+            current_app.logger.error("Error get amt_services_wrapper {}".format(e))
+            return jsonify(**{"error": "Error occurred when gettings assignments for HIT!"})
+
+    except Exception as e:
+        current_app.logger.error("Error /api/v0/approve_hit_by_hit_id {}".format(e))
         abort(404)  # again, bad to display HTML, but...

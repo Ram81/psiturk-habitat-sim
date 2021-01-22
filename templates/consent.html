@@ -52,7 +52,6 @@
                         var episodeId = response["episodeId"];
 
                         var mode = getParameterByName("mode");
-                        console.log(response);
 
                         if (response["all_episodes_completed"] == true) {
                             window.location = "/allcomplete.html?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}&mode=" + mode;
