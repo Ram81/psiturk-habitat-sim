@@ -21,7 +21,16 @@ def get_approved_unique_ids():
         return []
 
 
-def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox"):
+def get_scene(data):
+    for row in data[:20]:
+        step = row["trialdata"]
+        if "event" in step.keys():
+            if step["event"] == "setEpisode":
+                return step["data"]["episode"]["sceneID"]
+    return ""
+
+
+def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False):
     db_url = "sqlite:///" + db_path
     table_name = "turkdemo"
     data_column_name = "datastring"
@@ -45,7 +54,6 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox"):
     exclude.extend(already_approved_unique_ids)
 
     for row in rows:
-        #hit_date = datetime.strptime(row['endhit'], "%Y-%m-%d %H:%M:%S.%f")
         hit_date = row['endhit']
         if row['mode'] != mode:
             continue
@@ -63,15 +71,35 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox"):
     output_data = []
     question_data = []
 
-    for part in data:
-        if len(json.loads(part)['data']) > 0:
-            output_data.extend(json.loads(part)['data'])
-            if len(json.loads(part)['questiondata']['feedback']) > 0:
-                question_data.append({
-                    "workerId": json.loads(part)["workerId"],
-                    "assignmentId": json.loads(part)["assignmentId"],
-                    "feedback": json.loads(part)['questiondata']['feedback'],
-                })
+    if sample:
+        scene_ep_map = {}
+        for part in data:
+            part_json = json.loads(part)
+            scene_id = get_scene(part_json['data'])
+
+            if scene_id not in scene_ep_map.keys():
+                scene_ep_map[scene_id] = []
+ 
+            if len(part_json['data']) > 0 and len(scene_ep_map[scene_id]) <= 10:
+                scene_ep_map[scene_id].append(part)
+            
+            if len(scene_ep_map[scene_id]) <= 10:
+                output_data.extend(part_json['data'])
+        print("\nTotal scenes: {}, Sample episode count: {}".format(len(scene_ep_map.keys()), 10))
+    else:
+        for part in data:
+            part_json = json.loads(part)
+            get_scene(part_json['data'])
+
+            loaded_data = part_json['data']
+            if len(loaded_data) > 0:
+                output_data.extend(loaded_data)
+                if len(part_json['questiondata']['feedback']) > 0:
+                    question_data.append({
+                        "workerId": part_json["workerId"],
+                        "assignmentId": part_json["assignmentId"],
+                        "feedback": part_json['questiondata']['feedback'],
+                    })
 
     # insert uniqueid field into trialdata in case it wasn't added
     # in experiment:
@@ -119,6 +147,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--from-date", type=str, default="2020-11-01 00:00"
     )
+    parser.add_argument(
+        "--sample", dest='sample', action='store_true'
+    )
     args = parser.parse_args()
 
     from_date = datetime.strptime(args.from_date, "%Y-%m-%d %H:%M")
@@ -127,4 +158,4 @@ if __name__ == "__main__":
         from_date = from_date.replace(hour=0, minute=0, second=0, microsecond=0)
     print("from: " + str(from_date))
 
-    dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode)
+    dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode, args.sample)
