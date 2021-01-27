@@ -1,0 +1,5 @@
+// Num assignments done per episode
+select task_id, episode_id, count(*), sum(task_complete), sum(training_task_complete) from worker_hit_data where mode='live' and task_id>=1 group by task_id, episode_id;
+
+// Num episodes done per scene
+select task_id, count(*), sum(task_complete), sum(training_task_complete) from worker_hit_data where mode='live' and task_id>=1 group by task_id;

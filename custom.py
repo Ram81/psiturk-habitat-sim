@@ -1,5 +1,6 @@
 # this file imports custom routes into the experiment server
 import datetime
+import json
 import pytz
 import numpy as np
 
@@ -35,8 +36,8 @@ custom_code = Blueprint('custom_code', __name__,
 
 utc=pytz.UTC
 
-scenes = ["empty_house.glb", "empty_house.glb", "big_house.glb", "hour.glb", "house_with_empty_room.glb"]
-episode_instructons = ["empty_house.glb", "empty_house.glb", "big_house.glb", "hour.glb", "house_with_empty_room.glb"]
+task_file = open("task_data.json", "r")
+task_data = json.loads(task_file.read())
 
 
 def is_valid_request(request_data):
@@ -168,8 +169,9 @@ def get_completed_episodes():
             task_episode_id_hit_count_map[unique_task_id] += 1
 
         worker_episodes = WorkerHitData.query.\
-            filter(and_(WorkerHitData.worker_id == worker_id, WorkerHitData.mode == mode))
-        
+            filter(and_(WorkerHitData.worker_id == worker_id, WorkerHitData.mode == mode,
+             WorkerHitData.task_id == task_ids[0], WorkerHitData.episode_id == episode_ids[0]))
+
         worker_task_episode_map = {}
         for worker_episode in worker_episodes:
             task_id = worker_episode.task_id
@@ -399,11 +401,16 @@ def create_hits():
         num_workers = request_data["numWorkers"]
         reward = request_data["reward"]
         duration = request_data["duration"]
-        task_episode_id_map = request_data["taskEpsiodeMap"]
+        task_map = request_data["taskEpsiodeMap"]
         num_assignments = request_data["numAssignments"]
         user = get_user_auth_token(auth_token)
 
         is_sandbox = mode in ["debug", "sandbox"]
+
+        task_episode_id_list = []
+        for task_id, episodes in task_map.items():
+            for episode_id in episodes:
+                task_episode_id_list.append((task_id, episode_id))
 
         if user is None:
             current_app.logger.error("Unauthorized /api/v0/create_hits {} -- {}".format(is_sandbox, auth_token))
@@ -411,7 +418,7 @@ def create_hits():
 
         try:
             hit_ids = []
-            for task_id, episode_id in task_episode_id_map.items():
+            for task_id, episode_id in task_episode_id_list:
                 amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
                 amt_services_wrapper.set_sandbox(is_sandbox)
                 current_app.logger.error("In HIT create using api")
@@ -438,7 +445,7 @@ def create_hits():
                 current_app.logger.error("HIT episode limit created for HIT id: {}, num_assignments : {}".format(hit_id, num_assignments))
             response = {
                 "hit_id": hit_ids,
-                "task_episode_id_map": task_episode_id_map,
+                "task_episode_id_map": task_episode_id_list,
                 "num_assignments": num_assignments
             }
             return jsonify(**response)
@@ -474,13 +481,12 @@ def approve_hit_by_hit_id():
             amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
             amt_services_wrapper.set_sandbox(is_sandbox)
             response = amt_services_wrapper.get_assignments(hit_ids=[hit_id], assignment_status="Submitted")
-            current_app.logger.error("approve hit by hitid {}".format(response.data))
 
             assignments = response.data["assignments"]
             assignment_unique_id_map = {}
             for assignment in assignments:
                 assignment_id = assignment.assignmentid
-                worker_id = assignment.assignmentid
+                worker_id = assignment.workerid
                 unique_id = "{}:{}".format(worker_id, assignment_id)
                 assignment_unique_id_map[assignment_id] = unique_id
 
@@ -490,6 +496,7 @@ def approve_hit_by_hit_id():
             approved_assignments = response.data["results"]
             saved_assignments = []
             for assignment in approved_assignments:
+                assignment_id = assignment.data["assignment_id"]
                 unique_id = assignment_unique_id_map.get(assignment_id)
                 worker_id = unique_id.split(":")[0]
                 assignment_id = unique_id.split(":")[1]
@@ -503,12 +510,12 @@ def approve_hit_by_hit_id():
                     )
 
                     db_session.add(approved_hit)
-                saved_assignments.append(assignment["assignment_id"])
+                saved_assignments.append(assignment_id)
             db_session.commit()
             current_app.logger.error("Approved assignments for HIT {}, total approved: {}, total saved: {}".format(hit_id, len(approved_assignments), len(saved_assignments)))
             response = {
                 "hit_id": hit_id,
-                "assignments": list(assignment_unique_id_map.keys())
+                "assignments": len(list(assignment_unique_id_map.keys()))
             }
             return jsonify(**response)
         except Exception as e:
@@ -539,20 +546,25 @@ def get_hits_assignment_submitted_count():
 
         try:
             hit_ids = []
-            all_hit_episode_limt = HitEpisodeLimit.query.all()
+            all_hit_episode_limt = HitEpisodeLimit.query.filter(HitEpisodeLimit.mode == mode)
 
             hit_task_map = {}
             for hit_episode_limit in all_hit_episode_limt:
                 hit_id = hit_episode_limit.hit_id
                 hit_ids.append(hit_id)
+                # As we have fixed number of object receptacle pair
+                instruction_id = hit_episode_limit.episode_id % len(task_data["instructions"])
                 hit_task_map[hit_id] = {
                     "hit_id": hit_id,
                     "task_id": hit_episode_limit.task_id,
                     "episode_id": hit_episode_limit.episode_id,
+                    "scene_id": task_data["tasks"][hit_episode_limit.task_id],
+                    "instruction": task_data["instructions"][instruction_id],
                     "num_assignments": hit_episode_limit.num_assignments,
-                    "submitted_assignments": [],
-                    "approved_assignments": []
+                    "submitted_assignments": 0,
+                    "approved_assignments": 0
                 }
+            current_app.logger.error("Total HITS {}".format(hit_task_map.keys()))
 
             amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
             amt_services_wrapper.set_sandbox(is_sandbox)
@@ -561,22 +573,26 @@ def get_hits_assignment_submitted_count():
             assignments = response.data["assignments"]
             for assignment in assignments:
                 hit_id = assignment.hitid
-                assignment_id = assignment.assignmentid
-                hit_task_map[hit_id]["submitted_assignments"].append(assignment_id)
+                hit_task_map[hit_id]["submitted_assignments"] += 1
             
             response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Approved")
             assignments = response.data["assignments"]
             for assignment in assignments:
                 hit_id = assignment.hitid
-                assignment_id = assignment.assignmentid
-                hit_task_map[hit_id]["approved_assignments"].append(assignment_id)
+                hit_task_map[hit_id]["approved_assignments"] += 1
             
+            all_hit_meta = {
+                "submitted_assignments": 0,
+                "approved_assignments": 0,
+            }
+            for hit_id, hit_meta in hit_task_map.items():
+                all_hit_meta["submitted_assignments"] += hit_meta["submitted_assignments"]
+                all_hit_meta["approved_assignments"] += hit_meta["approved_assignments"]
+
             current_app.logger.error("Total HITS {}".format(len(hit_task_map.keys())))
-            resp = []
-            for i in range(10):
-                resp.append(list(hit_task_map.values())[0])
             response = {
-                "hit_meta": resp #list(hit_task_map.values())
+                "hit_meta": list(hit_task_map.values()),
+                "all_hit_meta": all_hit_meta
             }
             return jsonify(**response)
         except Exception as e:
@@ -585,4 +601,74 @@ def get_hits_assignment_submitted_count():
 
     except Exception as e:
         current_app.logger.error("Error /api/v0/approve_hit_by_hit_id {}".format(e))
+        abort(404)  # again, bad to display HTML, but...
+
+
+@custom_code.route('/api/v0/approve_all_hits', methods=['POST'])
+def approve_all_hits():
+    request_data = loads(request.data)
+    if not "authToken" in request_data.keys():
+        raise ExperimentError('improper_inputs')
+
+    try:
+        auth_token = request_data["authToken"]
+        mode = request_data["mode"]
+        user = get_user_auth_token(auth_token)
+
+        is_sandbox = mode in ["debug", "sandbox"]
+
+        if user is None:
+            current_app.logger.error("Unauthorized /api/v0/approve_all_hits {} -- {}".format(is_sandbox, auth_token))
+            return Response('Invalid auth token!', 401)
+
+        try:
+            current_app.logger.error("approve hit for all hits")
+            amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
+            amt_services_wrapper.set_sandbox(is_sandbox)
+            response = amt_services_wrapper.get_assignments(assignment_status="Submitted")
+
+            assignments = response.data["assignments"]
+            assignment_unique_id_map = {}
+            for assignment in assignments:
+                assignment_id = assignment.assignmentid
+                worker_id = assignment.workerid
+                unique_id = "{}:{}".format(worker_id, assignment_id)
+                assignment_unique_id_map[assignment_id] = unique_id
+
+            current_app.logger.error("In approve all HITs api. Submitted assignment count: {}".format(len(assignment_unique_id_map.keys())))
+            response = amt_services_wrapper.approve_all_assignments()
+
+            approved_assignments = response.data["results"]
+            current_app.logger.error("Approved all: {} assignments".format(len(approved_assignments)))
+            saved_assignments = []
+            for assignment in approved_assignments:
+                current_app.logger.error("Approving: {}".format(assignment.data))
+                if "assignment_id" in assignment.data.keys():
+                    assignment_id = assignment.data["assignment_id"]
+                    unique_id = assignment_unique_id_map.get(assignment_id)
+                    worker_id = unique_id.split(":")[0]
+                    assignment_id = unique_id.split(":")[1]
+                    if unique_id is not None:
+                        approved_hit = ApprovedHits(
+                            uniqueid=unique_id,
+                            worker_id=worker_id,
+                            assignment_id=assignment_id,
+                            mode=mode,
+                            is_approved=str(True)
+                        )
+
+                        db_session.add(approved_hit)
+                    saved_assignments.append(assignment_id)
+            db_session.commit()
+            current_app.logger.error("Approved assignments for all HITs total approved: {}, total saved: {}".format(len(approved_assignments), len(saved_assignments)))
+            response = {
+                "assignments": len(list(assignment_unique_id_map.keys()))
+            }
+            return jsonify(**response)
+        except Exception as e:
+            current_app.logger.error("Error get amt_services_wrapper {}".format(e))
+            return jsonify(**{"error": "Error occurred when approving assignments for all HITs!"})
+
+    except Exception as e:
+        current_app.logger.error("Error /api/v0/approve_all_hits {}".format(e))
         abort(404)  # again, bad to display HTML, but...

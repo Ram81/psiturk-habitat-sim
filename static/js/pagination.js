@@ -61,7 +61,10 @@ function getHits() {
         if (request.status == 200) {
             var response = JSON.parse(request.response);
             var hitMeta = response["hit_meta"];
+            var allHitMeta = response["all_hit_meta"];
             loadDataset(hitMeta);
+            document.getElementById("totalSubmittedHits1").innerHTML = "<b>Total submitted assignments: </b>" + allHitMeta["submitted_assignments"];
+            document.getElementById("totalApprovedHits1").innerHTML = "<b>Total approved assignments: </b>" + allHitMeta["approved_assignments"];
             console.log("success!");
         } else if (request.status == 203) {
             console.log("HIT Unapproved!");
@@ -104,9 +107,9 @@ function approveHit(id, isApproved) {
     }));
     request.onload = () => {
         if (request.status == 200) {
-            console.log("success!");
+            console.log("success all!");
             var response = JSON.parse(request.response);
-            var numAssignmentsApproved = response["assignments"]
+            var numAssignmentsApproved = response["assignments"];
             if (isApproved) {
                 document.getElementById("message" + (id + 1)).innerHTML = "<b>Status:</b> <span style=\"color:green;font-weight:400;\"> " + numAssignmentsApproved + " assignments approved!</span>";
             } else {
@@ -122,6 +125,55 @@ function approveHit(id, isApproved) {
         }
     }
 }
+
+function approveAllHits(isApproved) {
+    console.log("Approve all submitted HITs! ");
+    var authToken = getParameterByName("authToken");
+    var mode = getParameterByName("mode");
+
+    if (authToken === undefined || authToken === null) {
+        document.getElementById("messageAllHits1").innerHTML = "Invalid auth token!";
+        return;
+    }
+
+    if (mode == null) {
+        mode = "debug";
+    }
+    
+    var url = window.location.href;
+    var splitteUrl = url.split("/");
+    var hostUrl = splitteUrl[0] + "//" + splitteUrl[2];
+
+    // Build request
+    var requestUrl = hostUrl + "/api/v0/approve_all_hits";
+    let request = new XMLHttpRequest();
+    request.open("POST", requestUrl)
+    request.send(JSON.stringify({
+        "authToken": authToken,
+        "mode": mode,
+        "isApproved": isApproved
+    }));
+    request.onload = () => {
+        if (request.status == 200) {
+            console.log("success!");
+            var response = JSON.parse(request.response);
+            var numAssignmentsApproved = response["assignments"];
+            if (isApproved) {
+                document.getElementById("messageAllHits1").innerHTML = "<b>Status:</b> <span style=\"color:green;font-weight:400;\"> " + numAssignmentsApproved + " assignments approved!</span>";
+            } else {
+                document.getElementById("messageAllHits1").innerHTML = "<b>Status:</b> <span style=\"color:red;font-weight:400;\">No update!</span>";
+            }
+        } else if (request.status == 203) {
+            document.getElementById("messageAllHits1").innerHTML = "<b>Status:</b> <span style=\"color:blue;font-weight:400;\">Already approved!</span>";
+        } else if (request.status == 401) {
+            document.getElementById("messageAllHits1").innerHTML = "<b>Status:</b> <span style=\"color:red;font-weight:400;\">Unauthorized approve request!</span>";
+        } else {
+            console.log("approve failed!");
+            document.getElementById("messageAllHits1").innerHTML = "<b>Status:</b> <span style=\"color:red;font-weight:400;\">Approve failed!!</span>";
+        }
+    }
+}
+
 
 
 function getNumberOfPages() {
@@ -148,9 +200,11 @@ function drawList() {
         document.getElementById("hitid"+ (r + 1)).innerHTML =  "<b>HIT id</b>: " + pageList[r]["hit_id"];
         document.getElementById("text"+ (r + 1)).innerHTML =  "<b>Task</b>: " + pageList[r]["task_id"];
         document.getElementById("episode"+ (r + 1)).innerHTML =  "<b>Episode</b>: " + pageList[r]["episode_id"];
-        document.getElementById("approved"+ (r + 1)).innerHTML =  "<b>Approved assignments</b>: " + pageList[r]["approved_assignments"].length;
-        document.getElementById("submitted"+ (r + 1)).innerHTML =  "<b>Submitted assignments</b>: " + pageList[r]["submitted_assignments"].length;
+        document.getElementById("approved"+ (r + 1)).innerHTML =  "<b>Approved assignments</b>: " + pageList[r]["approved_assignments"];
+        document.getElementById("submitted"+ (r + 1)).innerHTML =  "<b>Submitted assignments</b>: " + pageList[r]["submitted_assignments"];
         document.getElementById("total"+ (r + 1)).innerHTML =  "<b>Total assignments</b>: " + pageList[r]["num_assignments"];
+        document.getElementById("scene"+ (r + 1)).innerHTML =  "<b>Scene Id</b>: " + pageList[r]["scene_id"];
+        document.getElementById("instruction"+ (r + 1)).innerHTML =  "<b>Instruction</b>: " + pageList[r]["instruction"];
         document.getElementById("message"+ (r + 1)).innerHTML =  "";
 
         document.getElementById("hitid"+ (r + 1)).style.display = "";
@@ -159,11 +213,11 @@ function drawList() {
         document.getElementById("approved"+ (r + 1)).style.display =  "";
         document.getElementById("submitted"+ (r + 1)).style.display = "";
         document.getElementById("total"+ (r + 1)).style.display =  "";
+        document.getElementById("scene"+ (r + 1)).style.display =  "";
+        document.getElementById("instruction"+ (r + 1)).style.display =  "";
         document.getElementById("message"+ (r + 1)).style.display =  "";
-        console.log("approve" + (r+1));
         document.getElementById("approve"+ (r + 1)).style.display =  "";
         visited += 1;
-        console.log("Task: " + pageList[r]["task"]);
     }
     console.log("done: " + visited + " total: " + numberPerPage);
     if (visited < numberPerPage) {
@@ -177,6 +231,8 @@ function drawList() {
             document.getElementById("total"+ (r + 1)).style.display =  "none";
             document.getElementById("message"+ (r + 1)).style.display =  "none";
             document.getElementById("approve"+ (r + 1)).style.display =  "none";
+            document.getElementById("scene"+ (r + 1)).style.display =  "none";
+            document.getElementById("instruction"+ (r + 1)).style.display =  "none";
         }
     }
 }
