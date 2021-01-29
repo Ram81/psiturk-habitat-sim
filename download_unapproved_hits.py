@@ -1,13 +1,18 @@
 import argparse
 import json
 import numpy as np
+import os
 import pandas as pd
 import sys
+import pymysql
 
 from sqlalchemy import create_engine, MetaData, Table
 from psiturk.db import db_session, engine
 from db_scripts.models import ApprovedHits
 from datetime import datetime, timedelta
+
+
+pymysql.install_as_MySQLdb()
 
 
 def get_approved_unique_ids():
@@ -17,7 +22,6 @@ def get_approved_unique_ids():
         return unique_ids
     except:
         print("Fetch all approved HITs failed!!")
-        #sys.exit(1)
         return []
 
 
@@ -26,12 +30,17 @@ def get_scene(data):
         step = row["trialdata"]
         if "event" in step.keys():
             if step["event"] == "setEpisode":
-                return step["data"]["episode"]["sceneID"]
-    return ""
+                return step["data"]["episode"]["sceneID"], step["data"]["episode"]["episodeID"]
+    return "", ""
 
 
 def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False):
-    db_url = "sqlite:///" + db_path
+    db_user = os.environ.get("DB_USER")
+    db_password = os.environ.get("DB_PASSWORD")
+    db_host = os.environ.get("DB_HOST")
+    db_port = os.environ.get("DB_PORT")
+
+    db_url = "mysql://{}:{}@{}:/{}".format(db_user, db_password, db_host, db_port, db_path)
     table_name = "turkdemo"
     data_column_name = "datastring"
     # boilerplace sqlalchemy setup
@@ -75,7 +84,7 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
         scene_ep_map = {}
         for part in data:
             part_json = json.loads(part)
-            scene_id = get_scene(part_json['data'])
+            scene_id, _ = get_scene(part_json['data'])
 
             if scene_id not in scene_ep_map.keys():
                 scene_ep_map[scene_id] = []
@@ -87,9 +96,14 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
                 output_data.extend(part_json['data'])
         print("\nTotal scenes: {}, Sample episode count: {}".format(len(scene_ep_map.keys()), 10))
     else:
+        ep_hit_map = {}
         for part in data:
             part_json = json.loads(part)
-            get_scene(part_json['data'])
+            scene_id, episode_id = get_scene(part_json['data'])
+
+            if episode_id not in ep_hit_map.keys():
+                ep_hit_map[episode_id] = 0
+            ep_hit_map[episode_id] += 1
 
             loaded_data = part_json['data']
             if len(loaded_data) > 0:

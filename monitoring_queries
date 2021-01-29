@@ -3,3 +3,5 @@ select task_id, episode_id, count(*), sum(task_complete), sum(training_task_comp
 
 // Num episodes done per scene
 select task_id, count(*), sum(task_complete), sum(training_task_complete) from worker_hit_data where mode='live' and task_id>=1 group by task_id;
+
+select worker_id, task_id, episode_id, task_complete from worker_hit_data where uniqueid not in (select uniqueid from approved_hits where mode='live') and mode='live' and task_complete!=1;

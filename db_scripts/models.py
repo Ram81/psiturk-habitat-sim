@@ -21,8 +21,8 @@ class WorkerHitData(Base):
     """
     __tablename__ = "worker_hit_data"
 
-    uniqueid = Column(String(128), primary_key=True)
-    hit_id = Column(String(128), nullable=False)
+    uniqueid = Column(String(128), primary_key=True, index=True)
+    hit_id = Column(String(128), nullable=False, index=True)
     assignment_id = Column(String(128), nullable=False)
     worker_id = Column(String(128), nullable=False)
     task_id = Column(Integer)
@@ -60,7 +60,7 @@ class ApprovedHits(Base):
     """
     __tablename__ = "approved_hits"
 
-    uniqueid = Column(String(128), primary_key=True)
+    uniqueid = Column(String(128), primary_key=True, index=True)
     assignment_id = Column(String(128), nullable=False)
     worker_id = Column(String(128), nullable=False)
     mode = Column(String(128))
@@ -73,7 +73,7 @@ class HitEpisodeLimit(Base):
     """
     __tablename__ = "hit_episode_limit"
 
-    uniqueid = Column(String(128), primary_key=True)
+    uniqueid = Column(String(128), primary_key=True, index=True)
     hit_id = Column(String(128), nullable=False)
     task_id = Column(Integer)
     episode_id = Column(Integer)

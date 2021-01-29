@@ -27,3 +27,6 @@ data/hit_data/video/
 
 # Temp files
 .DS_Store
+
+# Local scripts
+approve_assignments.py
