@@ -34,13 +34,16 @@ def get_scene(data):
     return "", ""
 
 
-def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False):
-    db_user = os.environ.get("DB_USER")
-    db_password = os.environ.get("DB_PASSWORD")
-    db_host = os.environ.get("DB_HOST")
-    db_port = os.environ.get("DB_PORT")
+def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False, is_sqlite=False):
+    db_user = os.environ.get("DB_USER", "psiturk")
+    db_password = os.environ.get("DB_PASSWORD", "password")
+    db_host = os.environ.get("DB_HOST", "127.0.0.1")
+    db_port = os.environ.get("DB_PORT", 3306)
 
-    db_url = "mysql://{}:{}@{}:/{}".format(db_user, db_password, db_host, db_port, db_path)
+    db_url = "mysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_host, db_port, db_path)
+    
+    if is_sqlite:
+        db_url = "sqlite:///{}".format(db_path)
     table_name = "turkdemo"
     data_column_name = "datastring"
     # boilerplace sqlalchemy setup
@@ -164,12 +167,18 @@ if __name__ == "__main__":
     parser.add_argument(
         "--sample", dest='sample', action='store_true'
     )
+    parser.add_argument(
+        "--sqlite", dest='sqlite', action='store_true'
+    )
+    parser.add_argument(
+        "--days", type=int, default=0
+    )
     args = parser.parse_args()
 
     from_date = datetime.strptime(args.from_date, "%Y-%m-%d %H:%M")
     if args.from_date == "2020-11-01 00:00":
-        from_date = datetime.now()
+        from_date = datetime.now() - timedelta(days=args.days)
         from_date = from_date.replace(hour=0, minute=0, second=0, microsecond=0)
     print("from: " + str(from_date))
 
-    dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode, args.sample)
+    dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode, args.sample, args.sqlite)

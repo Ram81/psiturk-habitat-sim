@@ -146,7 +146,7 @@ def get_completed_episodes():
             episode_ids = [hit_episode_id]
             current_app.logger.error("HIT limit from db for id: {}, limit {}".format(hit_id, task_episode_limit))
         except Exception as e:
-            current_app.logger.error("HIT limit from db get failed: {}".format(e))
+            current_app.logger.error("HIT limit from db get failed: {}  -- {}".format(hit_id, e))
             if mode != "debug":
                 response = {"hit_limit_get_fail": True, "error": "Error occured when getting hit limit"}
                 return jsonify(**response)
@@ -584,15 +584,25 @@ def get_hits_assignment_submitted_count():
             all_hit_meta = {
                 "submitted_assignments": 0,
                 "approved_assignments": 0,
+                "scene_map": {}
             }
             for hit_id, hit_meta in hit_task_map.items():
                 all_hit_meta["submitted_assignments"] += hit_meta["submitted_assignments"]
                 all_hit_meta["approved_assignments"] += hit_meta["approved_assignments"]
+                scene_id = hit_meta["scene_id"]
+                if scene_id not in all_hit_meta["scene_map"].keys():
+                    all_hit_meta["scene_map"][scene_id] = {
+                        "submitted_assignments": 0,
+                        "total_assignments": 0,
+                    }
+                all_hit_meta["scene_map"][scene_id]["total_assignments"] += 1
+                all_hit_meta["scene_map"][scene_id]["submitted_assignments"] += hit_meta["submitted_assignments"]
+                
 
             current_app.logger.error("Total HITS {}".format(len(hit_task_map.keys())))
             response = {
                 "hit_meta": list(hit_task_map.values()),
-                "all_hit_meta": all_hit_meta
+                "all_hit_meta": all_hit_meta,
             }
             return jsonify(**response)
         except Exception as e:

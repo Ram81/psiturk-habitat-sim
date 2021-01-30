@@ -20,10 +20,22 @@
             Page: 1/1
         </div>
         <div style="text-align:center;padding-bottom: 10px; padding-top: 10px;">
+            <select name="scenes" id="sceneList" onChange="updateStats()">
+            </select>
             <select name="instructions" id="instructionList" onChange="loadList()">
             </select>
         </div>
         
+        <div class="row">
+            <div class="col-md-6" id="hit_stats">
+                <label id="totalHits" style="font-weight: 300;"></label>
+                <br/>
+                <label id="sceneAssignments" style="font-weight: 300;"></label>
+                <br/>
+                <label id="sceneApprovedAssignments" style="font-weight: 300;"></label>
+                <br/>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-6">

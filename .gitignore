@@ -30,3 +30,4 @@ data/hit_data/video/
 
 # Local scripts
 approve_assignments.py
+upload_hits_to_s3.py

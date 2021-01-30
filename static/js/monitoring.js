@@ -4,6 +4,7 @@ var numberPerPage = 4;
 var numberOfPages = 0;
 var currentPage = 1;
 var pageList = new Array();
+var allHitMeta = {};
 
 
 function loadJSON(callback, path) {
@@ -43,6 +44,25 @@ function convertToInstructionMap(records) {
         instructionMap[instruction].push(records[record]);
     }
     return instructionMap;
+}
+
+function populateScenes(allHitMeta) {
+    var instructionSelect = document.getElementById("sceneList");
+    for (let scene_id in allHitMeta["scene_map"]) {
+        var optionElement = document.createElement("option");
+        optionElement.value = scene_id;
+        optionElement.innerHTML = scene_id;
+
+        instructionSelect.appendChild(optionElement);
+    }
+}
+
+function updateStats() {
+    var selectedScene = document.getElementById("sceneList").value;
+    var totalHits = document.getElementById("sceneAssignments");
+    totalHits.innerHTML = "Total HITs: " + allHitMeta["scene_map"][selectedScene]["total_assignments"];
+    var approvedHits = document.getElementById("sceneApprovedAssignments")
+    approvedHits.innerHTML = "Completed HITs: " + allHitMeta["scene_map"][selectedScene]["submitted_assignments"];
 }
 
 function loadDataset(records) {
@@ -104,6 +124,48 @@ function drawList() {
             document.getElementById("approve"+ (r + 1)).style.display =  "none";
             document.getElementById("reject"+ (r + 1)).style.display =  "none";
             document.getElementById("message"+ (r + 1)).style.display =  "none";
+        }
+    }
+}
+
+function getHits() {
+    var authToken = getParameterByName("authToken");
+    var mode = getParameterByName("mode");
+
+    if (authToken === undefined || authToken === null) {
+        return;
+    }
+
+    if (mode == null) {
+        mode = "debug";
+    }
+    
+    var url = window.location.href;
+    var splitteUrl = url.split("/");
+    var hostUrl = splitteUrl[0] + "//" + splitteUrl[2];
+
+    // Build request
+    var requestUrl = hostUrl + "/api/v0/get_hits_assignment_submitted_count";
+    let request = new XMLHttpRequest();
+    request.open("POST", requestUrl)
+    request.send(JSON.stringify({
+        "authToken": authToken,
+        "mode": mode
+    }));
+    request.onload = () => {
+        console.log(request.status);
+        if (request.status == 200) {
+            var response = JSON.parse(request.response);
+            allHitMeta = response["all_hit_meta"];
+            populateScenes(allHitMeta);
+            updateStats();
+            console.log("success!");
+        } else if (request.status == 203) {
+            console.log("HIT Unapproved!");
+        } else if (request.status == 208) {
+            console.log("HIT Rejected!");
+        } else if (request.status == 205) {
+            console.log("HIT Approve failed!");
         }
     }
 }
@@ -249,6 +311,7 @@ function load() {
         loadDataset(jsonData);
         loadList();
     }, "data/hit_data/instructions.json");
+    getHits();
 }
 
 window.onload = load;
