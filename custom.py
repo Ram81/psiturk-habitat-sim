@@ -591,14 +591,11 @@ def get_hits_assignment_submitted_count():
                 scene_id = hit_meta["scene_id"]
                 if scene_id not in all_hit_meta["scene_map"].keys():
                     all_hit_meta["scene_map"][scene_id] = {
-                        "submitted_assignments": 0,
+                        "completed_assignments": 0,
                         "total_assignments": 0,
-                        "approved_assignments": 0
                     }
                 all_hit_meta["scene_map"][scene_id]["total_assignments"] += 1
-                all_hit_meta["scene_map"][scene_id]["submitted_assignments"] += hit_meta["submitted_assignments"]
-                all_hit_meta["scene_map"][scene_id]["approved_assignments"] += hit_meta["approved_assignments"]
-                
+                all_hit_meta["scene_map"][scene_id]["completed_assignments"] += (hit_meta["submitted_assignments"] + hit_meta["approved_assignments"])
 
             current_app.logger.error("Total HITS {}".format(len(hit_task_map.keys())))
             response = {
