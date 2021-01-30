@@ -564,7 +564,6 @@ def get_hits_assignment_submitted_count():
                     "submitted_assignments": 0,
                     "approved_assignments": 0
                 }
-            current_app.logger.error("Total HITS {}".format(hit_task_map.keys()))
 
             amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
             amt_services_wrapper.set_sandbox(is_sandbox)
@@ -594,9 +593,11 @@ def get_hits_assignment_submitted_count():
                     all_hit_meta["scene_map"][scene_id] = {
                         "submitted_assignments": 0,
                         "total_assignments": 0,
+                        "approved_assignments": 0
                     }
                 all_hit_meta["scene_map"][scene_id]["total_assignments"] += 1
                 all_hit_meta["scene_map"][scene_id]["submitted_assignments"] += hit_meta["submitted_assignments"]
+                all_hit_meta["scene_map"][scene_id]["approved_assignments"] += hit_meta["approved_assignments"]
                 
 
             current_app.logger.error("Total HITS {}".format(len(hit_task_map.keys())))

@@ -59,10 +59,12 @@ function populateScenes(allHitMeta) {
 
 function updateStats() {
     var selectedScene = document.getElementById("sceneList").value;
-    var totalHits = document.getElementById("sceneAssignments");
+    var totalHits = document.getElementById("totalHits");
     totalHits.innerHTML = "Total HITs: " + allHitMeta["scene_map"][selectedScene]["total_assignments"];
+    var submittedHits = document.getElementById("sceneAssignments")
+    submittedHits.innerHTML = "Submitted HITs: " + allHitMeta["scene_map"][selectedScene]["submitted_assignments"];
     var approvedHits = document.getElementById("sceneApprovedAssignments")
-    approvedHits.innerHTML = "Completed HITs: " + allHitMeta["scene_map"][selectedScene]["submitted_assignments"];
+    approvedHits.innerHTML = "Approved HITs: " + allHitMeta["scene_map"][selectedScene]["approved_assignments"];
 }
 
 function loadDataset(records) {
