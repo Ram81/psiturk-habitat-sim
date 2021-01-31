@@ -563,16 +563,24 @@ def get_hits_assignment_submitted_count():
             hit_ids = [hit_episode_limit.hit_id for hit_episode_limit in all_hit_episode_limt]
             all_hit_meta["total_assignments"] = len(hit_ids)
 
-            amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
-            amt_services_wrapper.set_sandbox(is_sandbox)
-            
-            response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Submitted")
-            assignments = response.data["assignments"]
-            all_hit_meta["submitted_assignments"] = len(assignments)
+            completed_hits = WorkerHitData.query.filter(and_(WorkerHitData.mode == mode, WorkerHitData.task_id == scene_id, WorkerHitData.task_complete == True))
+            all_hit_meta["submitted_assignments"] = completed_hits.count()
 
-            response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Approved")
-            assignments = response.data["assignments"]
-            all_hit_meta["approved_assignments"] = len(assignments)
+            # if len(hit_ids) != 0:
+            #     amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
+            #     amt_services_wrapper.set_sandbox(is_sandbox)
+
+            #     response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Submitted")
+            #     assignments = response.data["assignments"]
+            #     all_hit_meta["submitted_assignments"] = len(assignments)
+
+            #     del assignments
+
+            #     response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Approved")
+            #     assignments = response.data["assignments"]
+            #     all_hit_meta["approved_assignments"] = len(assignments)
+
+            #     del assignments
 
             current_app.logger.error("Total HITS {}".format(len(hit_ids)))
             response = {
