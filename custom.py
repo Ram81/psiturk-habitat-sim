@@ -538,79 +538,45 @@ def approve_hit_by_hit_id():
 @custom_code.route('/api/v0/get_hits_assignment_submitted_count', methods=['POST'])
 def get_hits_assignment_submitted_count():
     request_data = loads(request.data)
-    if not "authToken" in request_data.keys():
-        raise ExperimentError('improper_inputs')
+    # if not "authToken" in request_data.keys():
+    #     raise ExperimentError('improper_inputs')
 
     try:
-        auth_token = request_data["authToken"]
         mode = request_data["mode"]
-        # scene_id = request_data["sceneId"]
-        user = get_user_auth_token(auth_token)
+        scene_id = request_data["sceneId"]
+        scene_id = task_data["tasks"].index(scene_id)
+        if scene_id == 0:
+            scene_id += 1
 
         is_sandbox = mode in ["debug", "sandbox"]
 
-        if user is None:
-            current_app.logger.error("Unauthorized /api/v0/get_hits_assignment_submitted_count {} -- {}".format(is_sandbox, auth_token))
-            return Response('Invalid auth token!', 401)
-
         try:
             hit_ids = []
-            all_hit_episode_limt = HitEpisodeLimit.query.filter(HitEpisodeLimit.mode == mode)
-
-            hit_task_map = {}
-            for hit_episode_limit in all_hit_episode_limt:
-                hit_id = hit_episode_limit.hit_id
-                hit_ids.append(hit_id)
-                # As we have fixed number of object receptacle pair
-                instruction_id = hit_episode_limit.episode_id % len(task_data["instructions"])
-                hit_task_map[hit_id] = {
-                    "hit_id": hit_id,
-                    "task_id": hit_episode_limit.task_id,
-                    "episode_id": hit_episode_limit.episode_id,
-                    "scene_id": task_data["tasks"][hit_episode_limit.task_id],
-                    "instruction": task_data["instructions"][instruction_id],
-                    "num_assignments": hit_episode_limit.num_assignments,
-                    "submitted_assignments": 0,
-                    "approved_assignments": 0
-                }
+            all_hit_episode_limt = HitEpisodeLimit.query.filter(and_(HitEpisodeLimit.mode == mode, HitEpisodeLimit.task_id == scene_id))
+            current_app.logger.error("Count id  {}".format(all_hit_episode_limt.count()))
+                        
+            all_hit_meta = {
+                "submitted_assignments": 0,
+                "approved_assignments": 0,
+                "total_assignments": 0,
+            }
+            hit_ids = [hit_episode_limit.hit_id for hit_episode_limit in all_hit_episode_limt]
+            all_hit_meta["total_assignments"] = len(hit_ids)
 
             amt_services_wrapper = MTurkServicesWrapper(sandbox=is_sandbox)
             amt_services_wrapper.set_sandbox(is_sandbox)
             
             response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Submitted")
             assignments = response.data["assignments"]
-            for assignment in assignments:
-                hit_id = assignment.hitid
-                hit_task_map[hit_id]["submitted_assignments"] += 1
-            
+            all_hit_meta["submitted_assignments"] = len(assignments)
+
             response = amt_services_wrapper.get_assignments(hit_ids=hit_ids, assignment_status="Approved")
             assignments = response.data["assignments"]
-            for assignment in assignments:
-                hit_id = assignment.hitid
-                hit_task_map[hit_id]["approved_assignments"] += 1
-            
-            all_hit_meta = {
-                "submitted_assignments": 0,
-                "approved_assignments": 0,
-                "scene_map": {}
-            }
-            for hit_id, hit_meta in hit_task_map.items():
-                all_hit_meta["submitted_assignments"] += hit_meta["submitted_assignments"]
-                all_hit_meta["approved_assignments"] += hit_meta["approved_assignments"]
-                scene_id = hit_meta["scene_id"]
-                if scene_id not in all_hit_meta["scene_map"].keys():
-                    all_hit_meta["scene_map"][scene_id] = {
-                        "completed_assignments": 0,
-                        "total_assignments": 0,
-                    }
-                all_hit_meta["scene_map"][scene_id]["total_assignments"] += 1
-                all_hit_meta["scene_map"][scene_id]["completed_assignments"] += (hit_meta["submitted_assignments"] + hit_meta["approved_assignments"])
+            all_hit_meta["approved_assignments"] = len(assignments)
 
-            hit_meta = list(hit_task_map.values())
-            hit_meta = sorted(hit_meta, key=lambda k: k["approved_assignments"])
-            current_app.logger.error("Total HITS {}".format(len(hit_meta)))
+            current_app.logger.error("Total HITS {}".format(len(hit_ids)))
             response = {
-                "hit_meta": hit_meta,
+                "hit_meta": [],
                 "all_hit_meta": all_hit_meta,
             }
             return jsonify(**response)

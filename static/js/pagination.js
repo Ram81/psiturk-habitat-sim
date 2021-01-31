@@ -33,31 +33,42 @@ function getParameterByName(name, url = window.location.href) {
 };
 
 
+function populateScenes() {
+    var instructionSelect = document.getElementById("sceneList");
+    var scenes = ["scene_1.glb", "scene_1.glb", "scene_2.glb", "scene_3.glb", "scene_4.glb", "scene_5.glb"];
+    for (let idx in scenes) {
+        let scene_id = scenes[idx];
+        var optionElement = document.createElement("option");
+        optionElement.value = scene_id;
+        optionElement.innerHTML = scene_id;
+
+        instructionSelect.appendChild(optionElement);
+    }
+}
+
 function updateStats() {
-    var selectedScene = document.getElementById("sceneList").value;
-    var totalHits = document.getElementById("sceneId");
-    totalHits.innerHTML = "Scene Id: " + selectedScene;
     var totalHits = document.getElementById("totalHits");
-    totalHits.innerHTML = "Total HITs: " + allHitMeta["scene_map"][selectedScene]["total_assignments"];
+    totalHits.innerHTML = "Total HITs: " + allHitMeta["total_assignments"];
     var submittedHits = document.getElementById("sceneAssignments")
-    submittedHits.innerHTML = "Completed HITs: " + allHitMeta["scene_map"][selectedScene]["completed_assignments"];
+    submittedHits.innerHTML = "Completed HITs: " + (allHitMeta["approved_assignments"] + allHitMeta["submitted_assignments"]);
 }
 
 function getHits() {
     var authToken = getParameterByName("authToken");
     var mode = getParameterByName("mode");
 
-    if (authToken === undefined || authToken === null) {
-        return;
-    }
+    // if (authToken === undefined || authToken === null) {
+    //     return;
+    // }
 
     if (mode == null) {
-        mode = "debug";
+        mode = "live";
     }
     
     var url = window.location.href;
     var splitteUrl = url.split("/");
     var hostUrl = splitteUrl[0] + "//" + splitteUrl[2];
+    var selectedScene = document.getElementById("sceneList").value;
 
     // Build request
     var requestUrl = hostUrl + "/api/v0/get_hits_assignment_submitted_count";
@@ -65,7 +76,8 @@ function getHits() {
     request.open("POST", requestUrl)
     request.send(JSON.stringify({
         "authToken": authToken,
-        "mode": mode
+        "mode": mode,
+        "sceneId": selectedScene
     }));
     request.onload = () => {
         console.log(request.status);
@@ -285,6 +297,7 @@ function lastPage() {
 
 
 function load() {
+    populateScenes(allHitMeta);
     getHits();
 }
 
