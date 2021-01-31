@@ -356,34 +356,42 @@ def approve_hit():
 @custom_code.route('/api/v0/is_approved', methods=['POST'])
 def is_hit_already_approved():
     request_data = loads(request.data)
-    if not "authToken" in request_data.keys() or not "uniqueId" in request_data.keys():
+    if not "uniqueId" in request_data.keys():
         raise ExperimentError('improper_inputs')
 
     try:
-        auth_token = request_data["authToken"]
         unique_id = request_data["uniqueId"]
         mode = request_data["mode"]
-        user = get_user_auth_token(auth_token)
 
-        is_sandbox = mode in ["debug", "sandbox"]
-
-        if user is None:
-            current_app.logger.error("Unauthorized /api/v0/is_approved {} -- {}".format(is_sandbox, auth_token))
-            return Response('Invalid auth token!', 401)
-        
         existing_hit = ApprovedHits.query.\
             filter(and_(ApprovedHits.uniqueid == unique_id, ApprovedHits.mode == mode))
 
+        data = {
+            "question_data": "",
+            "message": ""
+        }
+        try:
+            participant_data = Participant.query.get(unique_id)
+            if participant_data is not None:
+                question_data = participant_data.get_question_data()
+                data["question_data"] = question_data.split(",")[-1]
+        except Exception as e:
+            current_app.logger.error("Error /api/v0/is_approved get participant {}".format(e))
+
         if existing_hit.count() == 1 and existing_hit[0].is_approved == "True":
-            return Response('HIT already approved!', 200)
+            data["message"] = 'HIT already approved!'
+            return jsonify(**data)
         
         if existing_hit.count() == 1 and existing_hit[0].is_approved == "False":
-            return Response('HIT rejected!', 208)
+            data["message"] = 'HIT rejected!'
+            return jsonify(**data)
         
         if existing_hit.count() > 1:
-            return Response('Multiple HITs with same assignmentId!', 205)
+            data["message"] = 'Multiple HITs with same assignmentId!'
+            return jsonify(**data)
         
-        return Response("Not already approved", 203)
+        data["message"] = "Not already approved"
+        return jsonify(**data)
     except Exception as e:
         current_app.logger.error("Error /api/v0/approve_hit {}".format(e))
         abort(404)  # again, bad to display HTML, but...
@@ -536,6 +544,7 @@ def get_hits_assignment_submitted_count():
     try:
         auth_token = request_data["authToken"]
         mode = request_data["mode"]
+        # scene_id = request_data["sceneId"]
         user = get_user_auth_token(auth_token)
 
         is_sandbox = mode in ["debug", "sandbox"]
@@ -597,9 +606,11 @@ def get_hits_assignment_submitted_count():
                 all_hit_meta["scene_map"][scene_id]["total_assignments"] += 1
                 all_hit_meta["scene_map"][scene_id]["completed_assignments"] += (hit_meta["submitted_assignments"] + hit_meta["approved_assignments"])
 
-            current_app.logger.error("Total HITS {}".format(len(hit_task_map.keys())))
+            hit_meta = list(hit_task_map.values())
+            hit_meta = sorted(hit_meta, key=lambda k: k["approved_assignments"])
+            current_app.logger.error("Total HITS {}".format(len(hit_meta)))
             response = {
-                "hit_meta": list(hit_task_map.values()),
+                "hit_meta": hit_meta,
                 "all_hit_meta": all_hit_meta,
             }
             return jsonify(**response)

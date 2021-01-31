@@ -1,4 +1,5 @@
 var jsonData = [];
+var allHitMeta = {};
 var numberPerPage = 8;
 var numberOfPages = 0;
 var currentPage = 1;
@@ -32,6 +33,16 @@ function getParameterByName(name, url = window.location.href) {
 };
 
 
+function updateStats() {
+    var selectedScene = document.getElementById("sceneList").value;
+    var totalHits = document.getElementById("sceneId");
+    totalHits.innerHTML = "Scene Id: " + selectedScene;
+    var totalHits = document.getElementById("totalHits");
+    totalHits.innerHTML = "Total HITs: " + allHitMeta["scene_map"][selectedScene]["total_assignments"];
+    var submittedHits = document.getElementById("sceneAssignments")
+    submittedHits.innerHTML = "Completed HITs: " + allHitMeta["scene_map"][selectedScene]["completed_assignments"];
+}
+
 function getHits() {
     var authToken = getParameterByName("authToken");
     var mode = getParameterByName("mode");
@@ -61,10 +72,11 @@ function getHits() {
         if (request.status == 200) {
             var response = JSON.parse(request.response);
             var hitMeta = response["hit_meta"];
-            var allHitMeta = response["all_hit_meta"];
+            allHitMeta = response["all_hit_meta"];
             loadDataset(hitMeta);
             document.getElementById("totalSubmittedHits1").innerHTML = "<b>Total submitted assignments: </b>" + allHitMeta["submitted_assignments"];
             document.getElementById("totalApprovedHits1").innerHTML = "<b>Total approved assignments: </b>" + allHitMeta["approved_assignments"];
+            updateStats();
             console.log("success!");
         } else if (request.status == 203) {
             console.log("HIT Unapproved!");

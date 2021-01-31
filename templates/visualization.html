@@ -16,6 +16,11 @@
             <input type="button" id="next" onclick="nextPage()" value="next" />
         </div>
 
+        <div style="text-align:center;padding-bottom: 10px; padding-top: 10px;">
+            <select name="scenes" id="sceneList" onChange="updateStats()">
+            </select>
+        </div>
+
         <div class="row">
             <div class="col-md-6" style="padding: 10px">
                 <label id="totalSubmittedHits1" class="label-style" style="font-weight: 300;">Some random text</label>
@@ -31,6 +36,19 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" id="hit_stats">
+                <label id="sceneId" style="font-weight: 300;"></label>
+                <br/>
+                <label id="totalHits" style="font-weight: 300;"></label>
+                <br/>
+                <label id="sceneAssignments" style="font-weight: 300;"></label>
+                <br/>
+                <label id="sceneApprovedAssignments" style="font-weight: 300;"></label>
+                <br/>
             </div>
         </div>
 
@@ -53,6 +71,8 @@
                 <label id="total1" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <label id="message1" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
+                <label id="feedback1" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <div class="row">
                     <div class="col-xs-6">
@@ -81,6 +101,8 @@
                 <label id="total2" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <label id="message2" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
+                <label id="feedback2" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <div class="row">
                     <div class="col-xs-6">
@@ -113,6 +135,8 @@
                 <br/>
                 <label id="message3" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
+                <label id="feedback3" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
                 <div class="row">
                     <div class="col-xs-6">
                         <button type="button" id="approve3" value="next" class="btn btn-primary" onClick="approveHit(2, true);">
@@ -140,6 +164,9 @@
                 <label id="total4" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <label id="message4" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
+                <label id="feedback4" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
                 <div class="row">
                     <div class="col-xs-6">
                         <button type="button" id="approve4" value="next" class="btn btn-primary" onClick="approveHit(3, true);">
@@ -170,6 +197,9 @@
                 <label id="total5" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <label id="message5" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
+                <label id="feedback5" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
                 <div class="row">
                     <div class="col-xs-6">
                         <button type="button" id="approve5" value="next" class="btn btn-primary" onClick="approveHit(4, true);">
@@ -197,6 +227,9 @@
                 <label id="total6" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <label id="message6" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
+                <label id="feedback6" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
                 <div class="row">
                     <div class="col-xs-6">
                         <button type="button" id="approve6" value="next" class="btn btn-primary" onClick="approveHit(5, true);">
@@ -227,6 +260,9 @@
                 <label id="total7" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <label id="message7" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
+                <label id="feedback7" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
                 <div class="row">
                     <div class="col-xs-6">
                         <button type="button" id="approve7" value="next" class="btn btn-primary" onClick="approveHit(6, true);">
@@ -254,6 +290,9 @@
                 <label id="total8" class="label-style" style="font-weight: 300;">Some random text</label>
                 <br/>
                 <label id="message8" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
+                <label id="feedback8" class="label-style" style="font-weight: 300;">Some random text</label>
+                <br/>
                 <div class="row">
                     <div class="col-xs-6">
                         <button type="button" id="approve8" value="next" class="btn btn-primary" onClick="approveHit(7, true);">

@@ -110,6 +110,7 @@ function drawList() {
             document.getElementById("reject"+ (r + 1)).style.display =  "none";
         }
         document.getElementById("message"+ (r + 1)).style.display =  "";
+        document.getElementById("feedback"+ (r + 1)).style.display =  "";
 
         // Check if HIT is already approved
         isAlreadyApproved(r);
@@ -124,6 +125,7 @@ function drawList() {
             document.getElementById("approve"+ (r + 1)).style.display =  "none";
             document.getElementById("reject"+ (r + 1)).style.display =  "none";
             document.getElementById("message"+ (r + 1)).style.display =  "none";
+            document.getElementById("feedback"+ (r + 1)).style.display =  "none";
         }
     }
 }
@@ -241,14 +243,15 @@ function isAlreadyApproved(id) {
     let request = new XMLHttpRequest();
     request.open("POST", requestUrl)
     request.send(JSON.stringify({
-        "authToken": authToken,
         "uniqueId": uniqueId,
         "mode": mode
     }));
     request.onload = () => {
         if (request.status == 200) {
+            var response = JSON.parse(request.response);
             console.log("success!");
             document.getElementById("message" + (id + 1)).innerHTML = "<b>Status:</b> <span style=\"color:green;font-weight:400;\">Approved!</span>";
+            document.getElementById("feedback" + (id + 1)).innerHTML = "<b>Feedback:</b> " + response["question_data"];
         } else if (request.status == 203) {
             console.log("HIT Unapproved!");
             document.getElementById("message" + (id + 1)).innerHTML = "<b>Status:</b> <span style=\"color:Orange;font-weight:400;\">Not Approved!</span>";
