@@ -34,14 +34,17 @@ function convertToInstructionMap(records) {
     for (let record in records) {
         var instruction = records[record]["task"];
         if (!instructionMap.hasOwnProperty(instruction)) {
-            instructionMap[instruction] = [];
-            var optionElement = document.createElement("option");
-            optionElement.value = instruction;
-            optionElement.innerHTML = instruction;
-
-            instructionSelect.appendChild(optionElement);
+            instructionMap[instruction] = [];   
         }
         instructionMap[instruction].push(records[record]);
+    }
+    var sortedKeys = Object.keys(instructionMap).sort();
+    for (let idx in sortedKeys) {
+        var instruction = sortedKeys[idx];
+        var optionElement = document.createElement("option");
+        optionElement.value = instruction;
+        optionElement.innerHTML = instruction;
+        instructionSelect.appendChild(optionElement);
     }
     return instructionMap;
 }
@@ -228,13 +231,13 @@ function isAlreadyApproved(id) {
     var authToken = getParameterByName("authToken");
     var mode = getParameterByName("mode");
 
-    if (authToken === undefined || authToken === null) {
-        document.getElementById("message" + (id + 1)).innerHTML = "";
-        return;
-    }
+    // if (authToken === undefined || authToken === null) {
+    //     document.getElementById("message" + (id + 1)).innerHTML = "";
+    //     return;
+    // }
 
     if (mode == null) {
-        mode = "debug";
+        mode = "live";
     }
     
     var url = window.location.href;
@@ -253,7 +256,13 @@ function isAlreadyApproved(id) {
         if (request.status == 200) {
             var response = JSON.parse(request.response);
             console.log("success!");
-            document.getElementById("message" + (id + 1)).innerHTML = "<b>Status:</b> <span style=\"color:green;font-weight:400;\">Approved!</span>";
+            if (response["message"] == "HIT already approved!") {
+                document.getElementById("message" + (id + 1)).innerHTML = "<b>Status:</b> <span style=\"color:green;font-weight:400;\">Approved!</span>";
+            } else if (response["message"] == "Not already approved") {
+                document.getElementById("message" + (id + 1)).innerHTML = "<b>Status:</b> <span style=\"color:Orange;font-weight:400;\">Not Approved!</span>";
+            } else {
+                document.getElementById("message" + (id + 1)).innerHTML = "<b>Status:</b> <span style=\"color:Orange;font-weight:400;\">" + response["message"] + "</span>";
+            }
             document.getElementById("feedback" + (id + 1)).innerHTML = "<b>Feedback:</b> " + response["question_data"];
         } else if (request.status == 203) {
             console.log("HIT Unapproved!");

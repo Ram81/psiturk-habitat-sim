@@ -635,7 +635,6 @@ def approve_all_hits():
             current_app.logger.error("Approved all: {} assignments".format(len(approved_assignments)))
             saved_assignments = []
             for assignment in approved_assignments:
-                current_app.logger.error("Approving: {}".format(assignment.data))
                 if "assignment_id" in assignment.data.keys():
                     assignment_id = assignment.data["assignment_id"]
                     unique_id = assignment_unique_id_map.get(assignment_id)
