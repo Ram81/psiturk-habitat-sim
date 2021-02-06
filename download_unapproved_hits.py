@@ -34,6 +34,12 @@ def get_scene(data):
     return "", ""
 
 
+def get_episode_trial_data(data):
+    for record in data:
+        record['trialdata'] = json.dumps(record['trialdata'])
+    return data
+
+
 def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False, is_sqlite=False):
     db_user = os.environ.get("DB_USER", "psiturk")
     db_password = os.environ.get("DB_PASSWORD", "password")
@@ -65,6 +71,7 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
     already_approved_unique_ids = get_approved_unique_ids()
     exclude.extend(already_approved_unique_ids)
 
+    count = 0
     for row in rows:
         hit_date = row['endhit']
         if row['mode'] != mode:
@@ -74,6 +81,9 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
         # only use subjects who completed experiment and aren't excluded
         if row['status'] in statuses and row['uniqueid'] not in exclude and from_date < hit_date:
             data.append(row[data_column_name])
+            count += 1
+    del rows
+    print("Total episodes: {}".format(count))
 
     # Now we have all participant datastrings in a list.
     # Let's make it a bit easier to work with:
@@ -100,6 +110,7 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
         print("\nTotal scenes: {}, Sample episode count: {}".format(len(scene_ep_map.keys()), 10))
     else:
         ep_hit_map = {}
+        i = 0
         for part in data:
             part_json = json.loads(part)
             scene_id, episode_id = get_scene(part_json['data'])
@@ -108,29 +119,22 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
                 ep_hit_map[episode_id] = 0
             ep_hit_map[episode_id] += 1
 
+            if len(part_json['questiondata']['feedback']) > 0:
+                question_data.append({
+                    "workerId": part_json["workerId"],
+                    "assignmentId": part_json["assignmentId"],
+                    "feedback": part_json['questiondata']['feedback'],
+                })
+
             loaded_data = part_json['data']
             if len(loaded_data) > 0:
-                output_data.extend(loaded_data)
-                if len(part_json['questiondata']['feedback']) > 0:
-                    question_data.append({
-                        "workerId": part_json["workerId"],
-                        "assignmentId": part_json["assignmentId"],
-                        "feedback": part_json['questiondata']['feedback'],
-                    })
+                output_data = get_episode_trial_data(loaded_data)
+                df = pd.DataFrame(output_data)
+                df.to_csv("{}/{}_{}.csv".format(dump_path, dump_prefix, i), index=False, header=False)
+                i += 1
 
-    # insert uniqueid field into trialdata in case it wasn't added
-    # in experiment:
-    for record in output_data:
-        record['trialdata']['uniqueid'] = record['uniqueid']
-        record['trialdata'] = json.dumps(record['trialdata'])
-    
-    df = pd.DataFrame(output_data)
-    print(df.columns.values)
-    print(len(df.uniqueid.unique()))
     feedback_df = pd.DataFrame(question_data)
     feedback_df.to_csv("feedback_{}.csv".format(from_date.strftime("%Y-%m-%d")), index=False)
-
-    split_hit_data_as_csv(df, dump_path, dump_prefix)
 
 
 def split_hit_data_as_csv(df, dump_path, dump_prefix):
