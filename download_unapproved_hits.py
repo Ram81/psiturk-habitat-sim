@@ -40,7 +40,7 @@ def get_episode_trial_data(data):
     return data
 
 
-def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False, is_sqlite=False):
+def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False, is_sqlite=False, to_date=None):
     db_user = os.environ.get("DB_USER", "psiturk")
     db_password = os.environ.get("DB_PASSWORD", "password")
     db_host = os.environ.get("DB_HOST", "127.0.0.1")
@@ -80,8 +80,9 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
             continue
         # only use subjects who completed experiment and aren't excluded
         if row['status'] in statuses and row['uniqueid'] not in exclude and from_date < hit_date:
-            data.append(row[data_column_name])
-            count += 1
+            if to_date is not None and hit_date < to_date:
+                data.append(row[data_column_name])
+                count += 1
     del rows
     print("Total episodes: {}".format(count))
 
@@ -177,12 +178,19 @@ if __name__ == "__main__":
     parser.add_argument(
         "--days", type=int, default=0
     )
+    parser.add_argument(
+        "--to-date", type=str, default="2020-11-01 00:00"
+    )
     args = parser.parse_args()
 
     from_date = datetime.strptime(args.from_date, "%Y-%m-%d %H:%M")
     if args.from_date == "2020-11-01 00:00":
         from_date = datetime.now() - timedelta(days=args.days)
         from_date = from_date.replace(hour=0, minute=0, second=0, microsecond=0)
-    print("from: " + str(from_date))
+    
+    to_date = datetime.strptime(args.to_date, "%Y-%m-%d %H:%M")
+    if args.to_date == "2020-11-01 00:00":
+        to_date = datetime.now()
+    print("from: " + str(from_date) + ", to: " + str(to_date))
 
-    dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode, args.sample, args.sqlite)
+    dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode, args.sample, args.sqlite, to_date)
