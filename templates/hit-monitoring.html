@@ -20,7 +20,7 @@
             Page: 1/1
         </div>
         <div style="text-align:center;padding-bottom: 10px; padding-top: 10px;">
-            <select name="scenes" id="sceneList" onChange="getHits()">
+            <select name="scenes" id="sceneList" onChange="getHits();loadList();">
             </select>
             <select name="instructions" id="instructionList" onChange="loadList()">
             </select>
@@ -33,6 +33,8 @@
                 <label id="sceneAssignments" style="font-weight: 300;"></label>
                 <br/>
                 <label id="sceneApprovedAssignments" style="font-weight: 300;"></label>
+                <br/>
+                <label id="message0" class="label-style" style="font-weight: 300;"></label>
                 <br/>
             </div>
         </div>

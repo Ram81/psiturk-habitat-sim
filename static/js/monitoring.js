@@ -25,27 +25,48 @@ function loadJSON(callback, path) {
 
 function getNumberOfPages() {
     var selectedInstruction = document.getElementById("instructionList").value;
-    return Math.ceil(instructionRecordMap[selectedInstruction].length / numberPerPage);
+    var selectedScene = document.getElementById("sceneList").value;
+    return Math.ceil(instructionRecordMap[selectedScene][selectedInstruction].length / numberPerPage);
 }
 
 function convertToInstructionMap(records) {
     var instructionMap = {};
     var instructionSelect = document.getElementById("instructionList");
+    var sceneSelect = document.getElementById("sceneList");
     for (let record in records) {
         var instruction = records[record]["task"];
-        if (!instructionMap.hasOwnProperty(instruction)) {
-            instructionMap[instruction] = [];   
+        console.log(records[record]);
+        var sceneId = records[record]["sceneId"].split("/");
+        sceneId = sceneId[sceneId.length - 1];
+        if (!instructionMap.hasOwnProperty(sceneId)) {
+            instructionMap[sceneId] = {}
         }
-        instructionMap[instruction].push(records[record]);
+        if (!instructionMap[sceneId].hasOwnProperty(instruction)) {
+            instructionMap[sceneId][instruction] = [];
+        }
+        instructionMap[sceneId][instruction].push(records[record]);
     }
     var sortedKeys = Object.keys(instructionMap).sort();
+    var count = 0;
     for (let idx in sortedKeys) {
-        var instruction = sortedKeys[idx];
+        var sceneId = sortedKeys[idx];
+        
         var optionElement = document.createElement("option");
-        optionElement.value = instruction;
-        optionElement.innerHTML = instruction;
-        instructionSelect.appendChild(optionElement);
+        optionElement.value = sceneId;
+        optionElement.innerHTML = sceneId;
+        sceneSelect.appendChild(optionElement);
+
+        var sortedInstructionKeys = Object.keys(instructionMap[sceneId]).sort();
+        for (let instIdx in sortedInstructionKeys) {
+            var instruction = sortedInstructionKeys[instIdx];
+            var optionElement = document.createElement("option");
+            optionElement.value = instruction;
+            optionElement.innerHTML = instruction;
+            instructionSelect.appendChild(optionElement);
+            count+=1;
+        }
     }
+    console.log("Total instructions: " + count);
     return instructionMap;
 }
 
@@ -151,6 +172,9 @@ function getHits() {
     var splitteUrl = url.split("/");
     var hostUrl = splitteUrl[0] + "//" + splitteUrl[2];
     var selectedScene = document.getElementById("sceneList").value;
+    if (selectedScene == undefined || selectedScene == null || selectedScene.length == 0) {
+        return;
+    }
 
     // Build request
     var requestUrl = hostUrl + "/api/v0/get_hits_assignment_submitted_count";
@@ -289,13 +313,19 @@ function loadList() {
     var end = begin + numberPerPage;
 
     var selectedInstruction = document.getElementById("instructionList").value;
-    var selectedRecords = instructionRecordMap[selectedInstruction];
-    numberOfPages = getNumberOfPages();
+    var selectedScene = document.getElementById("sceneList").value;
+    if (instructionRecordMap[selectedScene].hasOwnProperty(selectedInstruction)) {
+        var selectedRecords = instructionRecordMap[selectedScene][selectedInstruction];
+        numberOfPages = getNumberOfPages();
 
-    pageList = selectedRecords.slice(begin, end);
-    document.getElementById("pageNum").innerHTML = "Page: " + currentPage + " / " + numberOfPages + ", HITs per Page: " + numberPerPage;
-    drawList();
-    check();
+        pageList = selectedRecords.slice(begin, end);
+        document.getElementById("pageNum").innerHTML = "Page: " + currentPage + " / " + numberOfPages + ", HITs per Page: " + numberPerPage;
+        drawList();
+        check();
+        document.getElementById("message0").innerHTML = "";
+    } else {
+        document.getElementById("message0").innerHTML = "No tasks for scene:" + selectedScene +", instruction: " + selectedInstruction + " pair!";
+    }
 }
 
 function nextPage() {
@@ -320,7 +350,7 @@ function lastPage() {
 
 
 function load() {
-    populateScenes();
+    // populateScenes();
     loadJSON(function(data) {
         jsonData = JSON.parse(data);
         instructionRecordMap = convertToInstructionMap(jsonData);

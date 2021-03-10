@@ -7,6 +7,7 @@ import sys
 import pymysql
 
 from sqlalchemy import create_engine, MetaData, Table
+from sqlalchemy.orm import mapper, sessionmaker
 from psiturk.db import db_session, engine
 from db_scripts.models import ApprovedHits
 from datetime import datetime, timedelta
@@ -56,9 +57,13 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
     engine = create_engine(db_url)
     metadata = MetaData()
     metadata.bind = engine
+    Session = sessionmaker(bind=engine)
+    session = Session()
     table = Table(table_name, metadata, autoload=True)
     # make a query and loop through
-    s = table.select()
+    s = table.select().where(table.c.beginhit > from_date)
+    # s = session.query(table).filter_by(table.c.beginhit > from_date).first()
+
     rows = s.execute()
 
     data = []

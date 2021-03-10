@@ -547,6 +547,7 @@ def get_hits_assignment_submitted_count():
         scene_id = task_data["tasks"].index(scene_id)
         if scene_id == 0:
             scene_id += 1
+        current_app.logger.error("SceneId /api/v0/get_hits_assignment_submitted_count {} -- {}".format(scene_id, task_data["tasks"]))
 
         is_sandbox = mode in ["debug", "sandbox"]
 
@@ -593,7 +594,7 @@ def get_hits_assignment_submitted_count():
             return jsonify(**{"error": "Error occurred when gettings assignments for HIT!"})
 
     except Exception as e:
-        current_app.logger.error("Error /api/v0/approve_hit_by_hit_id {}".format(e))
+        current_app.logger.error("Error /api/v0/get_hits_assignment_submitted_count {}".format(e))
         abort(404)  # again, bad to display HTML, but...
 
 
