@@ -1,0 +1,2725 @@
+[
+    {
+        "episodeId": "A1ZE52NWZPN85P:3QBD8R3Z23MBN3GNEYLYGU7UHX14O5",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_0.mp4",
+        "task": "Place the red bowl on the wood block",
+        "episodeLength": 507
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3GFK2QRXXBK1OVTPJPVI2GQUKVRW5A",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_1.mp4",
+        "task": "Place the blue mug on the ceramic plate",
+        "episodeLength": 1518
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3NXNZ5RS1C05Z3U0E70NMGWFD1679H",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_2.mp4",
+        "task": "Place the rubiks cube on the brown box",
+        "episodeLength": 1127
+    },
+    {
+        "episodeId": "AOMFEAWQHU3D8:3TK8OJTYM3OS2GB3DUZ0EKCX4N9PV0",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_3.mp4",
+        "task": "Place the green saucer on the dish drainer",
+        "episodeLength": 1320
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3KAKFY4PGW5G9LMGGP3AMSJ2RO5I32",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_4.mp4",
+        "task": "Place the grey hat on the blue wood block",
+        "episodeLength": 965
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3IHR8NYAM94T83SOTYYD5UCKR2X4PM",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_5.mp4",
+        "task": "Place the rubiks cube on the colored wood blocks",
+        "episodeLength": 2569
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:333U7HK6IBIAMO8JRWUMB2KEVGEDJ2",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_6.mp4",
+        "task": "Place the green lego on the brown box",
+        "episodeLength": 528
+    },
+    {
+        "episodeId": "A3KC26Z78FBOJT:3X4MXAO0BIRQTIRNGW8L5HVQCD7RWA",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_7.mp4",
+        "task": "Place the puzzle ball on the blue wood block",
+        "episodeLength": 763
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3YGXWBAF72KAEEJKOTC7LUDDSJ84CY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_8.mp4",
+        "task": "Place the square porcelain plate on the brown box",
+        "episodeLength": 305
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3OLF68YTNB4WJFJBOWCZ63KGH61FA0",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_9.mp4",
+        "task": "Place the softball on the blue wood block",
+        "episodeLength": 689
+    },
+    {
+        "episodeId": "A2LHJN7Y7A7J2F:3HWRJOOET758DX59ALEK9LTMRC4ESQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_10.mp4",
+        "task": "Place the grey hat on the colored wood blocks",
+        "episodeLength": 733
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:34QN5IT0T1UR3NB6OG9075RHLHR08U",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_11.mp4",
+        "task": "Place the mustard bottle on the brown box",
+        "episodeLength": 592
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:37C0GNLMHH6YYTTC7D0X2YF99B96D6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_12.mp4",
+        "task": "Place the toy gun on the colored wood blocks",
+        "episodeLength": 611
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3VW04L3ZLV9PFEIPZ0AZWIVLMXFXXO",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_13.mp4",
+        "task": "Place the yellow mug on the square porcelain plate",
+        "episodeLength": 1127
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3N8OEVH1FTTFRWQ5XI07USDZYPFOOF",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_14.mp4",
+        "task": "Place the red mug on the blue wood block",
+        "episodeLength": 1072
+    },
+    {
+        "episodeId": "A2L26DMSVUEDP6:3IX2EGZR7DM4NYRO9XP6GR1IAHZRJG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_15.mp4",
+        "task": "Place the ceramic plate on the brown box",
+        "episodeLength": 688
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3I2PTA7R3VXZMHI6E30ICGRQTLGQKY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_16.mp4",
+        "task": "Place the orange on the dixie bowl",
+        "episodeLength": 785
+    },
+    {
+        "episodeId": "ADEMAGRRRGSPT:3B837J3LDQZXM1AEWRYK8SS560OSR9",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_17.mp4",
+        "task": "Place the purple cup on the blue wood block",
+        "episodeLength": 1818
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3P59JYT76NNHXH6861O9HPGJWRKT2I",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_18.mp4",
+        "task": "Place the puzzle ball in the basket",
+        "episodeLength": 920
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3HQUKB7LNHHV7YIVPSARQAJXAHNHHW",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_19.mp4",
+        "task": "Place the hammer on the wood block",
+        "episodeLength": 994
+    },
+    {
+        "episodeId": "A2LHJN7Y7A7J2F:3VHHR074H5K005V9343DRPNADUEL7H",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_20.mp4",
+        "task": "Place the soap dish on the blue wood block",
+        "episodeLength": 652
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3OE22WJIGKRDPDNI8H4KI30OVB4QUJ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_21.mp4",
+        "task": "Place the orange cup on the red plate",
+        "episodeLength": 608
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:33LKR6A5KGNA8WOCNXOVC66E4L8T13",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_22.mp4",
+        "task": "Place the red cup on the red plate",
+        "episodeLength": 603
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3VBEN272MM26XB10GG489OEY4SLGSB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_23.mp4",
+        "task": "Place the square porcelain plate on the dish drainer",
+        "episodeLength": 983
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3P1L2B7AD3S7LBN8KQKF2B953K2LON",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_24.mp4",
+        "task": "Place the cole hammer on the blue wood block",
+        "episodeLength": 1271
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3VP0C6EFSIZ12NZPK6Z0LO23IP66MT",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_25.mp4",
+        "task": "Place the wrench on the blue wood block",
+        "episodeLength": 669
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3DHE4R9OCYEDSCK2M1P2I61U6X4G2O",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_26.mp4",
+        "task": "Place the pink saucer on the blue wood block",
+        "episodeLength": 437
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3TOK3KHVJVL86QY6GWJ5J6R480S7OV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_27.mp4",
+        "task": "Place the blue jug on the brown box",
+        "episodeLength": 667
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3Z4XG4ZF4AUZ0DHHRSY7GJESVNS8XB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_28.mp4",
+        "task": "Place the pressure cooker on the blue wood block",
+        "episodeLength": 543
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3S96KQ6I9O740R4O3Q8QD87NTIZDT1",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_29.mp4",
+        "task": "Place the ceramic plate on the dish drainer",
+        "episodeLength": 547
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:36DSNE9QZ711QLZ8H582MWWDZUHJO1",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_30.mp4",
+        "task": "Place the red coffee mug on the ceramic plate",
+        "episodeLength": 1427
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3A7Y0R2P2QROKUD0IWVY59N6BZYXJY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_31.mp4",
+        "task": "Place the brown hat on the storage bin",
+        "episodeLength": 506
+    },
+    {
+        "episodeId": "A2TUUIV61CR0C7:33FBRBDW6Q2BXF6M0W2K26TIU6UC85",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_32.mp4",
+        "task": "Place the power drill on the wood block",
+        "episodeLength": 462
+    },
+    {
+        "episodeId": "A3T5UAYFKJBVTA:3F1567XTNY8F5LZFA69TM7DAIR29QL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_33.mp4",
+        "task": "Place the cole hammer on the brown box",
+        "episodeLength": 779
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:36W0OB37HYHHYJIPVEGYQHN266QZHO",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_34.mp4",
+        "task": "Place the yellow mug on the ceramic plate",
+        "episodeLength": 2493
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3X4MXAO0BIRQTIRNGW8L5HVQCD7WRF",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_35.mp4",
+        "task": "Place the red butter dish on the colored wood blocks",
+        "episodeLength": 783
+    },
+    {
+        "episodeId": "A3APKUC67F9IMW:3AMW0RGHOF5FUB2UB3D943IKIJJNPR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_36.mp4",
+        "task": "Place the masterchef can on the red plate",
+        "episodeLength": 1309
+    },
+    {
+        "episodeId": "A2LHJN7Y7A7J2F:3S0TNUHWKVLL27C00SXVMCB0F6RD8R",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_37.mp4",
+        "task": "Place the orange cup on the blue wood block",
+        "episodeLength": 1569
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3E7TUJ2EGEPLGCVA5K39M86BZCUD91",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_38.mp4",
+        "task": "Place the tennis ball on the brown box",
+        "episodeLength": 420
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3TUI152ZZDQXGGWK6TU071VRKFI1Q8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_39.mp4",
+        "task": "Place the plum on the red bowl",
+        "episodeLength": 714
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3NPFYT4IZE7ETSNZAQAV8WVQJ6EGX8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_40.mp4",
+        "task": "Place the green cup on the brown box",
+        "episodeLength": 1138
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3TY7ZAOG5HNBYOD7X563XA08GGZ0KP",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_41.mp4",
+        "task": "Place the grey hat on the pink fabric cube",
+        "episodeLength": 633
+    },
+    {
+        "episodeId": "AOMFEAWQHU3D8:31EUONYN2X6AHGZ2YUMLPK77UI1OV6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_42.mp4",
+        "task": "Place the hammer on the brown box",
+        "episodeLength": 1213
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3TK8OJTYM3OS2GB3DUZ0EKCX4N1VPY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_43.mp4",
+        "task": "Place the puzzle ball on the red fabric cube",
+        "episodeLength": 458
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:34BBWHLWHCED0JO4Q9ECRPUZPI8IWJ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_44.mp4",
+        "task": "Place the plum on the red plate",
+        "episodeLength": 1309
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3P59JYT76NNHXH6861O9HPGJWRC2TJ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_45.mp4",
+        "task": "Place the tuna fish can on the red plate",
+        "episodeLength": 424
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3L4D84MIL1VRY4DLDSDC2NZCN84HJC",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_46.mp4",
+        "task": "Place the cheezit box on the blue wood block",
+        "episodeLength": 529
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3PH3VY7DJN0ZV9DEQD2YRKXPLUUZWF",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_47.mp4",
+        "task": "Place the white bottle on the brown box",
+        "episodeLength": 691
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3CPLWGV3MQ2U2OMNUEHCIDI5DFY9NF",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_48.mp4",
+        "task": "Place the green saucer on the brown box",
+        "episodeLength": 598
+    },
+    {
+        "episodeId": "ADEMAGRRRGSPT:3G5W44VEU9L89SOSB7V6I2NONY2GKO",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_49.mp4",
+        "task": "Place the red bowl on the blue wood block",
+        "episodeLength": 635
+    },
+    {
+        "episodeId": "A3T5UAYFKJBVTA:3BQU611VFRN9DMITT4Y70CNL8QS99R",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_50.mp4",
+        "task": "Place the red plate on the wood block",
+        "episodeLength": 3392
+    },
+    {
+        "episodeId": "A3KC26Z78FBOJT:378XPAWRUEGGT6L1P4IK90X8XZ1AIW",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_51.mp4",
+        "task": "Place the spoon on the red plate",
+        "episodeLength": 2187
+    },
+    {
+        "episodeId": "ADEMAGRRRGSPT:3PEIJLRY6VWAQEDZPVEDUZHEDV6WXR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_52.mp4",
+        "task": "Place the mustard bottle on the blue wood block",
+        "episodeLength": 1102
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3AMW0RGHOF5FUB2UB3D943IKIJRNPZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_53.mp4",
+        "task": "Place the red cup on the wood block",
+        "episodeLength": 837
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3MH9DQ757YFMCOT45LZ8OPWMPOPGU8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_54.mp4",
+        "task": "Place the spatula on the red plate",
+        "episodeLength": 593
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3E13VNJ1NPYKZI81TLPRYZ45T4II11",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_55.mp4",
+        "task": "Place the orange on the red plate",
+        "episodeLength": 332
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3I02618YA29SP1M384PVIYAEQF8UPM",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_56.mp4",
+        "task": "Place the soap dish on the colored wood blocks",
+        "episodeLength": 363
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3180JW2OT6FFIBTQCQC3DQWMI0TJ5F",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_57.mp4",
+        "task": "Place the apple on the dixie bowl",
+        "episodeLength": 522
+    },
+    {
+        "episodeId": "A2L26DMSVUEDP6:3UNH76FOCU83L79VQPUS4FMWHY8YMS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_58.mp4",
+        "task": "Place the brown bag in the basket",
+        "episodeLength": 1093
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3X4JMASXCOCA5L9DRSTAY7HITMWB0M",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_59.mp4",
+        "task": "Place the blue lego on the blue wood block",
+        "episodeLength": 421
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3FK0YFF9P1J5708ZZ68ZKC1FQBDVVU",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_60.mp4",
+        "task": "Place the red cup on the brown box",
+        "episodeLength": 402
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:34BBWHLWHCED0JO4Q9ECRPUZPH1WIO",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_61.mp4",
+        "task": "Place the power drill on the brown box",
+        "episodeLength": 408
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:33F859I568GLGLF9P00V4ZGZF45BHX",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_62.mp4",
+        "task": "Place the scissors on the brown box",
+        "episodeLength": 415
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:36NEMU28XHGZW2EVBOC4JI1G6RSWMD",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_63.mp4",
+        "task": "Place the yellow cup on the wood block",
+        "episodeLength": 1064
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3OF2M9AATIR809JX1ZJV393UYOVZKV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_64.mp4",
+        "task": "Place the pressure cooker on the brown box",
+        "episodeLength": 428
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:33C7UALJVN1RACWOKZD0LAARQ9281A",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_65.mp4",
+        "task": "Place the plum on the dixie bowl",
+        "episodeLength": 631
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3ZAK8W07I6HP1KIJRJA53X96I8BU0W",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_66.mp4",
+        "task": "Place the green saucer on the blue wood block",
+        "episodeLength": 508
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3ZR9AIQJUDCQKMO4CDJNQTBCJVU04M",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_67.mp4",
+        "task": "Place the utensil holder on the colored wood blocks",
+        "episodeLength": 1232
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3570Y55XZRM3TXD9FMWXRA2ZLC3YGR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_68.mp4",
+        "task": "Place the purple lego on the colored wood blocks",
+        "episodeLength": 793
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3TR2532VIRXB1FT4H9M85WAMEUN6JZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_69.mp4",
+        "task": "Place the potted meat can on the red plate",
+        "episodeLength": 821
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3J88R45B2I1K65GYD90I259IKXTXPL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_70.mp4",
+        "task": "Place the cheezit box on the brown box",
+        "episodeLength": 525
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3YDGXNSEO1X82BT77HW2J8HU2SR48W",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_71.mp4",
+        "task": "Place the sugar box on the red plate",
+        "episodeLength": 734
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3WT783CTPDKUZD4T38MUT8JJ2BUCBH",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_72.mp4",
+        "task": "Place the banana on the red bowl",
+        "episodeLength": 535
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3OB0CAO74JSHTT8KZSEFCAE00CCHY5",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_73.mp4",
+        "task": "Place the white mug on the red plate",
+        "episodeLength": 2466
+    },
+    {
+        "episodeId": "A3T5UAYFKJBVTA:3W92K5RLWWKO96TKTFQMGE7GDMTV53",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_74.mp4",
+        "task": "Place the blue lego on the colored wood blocks",
+        "episodeLength": 1002
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3ND9UOO81M5FQKWABCBPJ5MR6LILWE",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_75.mp4",
+        "task": "Place the brown bag on the red fabric cube",
+        "episodeLength": 1518
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3WYP994K19U1W4O339NBFJPARY5Y6U",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_76.mp4",
+        "task": "Place the red mug on the wood block",
+        "episodeLength": 519
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3ND9UOO81M5FQKWABCBPJ5MR6M2LW0",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_77.mp4",
+        "task": "Place the screwdriver on the brown box",
+        "episodeLength": 806
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3EJPLAJKEOJ11UY8ZVPUTQYCXSXZ6A",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_78.mp4",
+        "task": "Place the puzzle ball on the pink fabric cube",
+        "episodeLength": 412
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3WETL7AQWVB4XXR195KGXJFXM2O352",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_79.mp4",
+        "task": "Place the square porcelain plate on the blue wood block",
+        "episodeLength": 374
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:39GHHAVOMHUXMSPQYLTT8YQ8I4XJ49",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_80.mp4",
+        "task": "Place the toy airplane on the colored wood blocks",
+        "episodeLength": 419
+    },
+    {
+        "episodeId": "A2LHJN7Y7A7J2F:3R08VXYT7EYGBZ787IAF004QB1J7WX",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_81.mp4",
+        "task": "Place the yellow cup on the red plate",
+        "episodeLength": 2718
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3BXQMRHWK11M4YPQGOX31UGJLAXUMQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_82.mp4",
+        "task": "Place the puzzle ball on the storage bin",
+        "episodeLength": 617
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3NAPMVF0ZYIUZJ91TYL8CTO17UL72C",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_83.mp4",
+        "task": "Place the cole hammer on the wood block",
+        "episodeLength": 597
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3UXUOQ9OKG0J4M456DENIB7ZJII7AO",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_84.mp4",
+        "task": "Place the tomato soup can on the red plate",
+        "episodeLength": 517
+    },
+    {
+        "episodeId": "AOMFEAWQHU3D8:3VHP9MDGRPNKCUG98A8QCYA4HAVFCD",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_85.mp4",
+        "task": "Place the red saucer on the dish drainer",
+        "episodeLength": 867
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:39GXDJN2OVH7WOCMRDXPSYH7FCKV8V",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_86.mp4",
+        "task": "Place the apple on the red bowl",
+        "episodeLength": 338
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3X87C8JFV8EXA0VEJC9K32I0AFTSQH",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_87.mp4",
+        "task": "Place the tuna fish can on the ceramic plate",
+        "episodeLength": 857
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3Q5C1WP23O48NUDMM16X9Q00OJN15N",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_88.mp4",
+        "task": "Place the puzzle ball on the colored wood blocks",
+        "episodeLength": 1652
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:38SKSKU7R30XPPC5MV7AIEDJRBYILK",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_89.mp4",
+        "task": "Place the large clamp on the brown box",
+        "episodeLength": 505
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:34FNN24DCOC5D0OPYQD6NDBAV40Y5M",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_90.mp4",
+        "task": "Place the racquetball on the blue wood block",
+        "episodeLength": 627
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3WR9XG3T65E42XOOXC4W58LZR8J477",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_91.mp4",
+        "task": "Place the sugar box on the brown box",
+        "episodeLength": 687
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:39GXDJN2OVH7WOCMRDXPSYH7FCHV8S",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_92.mp4",
+        "task": "Place the brown bag on the colored wood blocks",
+        "episodeLength": 574
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3EWIJTFFVQA8COLX1JV0ZFN3WKM0EQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_93.mp4",
+        "task": "Place the softball on the colored wood blocks",
+        "episodeLength": 858
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:38YMOXR4MW2X7ZT3O85NUM4UGQ5W6T",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_94.mp4",
+        "task": "Place the wrench on the brown box",
+        "episodeLength": 830
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:374TNBHA8DYU6M7NII19LO61RZ8YQI",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_95.mp4",
+        "task": "Place the blue cup on the brown box",
+        "episodeLength": 548
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3TS1AR6UQSHE0DLDHT0FWCIQGY07F6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_96.mp4",
+        "task": "Place the tennis ball on the colored wood blocks",
+        "episodeLength": 478
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:340UGXU9D045ULJZUGYUOQZWC4TVUU",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_97.mp4",
+        "task": "Place the tuna fish can on the square porcelain plate",
+        "episodeLength": 906
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:31EUONYN2X6AHGZ2YUMLPK77UI6OVB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_98.mp4",
+        "task": "Place the yellow mug on the red plate",
+        "episodeLength": 524
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3QUO65DNQWRA41A2T4CGTY5OGACOUZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_99.mp4",
+        "task": "Place the grey hat in the basket",
+        "episodeLength": 1269
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3LPW2N6LKV5OWR4KOPGHKS5XZF8U51",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_100.mp4",
+        "task": "Place the blue mug on the square porcelain plate",
+        "episodeLength": 1287
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3S3AMIZX3W8NEA2DH4D0OY7J5XHDC2",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_101.mp4",
+        "task": "Place the rubiks cube on the blue wood block",
+        "episodeLength": 331
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3JWH6J9I9UGDQH1KSYV89JDV1F1BNR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_6.glb",
+        "video": "round2_day_3_p2_102.mp4",
+        "task": "Place the brown bag on the storage bin",
+        "episodeLength": 511
+    },
+    {
+        "episodeId": "A2L26DMSVUEDP6:31EUONYN2X6AHGZ2YUMLPK77UI3VOF",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_103.mp4",
+        "task": "Place the cheezit box on the brown box",
+        "episodeLength": 1448
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3VHP9MDGRPNKCUG98A8QCYA4H9FCFS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_104.mp4",
+        "task": "Place the soap dish on the blue wood block",
+        "episodeLength": 1434
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3YW4XOSQKSOP8931N2E5H2SGNZ7U1N",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_105.mp4",
+        "task": "Place the brown bag in the basket",
+        "episodeLength": 562
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3KXIR214I6JXGWRIR0N19H4RGSY24Q",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_106.mp4",
+        "task": "Place the utensil holder on the colored wood blocks",
+        "episodeLength": 1102
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3Z4GS9HPNXD1LK67ZA238K59IA577Q",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_107.mp4",
+        "task": "Place the green saucer on the brown box",
+        "episodeLength": 422
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:35GCEFQ6I7R24BBQGTRWMNMSN1VZ34",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_108.mp4",
+        "task": "Place the utensil holder on the blue wood block",
+        "episodeLength": 691
+    },
+    {
+        "episodeId": "A3T5UAYFKJBVTA:3HMVI3QICLV6PIN6X3BUKNYTJOT1Y5",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_109.mp4",
+        "task": "Place the large clamp on the blue wood block",
+        "episodeLength": 2319
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:340UGXU9D045ULJZUGYUOQZWC3EVUD",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_110.mp4",
+        "task": "Place the yellow mug on the square porcelain plate",
+        "episodeLength": 988
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:317HQ483I9VNDPFQY8NPV6H8W6FNI8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_111.mp4",
+        "task": "Place the orange cup on the brown box",
+        "episodeLength": 1564
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3JV9LGBJWVHRZJ979ZNZPJ4X724GOY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_112.mp4",
+        "task": "Place the toy airplane on the brown box",
+        "episodeLength": 886
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3LRKMWOKB7KDJTF7CTDR3DH0HNZZ2X",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_113.mp4",
+        "task": "Place the red bowl on the brown box",
+        "episodeLength": 1291
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3UNH76FOCU83L79VQPUS4FMWHYDYMX",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_114.mp4",
+        "task": "Place the cheezit box on the blue wood block",
+        "episodeLength": 858
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:320DUZ38G9PDY8IATMVUHNNB88NGJ8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_115.mp4",
+        "task": "Place the brown bag on the colored wood blocks",
+        "episodeLength": 801
+    },
+    {
+        "episodeId": "A2TUUIV61CR0C7:3LRLIPTPESC7Z1BPP73WMGCLP33KAU",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_116.mp4",
+        "task": "Place the red coffee mug on the square porcelain plate",
+        "episodeLength": 1419
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3QEMNNSB2Z2H2T7HQN5P8CF54L8D7P",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_117.mp4",
+        "task": "Place the pink saucer on the dish drainer",
+        "episodeLength": 697
+    },
+    {
+        "episodeId": "A3T5UAYFKJBVTA:3IUZPWIU1QA46EESQCZO459CHLQWKZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_118.mp4",
+        "task": "Place the rubiks cube on the blue wood block",
+        "episodeLength": 1263
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3NL0RFNU0HQSXCV8G6T59DQLXTSK44",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_119.mp4",
+        "task": "Place the pear on the red bowl",
+        "episodeLength": 1478
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3J88R45B2I1K65GYD90I259IKY8XP2",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_120.mp4",
+        "task": "Place the tuna fish can on the square porcelain plate",
+        "episodeLength": 981
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3RJSC4XJ12X8G5S4QI2XVLHQJQG50L",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_121.mp4",
+        "task": "Place the apple on the red plate",
+        "episodeLength": 1502
+    },
+    {
+        "episodeId": "AOMFEAWQHU3D8:38BQUHLA9Y3RRT5TK2LU2OOU3P3OM3",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_122.mp4",
+        "task": "Place the pear on the dixie bowl",
+        "episodeLength": 1102
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3ZQIG0FLQGJIMP84PGDV6EKTXKEVW3",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_123.mp4",
+        "task": "Place the screwdriver on the wood block",
+        "episodeLength": 1760
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3KKG4CDWKK18GGCHC92GJ4C5MY394K",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_124.mp4",
+        "task": "Place the brown bag on the pink fabric cube",
+        "episodeLength": 704
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3BV8HQ2ZZY400MQ0N39VCX73O856AX",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_125.mp4",
+        "task": "Place the red plate on the blue wood block",
+        "episodeLength": 1304
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:358010RM5GWXBPDUZL9H8XY06MHXVV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_126.mp4",
+        "task": "Place the apple on the square porcelain plate",
+        "episodeLength": 768
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3SLE99ER0PG776F3VM6246K4BT9ZBW",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_127.mp4",
+        "task": "Place the red saucer on the dish drainer",
+        "episodeLength": 533
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3S4AW7T80DL3HIDQ1656OD30MTDL4O",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_128.mp4",
+        "task": "Place the racquetball on the brown box",
+        "episodeLength": 380
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3BXQMRHWK11M4YPQGOX31UGJL7YMUD",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_129.mp4",
+        "task": "Place the hair straightner on the red fabric cube",
+        "episodeLength": 920
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3VAR3R6G1R4C643PQ1BBX6NZJKDO8E",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_130.mp4",
+        "task": "Place the racquetball on the blue wood block",
+        "episodeLength": 2631
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3EJPLAJKEOJ11UY8ZVPUTQYCXS16ZL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_131.mp4",
+        "task": "Place the tomato soup can on the red plate",
+        "episodeLength": 581
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3SNLUL3WO6Q2YG75GCWO1H1UL58LUG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_132.mp4",
+        "task": "Place the blue mug on the ceramic plate",
+        "episodeLength": 1146
+    },
+    {
+        "episodeId": "ADEMAGRRRGSPT:3L6L49WXW20PFTA59JPZ7O7303X453",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_133.mp4",
+        "task": "Place the knife on the red plate",
+        "episodeLength": 1487
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:354P56DE9M6N4IQZND0E3B155OO7SJ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_134.mp4",
+        "task": "Place the baseball on the colored wood blocks",
+        "episodeLength": 1399
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:374TNBHA8DYU6M7NII19LO61R0PYQ1",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_135.mp4",
+        "task": "Place the banana on the red plastic bowl",
+        "episodeLength": 605
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3YMTUJH0DUJR0VLVAF7XA4DHG5GT4E",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_136.mp4",
+        "task": "Place the softball on the blue wood block",
+        "episodeLength": 1773
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:37WLF8U1WRT6CZZMZUMK6BAZTKZK6Q",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_137.mp4",
+        "task": "Place the yellow cup on the blue wood block",
+        "episodeLength": 921
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3TUI152ZZDQXGGWK6TU071VRKE11QP",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_138.mp4",
+        "task": "Place the cole hammer on the blue wood block",
+        "episodeLength": 1413
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3SEPORI8WP22OWABP8669V0YTC7ZAM",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_139.mp4",
+        "task": "Place the pear on the red plastic bowl",
+        "episodeLength": 804
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:374TNBHA8DYU6M7NII19LO61R03YQF",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_140.mp4",
+        "task": "Place the plum on the square porcelain plate",
+        "episodeLength": 1124
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3A0EX8ZRNAR72G5YZ04JQZB25ZBYBA",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_141.mp4",
+        "task": "Place the yellow cup on the brown box",
+        "episodeLength": 418
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:39L1G8WVWSU59FQI8II4UT2GAN0131",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_142.mp4",
+        "task": "Place the blue lego on the colored wood blocks",
+        "episodeLength": 679
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:31QTRG6Q2VG96A68I5MKLJGRM43YPA",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_143.mp4",
+        "task": "Place the blue cup on the red plate",
+        "episodeLength": 789
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3ZSY5X72NZEIO9ILPAHBONI49BGRO6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_144.mp4",
+        "task": "Place the mustard bottle on the brown box",
+        "episodeLength": 861
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3300DTYQT4KW0HQWIHPFELEL9OEQE8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_145.mp4",
+        "task": "Place the toy gun on the brown box",
+        "episodeLength": 710
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3MH9DQ757YFMCOT45LZ8OPWMPPFUGE",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_146.mp4",
+        "task": "Place the brown bag on the blue wood block",
+        "episodeLength": 1298
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:392CY0QWG3U1RH5KG38TWXB85O1I4N",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_147.mp4",
+        "task": "Place the tennis ball on the colored wood blocks",
+        "episodeLength": 877
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:388U7OUMF94XLSQ2NPF0YMMMB800RP",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_148.mp4",
+        "task": "Place the grey hat on the blue wood block",
+        "episodeLength": 328
+    },
+    {
+        "episodeId": "A2L26DMSVUEDP6:32ZKVD547HQ6MD8AAFBT05FPWYH3BA",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_149.mp4",
+        "task": "Place the red bowl on the blue wood block",
+        "episodeLength": 794
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3QAPZX2QN6GGH89H8Z0ZXEEEZGK20C",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_150.mp4",
+        "task": "Place the orange cup on the red plate",
+        "episodeLength": 675
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:379J5II41QJL9KAJQCHJXZFRZHEELS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_151.mp4",
+        "task": "Place the puzzle ball on the pink fabric cube",
+        "episodeLength": 652
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3P4RDNWND79RUZO5JAVX2Z0RNMUIJJ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_152.mp4",
+        "task": "Place the puzzle ball on the storage bin",
+        "episodeLength": 488
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3VNXK88KKEL7ATVWW533SUCIZI39VZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_153.mp4",
+        "task": "Place the white mug on the ceramic plate",
+        "episodeLength": 886
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3X31TUMD7ZPMPJG7EOM4QFWXA8BL1H",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_154.mp4",
+        "task": "Place the apple on the red bowl",
+        "episodeLength": 752
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3A1COHJ8NLY2ENH2MOGLDXQY7YS8H3",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_155.mp4",
+        "task": "Place the cheezit box on the red plate",
+        "episodeLength": 990
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:33IZTU6J834HJXWQ5Q4CXAET7H8SX4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_156.mp4",
+        "task": "Place the puzzle ball in the basket",
+        "episodeLength": 1510
+    },
+    {
+        "episodeId": "A3GWRDHAURRNK6:3UWN2HHPU08C73IM3KH3Z8NV53VSNH",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_157.mp4",
+        "task": "Place the red plate on the brown box",
+        "episodeLength": 953
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3RUIQRXJBDRZFQKB7Y4NAU5B8EJLLQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_158.mp4",
+        "task": "Place the blue cup on the blue wood block",
+        "episodeLength": 1731
+    },
+    {
+        "episodeId": "A2L26DMSVUEDP6:3HL8HNGX474IEW96WQYZA89WBOE9FA",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_159.mp4",
+        "task": "Place the pink saucer on the brown box",
+        "episodeLength": 1088
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3Z7ISHFUH2YO58HWSAMSD4U33NO8Z6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_160.mp4",
+        "task": "Place the puzzle ball on the blue wood block",
+        "episodeLength": 1126
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3483FV8BEGMBVJVWAOGG6FO5CJZ62A",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_161.mp4",
+        "task": "Place the brown hat on the storage bin",
+        "episodeLength": 497
+    },
+    {
+        "episodeId": "A3GWRDHAURRNK6:3H7Z272LX9AP6BZ9ZQXURBEVDOMPLU",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_162.mp4",
+        "task": "Place the baseball on the brown box",
+        "episodeLength": 1325
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:39N5ACM9HGQU59Y0ATU4M2N0DUZ9PB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_163.mp4",
+        "task": "Place the red saucer on the blue wood block",
+        "episodeLength": 650
+    },
+    {
+        "episodeId": "AOMFEAWQHU3D8:3HFNH7HEMJHUKVMNOCF3EOZXM48QG4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_164.mp4",
+        "task": "Place the mustard bottle on the red plate",
+        "episodeLength": 1072
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3VJ40NV2QKQV4OVDTZM6O2JMXW5TOD",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_165.mp4",
+        "task": "Place the brown bag on the red fabric cube",
+        "episodeLength": 935
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3Z3ZLGNNSKXTQJAZTX8JVUAOIZ2Q3V",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_166.mp4",
+        "task": "Place the rubiks cube on the brown box",
+        "episodeLength": 754
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3PB5A5BD0X9KEDH8SD6XEXI2HDV7G0",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_167.mp4",
+        "task": "Place the blue jug on the wood block",
+        "episodeLength": 673
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:39K0FND3AJI2PPBSAJGC1T4PE79AMY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_168.mp4",
+        "task": "Place the green cup on the red plate",
+        "episodeLength": 3432
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3X08E93BHXLZDKEXXQSJWS5HSO766X",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_169.mp4",
+        "task": "Place the red bowl on the wood block",
+        "episodeLength": 599
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:31N2WW6R9TTWZUKQFHXPJV6ABXNF3K",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_170.mp4",
+        "task": "Place the orange cup on the wood block",
+        "episodeLength": 950
+    },
+    {
+        "episodeId": "A3KC26Z78FBOJT:3BDCF01OGZXJFPRAQDTD4277HTIYLQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_171.mp4",
+        "task": "Place the brown bag on the storage bin",
+        "episodeLength": 698
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3AQF3RZ55ALVWD78YJVNQYIULOO6FG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_172.mp4",
+        "task": "Place the green lego on the colored wood blocks",
+        "episodeLength": 2221
+    },
+    {
+        "episodeId": "A2LHJN7Y7A7J2F:3J4Q2Z4UT06QHHCN3HJL0RLLGSKWQV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_173.mp4",
+        "task": "Place the orange on the red plate",
+        "episodeLength": 2333
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:374TNBHA8DYU6M7NII19LO61RZIYQS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_174.mp4",
+        "task": "Place the blue jug on the brown box",
+        "episodeLength": 720
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3K9FOBBF2JMP3QNWJBK2NM90D9NNLY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_175.mp4",
+        "task": "Place the masterchef can on the red plate",
+        "episodeLength": 897
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3CP1TO84PV4FCFVI556BE9A5GOO25Q",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_176.mp4",
+        "task": "Place the red butter dish on the colored wood blocks",
+        "episodeLength": 408
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3YDGXNSEO1X82BT77HW2J8HU2SP48U",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_177.mp4",
+        "task": "Place the grey hat on the pink fabric cube",
+        "episodeLength": 1510
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3TE3O85732B4H2TG2CJEHAF187X2RQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_178.mp4",
+        "task": "Place the green cup on the blue wood block",
+        "episodeLength": 514
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3G5F9DBFOR00PZDFUHRV5BA6IW0VH2",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_179.mp4",
+        "task": "Place the power drill on the brown box",
+        "episodeLength": 670
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3JAOYWH7VK74EOJ2I11X5LEG8K19LG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_180.mp4",
+        "task": "Place the white bottle on the red plate",
+        "episodeLength": 1104
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3JW0YLFXRVJV1E89FQIRSG374SZWWV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_181.mp4",
+        "task": "Place the puzzle ball on the colored wood blocks",
+        "episodeLength": 1260
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3L70J4KAZIPZLV5FXQH9I3HV5TQDAS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_182.mp4",
+        "task": "Place the green saucer on the dish drainer",
+        "episodeLength": 2577
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:33CID57106WIZMUM1S0NE8BU8T7L3T",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_183.mp4",
+        "task": "Place the plum on the red plastic bowl",
+        "episodeLength": 1089
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3M68NM076JASZ3CHPEVH7NWDOBL6RV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_184.mp4",
+        "task": "Place the racquetball on the colored wood blocks",
+        "episodeLength": 1028
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3OHYZ19UGE8QPSW4NZVPTXTU98BAO2",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_185.mp4",
+        "task": "Place the tennis ball on the blue wood block",
+        "episodeLength": 635
+    },
+    {
+        "episodeId": "AE2DTSKM4VDED:3LWJHTCVCEPO6VQSDS9LW3ZLLOHQFC",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_5.glb",
+        "video": "round2_day_3_p2_186.mp4",
+        "task": "Place the blue mug on the square porcelain plate",
+        "episodeLength": 1771
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3R8YZBNQ9JLBR2BMV9B98BM4N017QS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_187.mp4",
+        "task": "Place the green cup on the wood block",
+        "episodeLength": 1336
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3IHR8NYAM94T83SOTYYD5UCKR2RP41",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_188.mp4",
+        "task": "Place the apple on the red bowl",
+        "episodeLength": 3590
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:35BLDD71I80MGKD903X25IEBEM6VZH",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_189.mp4",
+        "task": "Place the puzzle ball on the colored wood blocks",
+        "episodeLength": 2433
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3RXPCZQMQRE63R263XPODNRPERR1GT",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_190.mp4",
+        "task": "Place the plum on the red bowl",
+        "episodeLength": 1654
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3IGI0VL649NX9BQTW30UF3DU8EVNOI",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_191.mp4",
+        "task": "Place the sugar box on the blue wood block",
+        "episodeLength": 1941
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3TYCR1GOTEMJKF1FMZVWI9G9NNSLZA",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_192.mp4",
+        "task": "Place the green saucer on the blue wood block",
+        "episodeLength": 5437
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:39LNWE0K4WZ08FZZV9ZB919241KIU5",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_193.mp4",
+        "task": "Place the red cup on the wood block",
+        "episodeLength": 1363
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3GS6S824SS05EKZVNPR4WXQGBHXWN8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_194.mp4",
+        "task": "Place the racquetball on the colored wood blocks",
+        "episodeLength": 989
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3E13VNJ1NPYKZI81TLPRYZ45T4NI16",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_195.mp4",
+        "task": "Place the blue jug on the brown box",
+        "episodeLength": 5208
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3SKEMFQBZ58TGDIAS9JIQP6QZFPK8C",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_196.mp4",
+        "task": "Place the red mug on the brown box",
+        "episodeLength": 3796
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3ZV9H2YQQFAYAG6L567PNJSA6063WZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_197.mp4",
+        "task": "Place the tennis ball on the colored wood blocks",
+        "episodeLength": 2900
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:34BBWHLWHCED0JO4Q9ECRPUZPH0WIN",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_198.mp4",
+        "task": "Place the racquetball on the brown box",
+        "episodeLength": 3671
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3M81GAB8A2MYTEEC8QNPDD806QTQBY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_199.mp4",
+        "task": "Place the red bowl on the red plate",
+        "episodeLength": 978
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3MD9PLUKKKH98F40YCBBV1KYSJENZ2",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_200.mp4",
+        "task": "Place the banana on the dixie bowl",
+        "episodeLength": 2121
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:35L9RVQFCQL0CKOFPRHQ9P8N4OAUHT",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_201.mp4",
+        "task": "Place the pressure cooker on the brown box",
+        "episodeLength": 1860
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:32SCWG5HIJ77NQW2CMRS2SWYNQMP65",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_202.mp4",
+        "task": "Place the shark in the basket",
+        "episodeLength": 4311
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3W2LOLRXLDIZYIX6RIPIH61VP6BKRK",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_203.mp4",
+        "task": "Place the pressure cooker on the blue wood block",
+        "episodeLength": 4020
+    },
+    {
+        "episodeId": "A2TUUIV61CR0C7:3KOPY89HMA5C4W6MY7OAYTY244HJ34",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_204.mp4",
+        "task": "Place the tuna fish can on the red plate",
+        "episodeLength": 1073
+    },
+    {
+        "episodeId": "A3KC26Z78FBOJT:3RSDURM96CP59JHI9R69R7HN8XXYEL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_205.mp4",
+        "task": "Place the yellow mug on the ceramic plate",
+        "episodeLength": 3539
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3PW9OPU9PSNGOXUZ4I4ZBJXO48T21I",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_206.mp4",
+        "task": "Place the blue cup on the red plate",
+        "episodeLength": 1109
+    },
+    {
+        "episodeId": "A2L26DMSVUEDP6:3PS7W85Z815SX1R7RA3ORCOX2XN9TJ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_207.mp4",
+        "task": "Place the blue cup on the brown box",
+        "episodeLength": 5770
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3NC5L260MQPLLJDCYFHH7Y4L6NYFOS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_208.mp4",
+        "task": "Place the square porcelain plate on the brown box",
+        "episodeLength": 711
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:345LHZDEDZVLICHGA6SO5V7DLKV3U0",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_209.mp4",
+        "task": "Place the mustard bottle on the red plate",
+        "episodeLength": 1643
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3LOZAJ85YFGOEYFSBBP66S1P9OBX2A",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_210.mp4",
+        "task": "Place the toy airplane on the brown box",
+        "episodeLength": 1083
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3X73LLYYQ3HNHU46SQ54VUGTWS9HNG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_211.mp4",
+        "task": "Place the red cup on the blue wood block",
+        "episodeLength": 1004
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3WQQ9FUS6CXSNAEGMW6PRMN0CLLB8O",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_212.mp4",
+        "task": "Place the blue mug on the square porcelain plate",
+        "episodeLength": 1126
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:33UKMF931BNBHG0LPG85ICP9W56TTL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_213.mp4",
+        "task": "Place the softball on the blue wood block",
+        "episodeLength": 2045
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:33NF62TLXL5I0UETJDG9FFF4FQMJKY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_214.mp4",
+        "task": "Place the screwdriver on the wood block",
+        "episodeLength": 3798
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:34YB12FSQ0R3ZGOVWJ8MXFFSC2PGMJ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_215.mp4",
+        "task": "Place the red cup on the red plate",
+        "episodeLength": 1493
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3WMOAN2SRD0SZVZQXFM8AV7247MNVE",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_216.mp4",
+        "task": "Place the blue cup on the wood block",
+        "episodeLength": 2204
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3VHP9MDGRPNKCUG98A8QCYA4H9HFCX",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_217.mp4",
+        "task": "Place the blue mug on the ceramic plate",
+        "episodeLength": 2918
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3FQ5JJ512NREJK5EYB818MWLOASNK7",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_218.mp4",
+        "task": "Place the plum on the red plate",
+        "episodeLength": 2284
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:33C7UALJVN1RACWOKZD0LAARQ9P18Q",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_219.mp4",
+        "task": "Place the red mug on the blue wood block",
+        "episodeLength": 2248
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:33FOTY3KEOOTMFM11BT5NW6AGZW1CG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_220.mp4",
+        "task": "Place the brown bag in the basket",
+        "episodeLength": 1840
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3SLE99ER0PG776F3VM6246K4BUUBZV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_221.mp4",
+        "task": "Place the pink saucer on the dish drainer",
+        "episodeLength": 3169
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3ZOTGHDK5KEUPOIY4ZHGEXN0VD3SOZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_222.mp4",
+        "task": "Place the cheezit box on the red plate",
+        "episodeLength": 1180
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3BF51CHDTXDKWYCZRK36KIKGO0E0H6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_223.mp4",
+        "task": "Place the spoon on the red plate",
+        "episodeLength": 2592
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3S0TNUHWKVLL27C00SXVMCB0F5L8DE",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_224.mp4",
+        "task": "Place the rubiks cube on the brown box",
+        "episodeLength": 1840
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3TYCR1GOTEMJKF1FMZVWI9G9NO6LZQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_225.mp4",
+        "task": "Place the wrench on the blue wood block",
+        "episodeLength": 2110
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3U8YCDAGXRJX9RB2AAQ0TWCHFJQQ00",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_226.mp4",
+        "task": "Place the orange cup on the dish drainer",
+        "episodeLength": 1354
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3TAYZSBPLNBGIHTTH1JJ7KKXU842S0",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_227.mp4",
+        "task": "Place the tennis ball on the brown box",
+        "episodeLength": 997
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3PW9OPU9PSNGOXUZ4I4ZBJXO49X21O",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_228.mp4",
+        "task": "Place the brown hat on the storage bin",
+        "episodeLength": 1724
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3KB8R4ZV1GA7GPKY5UIDJZ4Y04XGB8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_229.mp4",
+        "task": "Place the orange on the red bowl",
+        "episodeLength": 587
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3LS2AMNW5HTIC83LCVSBJX8ZDQLOQB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_230.mp4",
+        "task": "Place the tennis ball on the blue wood block",
+        "episodeLength": 2948
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3TPWUS5F8B4MNG24YZIQGMW4CC8CWT",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_231.mp4",
+        "task": "Place the ceramic plate on the dish drainer",
+        "episodeLength": 2547
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3SLE99ER0PG776F3VM6246K4BU2BZ3",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_232.mp4",
+        "task": "Place the plum on the square porcelain plate",
+        "episodeLength": 2990
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3G0WWMR1UXN0UN39BGSY488UNF9QNP",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_233.mp4",
+        "task": "Place the puzzle ball on the pink fabric cube",
+        "episodeLength": 2258
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3VZLGYJEYNDEK9I40IYKT3BWUWWZX4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_234.mp4",
+        "task": "Place the red saucer on the brown box",
+        "episodeLength": 4705
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3VD82FOHKSREI7T27DRGZSJI976OCK",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_235.mp4",
+        "task": "Place the chocolate box in the basket",
+        "episodeLength": 1797
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3NKQQ8O3908J04JD3VY0I4TPCW5UD8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_236.mp4",
+        "task": "Place the puzzle ball on the blue wood block",
+        "episodeLength": 2470
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:39K0FND3AJI2PPBSAJGC1T4PE8MAMD",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_237.mp4",
+        "task": "Place the scissors on the blue wood block",
+        "episodeLength": 1152
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:30BUDKLTXFY77V7YYP1CGAJUDRIE58",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_238.mp4",
+        "task": "Place the soap dish on the colored wood blocks",
+        "episodeLength": 2476
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:35LDD5557C7812KEMAT1V77LJJ4KMO",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_239.mp4",
+        "task": "Place the mustard bottle on the brown box",
+        "episodeLength": 1593
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3DL65MZB8FIS6GGDDZOKUGP4580CEA",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_240.mp4",
+        "task": "Place the utensil holder on the colored wood blocks",
+        "episodeLength": 717
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3MAOD8E57SDK3K4LXUNQYG4NKJAXN9",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_241.mp4",
+        "task": "Place the tomato soup can on the ceramic plate",
+        "episodeLength": 2281
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:38YMOXR4MW2X7ZT3O85NUM4UGQ3W6R",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_242.mp4",
+        "task": "Place the red plate on the blue wood block",
+        "episodeLength": 4854
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3Z7VU45IP0K6U8XBTPDDYU7VPHLZ1G",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_243.mp4",
+        "task": "Place the sugar box on the red plate",
+        "episodeLength": 2031
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3Y54SXRO1NOQHTFAPLYFN8BBFITTUQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_244.mp4",
+        "task": "Place the brown bag on the red fabric cube",
+        "episodeLength": 1942
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3ZPPDN2SLXZQ8I9A1FETSQOWZOC9E7",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_245.mp4",
+        "task": "Place the brown bag on the colored wood blocks",
+        "episodeLength": 4030
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3WETL7AQWVB4XXR195KGXJFXM3H53Z",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_246.mp4",
+        "task": "Place the red plate on the wood block",
+        "episodeLength": 5916
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3S96KQ6I9O740R4O3Q8QD87NTI8TDQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_247.mp4",
+        "task": "Place the blue lego on the blue wood block",
+        "episodeLength": 873
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:39GHHAVOMHUXMSPQYLTT8YQ8I4X4JU",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_248.mp4",
+        "task": "Place the grey hat on the colored wood blocks",
+        "episodeLength": 1883
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3XC1O3LBOUPNY3SGG76EWLFS2SJLT9",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_249.mp4",
+        "task": "Place the green lego on the colored wood blocks",
+        "episodeLength": 1698
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3SBEHTYCWP6HPOJ45AW0CMFF0PZYIN",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_250.mp4",
+        "task": "Place the hammer on the brown box",
+        "episodeLength": 4028
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3LO69W1SU5GJTY6AW777X203CYJLG8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_251.mp4",
+        "task": "Place the rubiks cube on the colored wood blocks",
+        "episodeLength": 833
+    },
+    {
+        "episodeId": "A3GWRDHAURRNK6:3NC5L260MQPLLJDCYFHH7Y4L6N4FOY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_252.mp4",
+        "task": "Place the toy gun on the brown box",
+        "episodeLength": 1489
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3PMBY0YE296BBKPW5O8Y22OTEBKC90",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_253.mp4",
+        "task": "Place the puzzle ball in the basket",
+        "episodeLength": 821
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3II4UPYCOLAR8BCWMMEV83W09B6QD6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_254.mp4",
+        "task": "Place the apple on the red plate",
+        "episodeLength": 1418
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:30JNVC0ORBN8KRHY8IXLZOBY147HQG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_255.mp4",
+        "task": "Place the green cup on the brown box",
+        "episodeLength": 1639
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3VJ40NV2QKQV4OVDTZM6O2JMXXJOTO",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_256.mp4",
+        "task": "Place the orange cup on the blue wood block",
+        "episodeLength": 1674
+    },
+    {
+        "episodeId": "A3T5UAYFKJBVTA:3HRMW88U18T6OCDAIHJJCNSC5L60M6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_257.mp4",
+        "task": "Place the red cup on the brown box",
+        "episodeLength": 2771
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3AAJC4I4FIVDPPDFJEJJ2U3HJYOJZ7",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_258.mp4",
+        "task": "Place the blue jug on the blue wood block",
+        "episodeLength": 1490
+    },
+    {
+        "episodeId": "A3KC26Z78FBOJT:3DUZQ9U6SORPF8RV5B3U9PH8R6RVSV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_259.mp4",
+        "task": "Place the cole hammer on the wood block",
+        "episodeLength": 1114
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3TYCR1GOTEMJKF1FMZVWI9G9NNWZLS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_260.mp4",
+        "task": "Place the brown bag on the storage bin",
+        "episodeLength": 2851
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3L70J4KAZIPZLV5FXQH9I3HV5TLDAN",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_261.mp4",
+        "task": "Place the toy gun on the colored wood blocks",
+        "episodeLength": 2360
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3B3WTRP3DD5YD2XU8VJSQPF72K929J",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_262.mp4",
+        "task": "Place the red coffee mug on the ceramic plate",
+        "episodeLength": 2703
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3WETL7AQWVB4XXR195KGXJFXM3G53Y",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_263.mp4",
+        "task": "Place the red bowl on the blue wood block",
+        "episodeLength": 1802
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3W8CV64QJ422SS0CRGMZDTL9R4A9HT",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_264.mp4",
+        "task": "Place the plum on the ceramic plate",
+        "episodeLength": 1899
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3TXWC2NHN1TRI1ES2AYYH7SB0E99SU",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_265.mp4",
+        "task": "Place the soap dish on the blue wood block",
+        "episodeLength": 935
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3KKG4CDWKK18GGCHC92GJ4C5MZH940",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_266.mp4",
+        "task": "Place the white mug on the red plate",
+        "episodeLength": 1020
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3LKC68YZ3C6NW5Z7O4RHBMQL1QNOWY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_267.mp4",
+        "task": "Place the grey hat on the blue wood block",
+        "episodeLength": 1667
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3F6HPJW4JF39PYA216TK49NI0LRW20",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_268.mp4",
+        "task": "Place the brown bag on the pink fabric cube",
+        "episodeLength": 744
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3MAOD8E57SDK3K4LXUNQYG4NKIPXNM",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_269.mp4",
+        "task": "Place the blue mug on the red plate",
+        "episodeLength": 1889
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:308XBLVESK7Y5FTCL5CPI3I52CWBRL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_270.mp4",
+        "task": "Place the white bottle on the blue wood block",
+        "episodeLength": 757
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:37XITHEISYCHFKLIZ58KTNONKY3CR2",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_271.mp4",
+        "task": "Place the green lego on the brown box",
+        "episodeLength": 548
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:374TNBHA8DYU6M7NII19LO61RZ9YQJ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_272.mp4",
+        "task": "Place the banana on the red plate",
+        "episodeLength": 1741
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3IRIK4HM3CNOT1NY7H5MISXROACC6P",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_273.mp4",
+        "task": "Place the red butter dish on the blue wood block",
+        "episodeLength": 2311
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3B3WTRP3DD5YD2XU8VJSQPF72KB92S",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_274.mp4",
+        "task": "Place the green cup on the blue wood block",
+        "episodeLength": 1177
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3WI0P0II63VRKCRWZ13VDT655YGRDI",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_275.mp4",
+        "task": "Place the green saucer on the brown box",
+        "episodeLength": 1469
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:34HJIJKLP7Z6DNPKFA7CBM12DR4V46",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_276.mp4",
+        "task": "Place the grey hat on the storage bin",
+        "episodeLength": 1595
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3M68NM076JASZ3CHPEVH7NWDOBER69",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_277.mp4",
+        "task": "Place the grey hat on the pink fabric cube",
+        "episodeLength": 1779
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3ZWFC4W1UWAOIW5SQ7YL1T9QHARRFM",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_278.mp4",
+        "task": "Place the cole hammer on the brown box",
+        "episodeLength": 2203
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3HL8HNGX474IEW96WQYZA89WBOIF9K",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_279.mp4",
+        "task": "Place the red bowl on the wood block",
+        "episodeLength": 2262
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3WS1NTTKE0F0I2LTWUF6HX838L10F8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_280.mp4",
+        "task": "Place the purple lego on the brown box",
+        "episodeLength": 1394
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:33FOTY3KEOOTMFM11BT5NW6AG0A1CW",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_281.mp4",
+        "task": "Place the white mug on the square porcelain plate",
+        "episodeLength": 1137
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3ZQIG0FLQGJIMP84PGDV6EKTXJXWVL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_282.mp4",
+        "task": "Place the wrench on the wood block",
+        "episodeLength": 589
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3WJ1OXY92CJN409OGI6TWB3UU318AR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_283.mp4",
+        "task": "Place the tomato soup can on the square porcelain plate",
+        "episodeLength": 1795
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3NXNZ5RS1C05Z3U0E70NMGWFD1E79P",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_284.mp4",
+        "task": "Place the pear on the red plate",
+        "episodeLength": 2596
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3H7Z272LX9AP6BZ9ZQXURBEVDONLPR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_285.mp4",
+        "task": "Place the potted meat can on the red plate",
+        "episodeLength": 1921
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3UJ1CZ6IZJS8HECGZKLH5RN9EIU5S3",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_8.glb",
+        "video": "round2_day_3_p2_286.mp4",
+        "task": "Place the baseball on the colored wood blocks",
+        "episodeLength": 1834
+    },
+    {
+        "episodeId": "AAURS65ZO4SXC:358010RM5GWXBPDUZL9H8XY06MKVXW",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_287.mp4",
+        "task": "Place the red cup on the red plate",
+        "episodeLength": 1138
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3EO896NRAYYH3D4GDMU1G620Y39JT0",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_288.mp4",
+        "task": "Place the soap dish on the blue wood block",
+        "episodeLength": 1276
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:3LRLIPTPESC7Z1BPP73WMGCLP2CKA1",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_289.mp4",
+        "task": "Place the red coffee mug on the red plate",
+        "episodeLength": 470
+    },
+    {
+        "episodeId": "A2L26DMSVUEDP6:3SKRO2GZ73UB5DYPTOA3BFJIL87K1E",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_290.mp4",
+        "task": "Place the tuna fish can on the red plate",
+        "episodeLength": 960
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:386PBUZZXH0TK0WB4DSAUFSJ4PKLJU",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_291.mp4",
+        "task": "Place the green cup on the brown box",
+        "episodeLength": 2531
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:37UQDCYH6ZY3WA73H85JEYLC4SFV79",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_292.mp4",
+        "task": "Place the blue cup on the red plate",
+        "episodeLength": 478
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3G5F9DBFOR00PZDFUHRV5BA6IVAHVW",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_293.mp4",
+        "task": "Place the jello box on the red plate",
+        "episodeLength": 375
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3DH6GAKTY0S3KE8E5EKMCHI5W2SYZB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_294.mp4",
+        "task": "Place the masterchef can on the red plate",
+        "episodeLength": 2713
+    },
+    {
+        "episodeId": "ADEMAGRRRGSPT:3HPZF4IVNOWQCLX4D00E1JHKNLJYCR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_295.mp4",
+        "task": "Place the green lego on the colored wood blocks",
+        "episodeLength": 1640
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3WR9XG3T65E42XOOXC4W58LZR8H475",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_296.mp4",
+        "task": "Place the banana on the red plate",
+        "episodeLength": 1022
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3WT783CTPDKUZD4T38MUT8JJ2BYCBL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_297.mp4",
+        "task": "Place the baseball on the blue wood block",
+        "episodeLength": 752
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3LYA37P8ISQCIBGHVL3SHRWR7K8BKY",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_298.mp4",
+        "task": "Place the screwdriver on the wood block",
+        "episodeLength": 967
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:36WLNQG781D9WBO7ZZSPJWJMNNZBE1",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_299.mp4",
+        "task": "Place the brown hat on the storage bin",
+        "episodeLength": 444
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3TXWC2NHN1TRI1ES2AYYH7SB0E8S9C",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_300.mp4",
+        "task": "Place the green cup on the wood block",
+        "episodeLength": 2801
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3ZSY5X72NZEIO9ILPAHBONI49BLROB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_301.mp4",
+        "task": "Place the red cup on the wood block",
+        "episodeLength": 856
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3ZQIG0FLQGJIMP84PGDV6EKTXKFVW4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_302.mp4",
+        "task": "Place the large clamp on the brown box",
+        "episodeLength": 911
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3TMSXRD2X8320DS6I2T6ZQDD8FE1WP",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_303.mp4",
+        "task": "Place the red butter dish on the blue wood block",
+        "episodeLength": 1805
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3HL8HNGX474IEW96WQYZA89WBPXF91",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_304.mp4",
+        "task": "Place the jello box on the square porcelain plate",
+        "episodeLength": 1179
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3NXNZ5RS1C05Z3U0E70NMGWFD1M79X",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_305.mp4",
+        "task": "Place the apple on the square porcelain plate",
+        "episodeLength": 1358
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3PIWWX1FJL9NPA8B1SGXE0FR00CJJN",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_306.mp4",
+        "task": "Place the pink saucer on the blue wood block",
+        "episodeLength": 539
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:37Z929RLGBBA2GN60G3F87TNUMXST0",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_307.mp4",
+        "task": "Place the tomato soup can on the square porcelain plate",
+        "episodeLength": 594
+    },
+    {
+        "episodeId": "A3GNQDFPZALU92:33PPUNGG3A8UNDWSRJSS4LP8TGRZRQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_308.mp4",
+        "task": "Place the red plate on the blue wood block",
+        "episodeLength": 1462
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3OUYGIZWR91C9FANAXBBTRM7ARJP0V",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_309.mp4",
+        "task": "Place the pressure cooker on the brown box",
+        "episodeLength": 1419
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3L2IS5HSFCLSMGAQSPC3E95JQ09NUL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_310.mp4",
+        "task": "Place the plum on the red bowl",
+        "episodeLength": 1633
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3FPRZHYEP0ALVR6GFW2T1H9WZR8V3L",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_311.mp4",
+        "task": "Place the red plate on the brown box",
+        "episodeLength": 637
+    },
+    {
+        "episodeId": "ADEMAGRRRGSPT:30MVJZJNHOGYJYV2FGPKP61O4W69JQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_312.mp4",
+        "task": "Place the orange cup on the blue wood block",
+        "episodeLength": 1080
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:31LVTDXBL9DAIOFOCI1JW6EAE63LRB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_313.mp4",
+        "task": "Place the brown bag on the blue wood block",
+        "episodeLength": 871
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3I33IC7ZWH5CIL7Z01XSMKQR82P2AW",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_314.mp4",
+        "task": "Place the green saucer on the blue wood block",
+        "episodeLength": 689
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3A7Y0R2P2QROKUD0IWVY59N6BYVJXF",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_315.mp4",
+        "task": "Place the large clamp on the wood block",
+        "episodeLength": 1620
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3F0BG9B9MRQK0428MJS3LXP6M9E7YR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_316.mp4",
+        "task": "Place the ceramic plate on the brown box",
+        "episodeLength": 1076
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3FFJ6VRIL3RKSTNJX2LRKULVOCFI01",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_317.mp4",
+        "task": "Place the red mug on the blue wood block",
+        "episodeLength": 713
+    },
+    {
+        "episodeId": "A3T5UAYFKJBVTA:3F0BG9B9MRQK0428MJS3LXP6MAR7Y6",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_318.mp4",
+        "task": "Place the pear on the red bowl",
+        "episodeLength": 1647
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3SLE99ER0PG776F3VM6246K4BT8ZBV",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_319.mp4",
+        "task": "Place the puzzle ball on the storage bin",
+        "episodeLength": 1391
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3FFJ6VRIL3RKSTNJX2LRKULVOAQ0IQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_320.mp4",
+        "task": "Place the toy school bus on the blue wood block",
+        "episodeLength": 955
+    },
+    {
+        "episodeId": "A3KC26Z78FBOJT:3M81GAB8A2MYTEEC8QNPDD806QOBQE",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_321.mp4",
+        "task": "Place the brown bag in the basket",
+        "episodeLength": 508
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3XM0HYN6NM2B05PHI4AQEGOB4RMPE8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_322.mp4",
+        "task": "Place the blue cup on the wood block",
+        "episodeLength": 1114
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:3ERMJ6L4D0VK6NDU3G4SR22ZDZ9M7P",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_323.mp4",
+        "task": "Place the white mug on the ceramic plate",
+        "episodeLength": 1404
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3V5Q80FXIZUCY08ERMIIZCCL2SX321",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_324.mp4",
+        "task": "Place the red saucer on the brown box",
+        "episodeLength": 949
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3JAOYWH7VK74EOJ2I11X5LEG8KXL9O",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_325.mp4",
+        "task": "Place the grey hat on the red fabric cube",
+        "episodeLength": 1691
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3FE2ERCCZZBXCW26CIDMJSIP8TWPOG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_326.mp4",
+        "task": "Place the square porcelain plate on the brown box",
+        "episodeLength": 721
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3VJ40NV2QKQV4OVDTZM6O2JMXXYTO8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_327.mp4",
+        "task": "Place the red bowl on the wood block",
+        "episodeLength": 527
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3Z7ISHFUH2YO58HWSAMSD4U33O8Z8J",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_328.mp4",
+        "task": "Place the yellow cup on the wood block",
+        "episodeLength": 1132
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3SLE99ER0PG776F3VM6246K4BTCZBZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_329.mp4",
+        "task": "Place the spatula on the red plate",
+        "episodeLength": 711
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3DUZQ9U6SORPF8RV5B3U9PH8R78SVB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_330.mp4",
+        "task": "Place the scissors on the brown box",
+        "episodeLength": 1226
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:382M9COHEJIOSAXDZQ9KOMBAC86UE1",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_331.mp4",
+        "task": "Place the puzzle ball on the colored wood blocks",
+        "episodeLength": 1019
+    },
+    {
+        "episodeId": "AOMFEAWQHU3D8:3EKVH9QME07AGSABKBOUCLYXT642DI",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_332.mp4",
+        "task": "Place the power drill on the blue wood block",
+        "episodeLength": 1530
+    },
+    {
+        "episodeId": "A2TUUIV61CR0C7:3HUTX6F6VWQ1KP10AK2ANFAWXKMO2C",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_333.mp4",
+        "task": "Place the blue jug on the wood block",
+        "episodeLength": 639
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3OCHAWUVGQNJVEJI0HVA6ONJQO3KXP",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_334.mp4",
+        "task": "Place the wrench on the blue wood block",
+        "episodeLength": 648
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:33UKMF931BNBHG0LPG85ICP9W4MTTZ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_335.mp4",
+        "task": "Place the grey hat on the pink fabric cube",
+        "episodeLength": 823
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3S06PH7KST73R7SF17OG72OS1ZBD1V",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_336.mp4",
+        "task": "Place the cole hammer on the blue wood block",
+        "episodeLength": 749
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3BDCF01OGZXJFPRAQDTD4277HTPLYK",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_337.mp4",
+        "task": "Place the fork on the red plate",
+        "episodeLength": 640
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3R0T90IZ1UFQQUC4JUE8UJAGIP9GCR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_338.mp4",
+        "task": "Place the spatula on the square porcelain plate",
+        "episodeLength": 492
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3TPZPLC3M2F8Q79KTKTUVPKED2P3PO",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_339.mp4",
+        "task": "Place the brown bag on the pink fabric cube",
+        "episodeLength": 686
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3EG49X351WFCWZYTYD19W5I1PS56XQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_340.mp4",
+        "task": "Place the yellow cup on the blue wood block",
+        "episodeLength": 924
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:3I02618YA29SP1M384PVIYAEQFCUPQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_341.mp4",
+        "task": "Place the knife on the red plate",
+        "episodeLength": 954
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:324G5B4FB5BN396NEBHUT5VMAW007K",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_342.mp4",
+        "task": "Place the yellow mug on the red plate",
+        "episodeLength": 1181
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3YDGXNSEO1X82BT77HW2J8HU2TY485",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_343.mp4",
+        "task": "Place the hammer on the wood block",
+        "episodeLength": 1536
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:32EYX73OY2CD1E2ILWTKNTATRXWURE",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_344.mp4",
+        "task": "Place the utensil holder on the blue wood block",
+        "episodeLength": 1494
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3PS7W85Z815SX1R7RA3ORCOX2XJT9Z",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_345.mp4",
+        "task": "Place the grey hat in the basket",
+        "episodeLength": 1100
+    },
+    {
+        "episodeId": "AQ0YWEW29GSIJ:32Q90QCQ1UOAPES15C5IIZ2CAHBEKR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_346.mp4",
+        "task": "Place the blue mug on the ceramic plate",
+        "episodeLength": 1252
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3EQHHY4HQUV5R93P4KR0GD46Q7UG5O",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_347.mp4",
+        "task": "Place the red saucer on the blue wood block",
+        "episodeLength": 739
+    },
+    {
+        "episodeId": "A2TUUIV61CR0C7:351SEKWQS2K0NWE4UT7ERUCVZBWMD4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_348.mp4",
+        "task": "Place the red mug on the wood block",
+        "episodeLength": 945
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3TVRFO09GMIUFK10LH7BLO0YFNQXLL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_349.mp4",
+        "task": "Place the white mug on the red plate",
+        "episodeLength": 1436
+    },
+    {
+        "episodeId": "A3GWRDHAURRNK6:3FFJ6VRIL3RKSTNJX2LRKULVOCJI05",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_350.mp4",
+        "task": "Place the yellow cup on the red plate",
+        "episodeLength": 1291
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3HRMW88U18T6OCDAIHJJCNSC5ME0MG",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_351.mp4",
+        "task": "Place the red coffee mug on the ceramic plate",
+        "episodeLength": 998
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:340UGXU9D045ULJZUGYUOQZWC44VU5",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_352.mp4",
+        "task": "Place the red mug on the red plate",
+        "episodeLength": 1190
+    },
+    {
+        "episodeId": "A3T5UAYFKJBVTA:36ZN444YTT15VAF2ZNN2AVHDMG6OIA",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_353.mp4",
+        "task": "Place the softball on the colored wood blocks",
+        "episodeLength": 653
+    },
+    {
+        "episodeId": "A3KC26Z78FBOJT:3I02618YA29SP1M384PVIYAEQGNUP3",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_354.mp4",
+        "task": "Place the purple lego on the colored wood blocks",
+        "episodeLength": 700
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3FTOP5WARHRGN47PFK6RWV0V1RZ0JQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_355.mp4",
+        "task": "Place the grey hat on the storage bin",
+        "episodeLength": 622
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3Z7ISHFUH2YO58HWSAMSD4U33NQZ8Z",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_356.mp4",
+        "task": "Place the yellow mug on the square porcelain plate",
+        "episodeLength": 1948
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3TGOYF991ZP5H6UZPQOPS4XDYW0UUI",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_357.mp4",
+        "task": "Place the red butter dish on the colored wood blocks",
+        "episodeLength": 390
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:369J354OFFD1AD3393158JI6M3O6GF",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_358.mp4",
+        "task": "Place the toy gun on the blue wood block",
+        "episodeLength": 1895
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3OS4RQUCRBI12PO3UACV1E4MZPTFB4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_359.mp4",
+        "task": "Place the orange cup on the wood block",
+        "episodeLength": 2301
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3WSELTNVR5562K1CJGHON7ZH8F8TAL",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_360.mp4",
+        "task": "Place the blue cup on the brown box",
+        "episodeLength": 1380
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3Z4AIRP3C8GHPDXWS7PS19RKHI51X5",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_361.mp4",
+        "task": "Place the apple on the dixie bowl",
+        "episodeLength": 811
+    },
+    {
+        "episodeId": "AEWGY34WUIA32:3NQL1CS15TBMBU344HVJRB598S5YVW",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_362.mp4",
+        "task": "Place the toy gun on the colored wood blocks",
+        "episodeLength": 1061
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:30BXRYBRP60D4ODKKRWRRDTKP4AHW4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_363.mp4",
+        "task": "Place the pink saucer on the brown box",
+        "episodeLength": 624
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:32EYX73OY2CD1E2ILWTKNTATRX0URI",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_364.mp4",
+        "task": "Place the banana on the red bowl",
+        "episodeLength": 641
+    },
+    {
+        "episodeId": "A27HVVLSZZ13XK:32Q90QCQ1UOAPES15C5IIZ2CAHCEKS",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_365.mp4",
+        "task": "Place the red cup on the brown box",
+        "episodeLength": 808
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3L6L49WXW20PFTA59JPZ7O730ZJ45H",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_366.mp4",
+        "task": "Place the teapot in the basket",
+        "episodeLength": 639
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:336YQZE83XH5JJZBFNPVTIO3MUN5M4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_367.mp4",
+        "task": "Place the blue lego on the brown box",
+        "episodeLength": 1820
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:34YB12FSQ0R3ZGOVWJ8MXFFSC31GMX",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_368.mp4",
+        "task": "Place the baseball on the colored wood blocks",
+        "episodeLength": 1306
+    },
+    {
+        "episodeId": "A3LA5P3N3KI8U7:37WLF8U1WRT6CZZMZUMK6BAZTK16KE",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_369.mp4",
+        "task": "Place the softball on the brown box",
+        "episodeLength": 783
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3YZ8UPK3VVP9VCDZ3Z3PYYB7RWTUC8",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_370.mp4",
+        "task": "Place the puzzle ball on the blue wood block",
+        "episodeLength": 1051
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3NAPMVF0ZYIUZJ91TYL8CTO17V327R",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_371.mp4",
+        "task": "Place the toy airplane on the colored wood blocks",
+        "episodeLength": 2418
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3ZOTGHDK5KEUPOIY4ZHGEXN0VDUSOQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_372.mp4",
+        "task": "Place the pressure cooker on the blue wood block",
+        "episodeLength": 2065
+    },
+    {
+        "episodeId": "A3PFU4042GIQLE:3B837J3LDQZXM1AEWRYK8SS561VRSH",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_373.mp4",
+        "task": "Place the rubiks cube on the brown box",
+        "episodeLength": 1686
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:30OG32W0SWEBXKD42PXYARJG4CFNE4",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_374.mp4",
+        "task": "Place the green saucer on the brown box",
+        "episodeLength": 1028
+    },
+    {
+        "episodeId": "AIOOOO5OXWXKM:3Q5C1WP23O48NUDMM16X9Q00OIE15C",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_375.mp4",
+        "task": "Place the red coffee mug on the square porcelain plate",
+        "episodeLength": 1757
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3F0BG9B9MRQK0428MJS3LXP6M9G7YT",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_376.mp4",
+        "task": "Place the cole hammer on the wood block",
+        "episodeLength": 2314
+    },
+    {
+        "episodeId": "AKYXQY5IP7S0Z:34Q075JO1ZG9SNRLPV0LSV497AB10Z",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_377.mp4",
+        "task": "Place the soap dish on the colored wood blocks",
+        "episodeLength": 2731
+    },
+    {
+        "episodeId": "A2CWA5VQZ6IWMQ:3TAYZSBPLNBGIHTTH1JJ7KKXU9G2SE",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_378.mp4",
+        "task": "Place the banana on the dixie bowl",
+        "episodeLength": 415
+    },
+    {
+        "episodeId": "A2DDPSXH2X96RF:33M4IA01QI45IIWDQ147709XLFHXRD",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_379.mp4",
+        "task": "Place the purple cup on the brown box",
+        "episodeLength": 1121
+    },
+    {
+        "episodeId": "AOMFEAWQHU3D8:3J88R45B2I1K65GYD90I259IKYHXPB",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_380.mp4",
+        "task": "Place the puzzle ball on the pink fabric cube",
+        "episodeLength": 1044
+    },
+    {
+        "episodeId": "A272X64FOZFYLB:3EQHHY4HQUV5R93P4KR0GD46Q7YG5S",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_381.mp4",
+        "task": "Place the green saucer on the dish drainer",
+        "episodeLength": 896
+    },
+    {
+        "episodeId": "A1ZE52NWZPN85P:3WQQ9FUS6CXSNAEGMW6PRMN0CLM8BM",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_382.mp4",
+        "task": "Place the red plate on the wood block",
+        "episodeLength": 1167
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:33LKR6A5KGNA8WOCNXOVC66E4MFT1C",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_383.mp4",
+        "task": "Place the apple on the red bowl",
+        "episodeLength": 2359
+    },
+    {
+        "episodeId": "A2L26DMSVUEDP6:30JNVC0ORBN8KRHY8IXLZOBY13YHQ5",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_384.mp4",
+        "task": "Place the utensil holder on the colored wood blocks",
+        "episodeLength": 1762
+    },
+    {
+        "episodeId": "A2Q6L9LKSNU7EB:3ZDAD0O1T3GIYX95UQ927FAF90FXTR",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_385.mp4",
+        "task": "Place the cheezit box on the red plate",
+        "episodeLength": 1125
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:30LSNF239WYRO3QXCPP53IEALBOI2C",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_386.mp4",
+        "task": "Place the plum on the red plastic bowl",
+        "episodeLength": 952
+    },
+    {
+        "episodeId": "A3O5RKGH6VB19C:3Y5140Z9DZJNGAR3EN0HZVM3WKPPID",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_387.mp4",
+        "task": "Place the mustard bottle on the brown box",
+        "episodeLength": 516
+    },
+    {
+        "episodeId": "A2LHJN7Y7A7J2F:34S6N1K2ZXMXTU1LGDPPI2C4RYJHLQ",
+        "sceneId": "data/scene_datasets/habitat-test-scenes/house_4.glb",
+        "video": "round2_day_3_p2_388.mp4",
+        "task": "Place the racquetball on the colored wood blocks",
+        "episodeLength": 2726
+    }
+]

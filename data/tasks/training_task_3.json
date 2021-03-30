@@ -1,39 +1,212 @@
 {
   "episodes": [
     {
-      "episode_id": "0",
-      "scene_id": "empty_house.glb",
+      "episode_id": 0,
+      "scene_id": "v3_sc1_staging_05_Baked_Ceiling_v2.glb",
+      "start_position": [
+          2.0176503658294678,
+          0.4348037838935852,
+          -1.7619049549102783
+      ],
+      "start_rotation": [
+          0,
+          0.2645035351779314,
+          0,
+          -0.9643847157013516
+      ],
       "task": {
-        "instruction": "Place the mustard bottle on the colored wood blocks",
-        "type": "arrangement",
-        "goals": {
-          "objectToReceptacleMap": {
-            "0": [1],
-            "1": [0]
+          "instruction": "Clean the house",
+          "type": "cleaning",
+          "goals": {
+              "objectToRoomMap": {
+                  "0": "living room",
+                  "1": "living room",
+                  "2": "kitchen",
+                  "3": "kitchen"
+              }
           }
-        }
       },
-
-      "start_position": [-4.5867, -0.208959, 1.75358],
-      "start_rotation": [0, -0.0654379, 0, -0.997857],
       "objects": [
           {
-            "object": "mustard bottle",
-            "objectHandle": "/data/objects/mustard_bottle.object_config.json",
-            "objectIcon": "/data/test_assets/objects/mustard_bottle.png",
-            "position": [-3.345522403717041,-0.14624206721782684,-2.518608808517456],
-            "rotation": [0.0, 0.0, 0.0, 1.0],
-            "isReceptacle": false,
-            "motionType": "STATIC"
+              "object": "blue orchid pot",
+              "objectHandle": "/data/objects/Down_To_Earth_Ceramic_Orchid_Pot_Asst_Blue.object_config.json",
+              "objectIcon": "/data/test_assets/objects/Down_To_Earth_Ceramic_Orchid_Pot_Asst_Blue.png",
+              "objectId": 0,
+              "isReceptacle": false,
+              "position": [
+                  -1.2617725133895874,
+                  0.4355972111225128,
+                  -5.738129615783691
+              ],
+              "rotation": [
+                  -0.00009702778334030882,
+                  0.10060468316078186,
+                  0.0005288785323500633,
+                  0.9949263334274292
+              ],
+              "motionType": "DYNAMIC"
           },
           {
-            "object": "colored wood blocks",
-            "objectIcon": "/data/test_assets/objects/colored_wood_blocks.png",
-            "objectHandle": "/data/objects/colored_wood_blocks.object_config.json",
-            "position": [1.4270246028900146,-0.16419634222984314,-5.193271636962891],
-            "rotation": [0.0, 0.0, 0.0, 1.0],
-            "isReceptacle": true,
-            "motionType": "STATIC"
+              "object": "spiderman action figure",
+              "objectHandle": "/data/objects/SpiderMan_Titan_Hero_12Inch_Action_Figure_5Hnn4mtkFsP.object_config.json",
+              "objectIcon": "/data/test_assets/objects/SpiderMan_Titan_Hero_12Inch_Action_Figure_5Hnn4mtkFsP.png",
+              "objectId": 1,
+              "isReceptacle": false,
+              "position": [
+                  1.9392935037612915,
+                  0.42420876026153564,
+                  3.549833297729492
+              ],
+              "rotation": [
+                  6.68837287776114e-7,
+                  0.04121271148324013,
+                  -0.0000067024379859503824,
+                  0.9991503953933716
+              ],
+              "motionType": "DYNAMIC"
+          },
+          {
+              "object": "banana",
+              "objectHandle": "/data/objects/banana.object_config.json",
+              "objectIcon": "/data/test_assets/objects/banana.png",
+              "objectId": 2,
+              "isReceptacle": false,
+              "position": [
+                  -1.397301197052002,
+                  0.46489661931991577,
+                  -4.527723789215088
+              ],
+              "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+              ],
+              "motionType": "DYNAMIC"
+          },
+          {
+              "object": "red coffee mug",
+              "objectHandle": "/data/objects/ACE_Coffee_Mug_Kristen_16_oz_cup.object_config.json",
+              "objectIcon": "/data/test_assets/objects/ACE_Coffee_Mug_Kristen_16_oz_cup.png",
+              "objectId": 3,
+              "isReceptacle": false,
+              "position": [
+                  2.997901439666748,
+                  0.447364866733551,
+                  -3.248486280441284
+              ],
+              "rotation": [
+                  0.0000045399742703011725,
+                  -0.007117815315723419,
+                  -0.0000011388619896024466,
+                  0.9999746680259705
+              ],
+              "motionType": "DYNAMIC"
+          }
+      ]
+  },
+  {
+      "episode_id": 1,
+      "scene_id": "v3_sc1_staging_05_Baked_Ceiling_v2.glb",
+      "start_position": [
+          1.7810091972351074,
+          0.5205471515655518,
+          -3.593127727508545
+      ],
+      "start_rotation": [
+          0,
+          0.6427997908778197,
+          0,
+          0.7660342217208258
+      ],
+      "task": {
+          "instruction": "Clean the house",
+          "type": "cleaning",
+          "goals": {
+              "objectToRoomMap": {
+                  "0": "living room",
+                  "1": "living room",
+                  "2": "kitchen",
+                  "3": "kitchen"
+              }
+          }
+      },
+      "objects": [
+          {
+              "object": "toy gun",
+              "objectHandle": "/data/objects/b_toy_airplane.object_config.json",
+              "objectIcon": "/data/test_assets/objects/b_toy_airplane.png",
+              "objectId": 0,
+              "isReceptacle": false,
+              "position": [
+                  -1.3512341976165771,
+                  0.41614705324172974,
+                  -2.1900064945220947
+              ],
+              "rotation": [
+                  -0.03042161464691162,
+                  0.012059545144438744,
+                  -0.00014334122533909976,
+                  0.9994643926620483
+              ],
+              "motionType": "DYNAMIC"
+          },
+          {
+              "object": "brown hat",
+              "objectHandle": "/data/objects/DPC_Handmade_Hat_Brown.object_config.json",
+              "objectIcon": "/data/test_assets/objects/DPC_Handmade_Hat_Brown.png",
+              "objectId": 1,
+              "isReceptacle": false,
+              "position": [
+                  1.6273812055587769,
+                  0.4245290160179138,
+                  -0.8489996790885925
+              ],
+              "rotation": [
+                  -1.2128424486945732e-7,
+                  0.0010918299667537212,
+                  6.68497079914232e-9,
+                  0.9999994039535522
+              ],
+              "motionType": "DYNAMIC"
+          },
+          {
+              "object": "dixie bowl",
+              "objectHandle": "/data/objects/Dixie_10_ounce_Bowls_35_ct.object_config.json",
+              "objectIcon": "/data/test_assets/objects/Dixie_10_ounce_Bowls_35_ct.png",
+              "objectId": 2,
+              "isReceptacle": false,
+              "position": [
+                  -1.7797226905822754,
+                  0.4255642890930176,
+                  -3.95379638671875
+              ],
+              "rotation": [
+                  -2.8594179468655057e-8,
+                  -0.00759581895545125,
+                  -7.254435985259988e-8,
+                  0.9999711513519287
+              ],
+              "motionType": "DYNAMIC"
+          },
+          {
+              "object": "blue cup",
+              "objectHandle": "/data/objects/b_cups.object_config.json",
+              "objectIcon": "/data/test_assets/objects/b_cups.png",
+              "objectId": 3,
+              "isReceptacle": false,
+              "position": [
+                  2.8231420516967773,
+                  0.4444628059864044,
+                  -3.1705212593078613
+              ],
+              "rotation": [
+                  0.000001810202888918866,
+                  -0.01805577054619789,
+                  -0.000001343218741567398,
+                  0.9998369812965393
+              ],
+              "motionType": "DYNAMIC"
           }
       ]
     }

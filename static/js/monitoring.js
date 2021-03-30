@@ -48,6 +48,7 @@ function convertToInstructionMap(records) {
     }
     var sortedKeys = Object.keys(instructionMap).sort();
     var count = 0;
+    let uniqueInstructions = new Set();
     for (let idx in sortedKeys) {
         var sceneId = sortedKeys[idx];
         
@@ -59,14 +60,23 @@ function convertToInstructionMap(records) {
         var sortedInstructionKeys = Object.keys(instructionMap[sceneId]).sort();
         for (let instIdx in sortedInstructionKeys) {
             var instruction = sortedInstructionKeys[instIdx];
-            var optionElement = document.createElement("option");
-            optionElement.value = instruction;
-            optionElement.innerHTML = instruction;
-            instructionSelect.appendChild(optionElement);
+            uniqueInstructions.add(instruction);
+            // var optionElement = document.createElement("option");
+            // optionElement.value = instruction;
+            // optionElement.innerHTML = instruction;
+            // instructionSelect.appendChild(optionElement);
             count+=1;
         }
     }
-    console.log("Total instructions: " + count);
+    let instructionArray = Array.from(uniqueInstructions).sort();
+    for (let instIdx in instructionArray) {
+        var instruction = instructionArray[instIdx];
+        var optionElement = document.createElement("option");
+        optionElement.value = instruction;
+        optionElement.innerHTML = instruction;
+        instructionSelect.appendChild(optionElement);
+    }
+    console.log("Total instructions: " + count + ", UNique: "+ instructionArray.length);
     return instructionMap;
 }
 

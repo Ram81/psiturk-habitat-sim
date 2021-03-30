@@ -340,10 +340,10 @@ def approve_hit():
             current_app.logger.error("In HIT approve/reject using api: {}".format(is_approved))
             if is_approved == True:
                 amt_services_wrapper.approve_assignment_by_assignment_id(assignment_id, all_studies=False)
-            else:
-                current_app.logger.error("In HIT rejection using api: {}".format(is_approved))
-                response = amt_services_wrapper.reject_assignment(assignment_id, all_studies=False)
-                current_app.logger.error("Done HIT rejection using api: {}".format(response))
+            # else:
+            #     current_app.logger.error("In HIT rejection using api: {}".format(is_approved))
+            #     response = amt_services_wrapper.reject_assignment(assignment_id, all_studies=False)
+            #     current_app.logger.error("Done HIT rejection using api: {}".format(response))
         except Exception as e:
             current_app.logger.error("Error get amt_services_wrapper {}".format(e))
 

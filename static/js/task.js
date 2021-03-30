@@ -249,7 +249,11 @@ var HabitatExperiment = function() {
           if (window.demo.task.validateTask()) {
             window.finishTrial();
           } else {
-            document.getElementById("hit-complete-message").innerHTML = "<h4>The object has not been placed on the receptacle</h4>";
+            if (window.demo.task_type == "cleaning") {
+              document.getElementById("hit-complete-message").innerHTML = "<h4>Objects have not been placed on the receptacles</h4>";  
+            } else {
+              document.getElementById("hit-complete-message").innerHTML = "<h4>The object has not been placed on the receptacle</h4>";
+            }
           }
         }, 3000);
       } else {

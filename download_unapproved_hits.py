@@ -12,6 +12,7 @@ from psiturk.db import db_session, engine
 from db_scripts.models import ApprovedHits
 from datetime import datetime, timedelta
 
+from collections import defaultdict
 
 pymysql.install_as_MySQLdb()
 
@@ -116,6 +117,7 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
         print("\nTotal scenes: {}, Sample episode count: {}".format(len(scene_ep_map.keys()), 10))
     else:
         ep_hit_map = {}
+        scene_ep_map = defaultdict(int)
         i = 0
         for part in data:
             part_json = json.loads(part)
@@ -124,6 +126,7 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
             if episode_id not in ep_hit_map.keys():
                 ep_hit_map[episode_id] = 0
             ep_hit_map[episode_id] += 1
+            scene_ep_map[scene_id] +=1
 
             if len(part_json['questiondata']['feedback']) > 0:
                 question_data.append({
@@ -138,6 +141,7 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
                 df = pd.DataFrame(output_data)
                 df.to_csv("{}/{}_{}.csv".format(dump_path, dump_prefix, i), index=False, header=False)
                 i += 1
+        print(scene_ep_map)
 
     feedback_df = pd.DataFrame(question_data)
     feedback_df.to_csv("feedback_{}.csv".format(from_date.strftime("%Y-%m-%d")), index=False)
