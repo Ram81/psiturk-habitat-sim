@@ -17,11 +17,17 @@ from collections import defaultdict
 pymysql.install_as_MySQLdb()
 
 
-def get_approved_unique_ids():
+def get_approved_unique_ids(session, metadata):
     try:
-        all_approved_hits = ApprovedHits.query.all()
-        unique_ids = [hit.uniqueid for hit in all_approved_hits]
-        return unique_ids
+        table = Table("approved_hits", metadata, autoload=True)
+        # make a query and loop through
+        s = table.select()
+        rows = s.execute()
+
+        approved_hits = []
+        for row in rows:
+            approved_hits.append(row["uniqueid"])
+        return approved_hits
     except:
         print("Fetch all approved HITs failed!!")
         return []
@@ -63,7 +69,6 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
     table = Table(table_name, metadata, autoload=True)
     # make a query and loop through
     s = table.select().where(table.c.beginhit > from_date)
-    # s = session.query(table).filter_by(table.c.beginhit > from_date).first()
 
     rows = s.execute()
 
@@ -74,7 +79,7 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
     exclude = []
 
     # Exclude already approved hits    
-    already_approved_unique_ids = get_approved_unique_ids()
+    already_approved_unique_ids = get_approved_unique_ids(session, metadata)
     exclude.extend(already_approved_unique_ids)
 
     count = 0

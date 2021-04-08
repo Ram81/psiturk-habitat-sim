@@ -70,12 +70,12 @@ def create_all_hits(tasks, start_episode_index, end_episode_index, batch_size):
 
 
 if __name__ == "__main__":
-    task_ids = [10, 11, 12, 13, 14]
-    start_episode_index = 1000
-    end_episode_index = 1020
+    task_ids = [15, 16, 17, 18, 19]
+    start_episode_index = 0
+    end_episode_index = 5
     batch_size = 5
     create_all_hits(task_ids, start_episode_index, end_episode_index, batch_size)
-    # tasks = [11]
-    # episode_ids = [483]
+    # tasks = [14]
+    # episode_ids = [530, 36]
     # create_hits_from_list(tasks, episode_ids)
 

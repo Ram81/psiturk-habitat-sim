@@ -180,18 +180,35 @@ var HabitatExperiment = function() {
     }
 
     const setFlythroughTaskInstruction = function() {
-      $("#task-instruction").html("<hr> <h1>Task: Place the cheezit box on the red plate</h1> <hr>");
       let objectIconTags = {};
-      objectIconTags["objects"] = ["<div><img src='/data/test_assets/objects/cracker_box.png' style='border: 3px solid grey'/><div class='img-caption'>Cheezit box</div></div>"];
-      objectIconTags["receptacles"] = ["<div><img src='/data/test_assets/objects/plate.png' style='border: 3px solid grey'/><div class='img-caption'>Red plate</div></div>"];
-      $("#text-assistance-1").html(
+      if (window.demo.task_type == "cleaning") {
+        $("#task-instruction").html("<hr> <h1>Task: Clear the floor</h1> <hr>");  
+        objectIconTags["objects"] = [
+          "<div><img src='/data/test_assets/objects/spatula.png' style='border: 3px solid grey'/><div class='img-caption'>Spatula</div></div>"
+          + "<div><img src='/data/test_assets/objects/Dixie_10_ounce_Bowls_35_ct.png' style='border: 3px solid grey'/><div class='img-caption'>Dixie bowl</div></div>"
+          + "<div><img src='/data/test_assets/objects/toy_airplane.png' style='border: 3px solid grey'/><div class='img-caption'>Toy airplane</div></div>"
+          + "<div><img src='/data/test_assets/objects/e_lego_duplo.png' style='border: 3px solid grey'/><div class='img-caption'>Blue lego</div></div>" ];
+
+        $("#text-assistance-1").html(
+          "<div class='object-type'> Object: </div> <ul>" +
+          objectIconTags["objects"].join("\n") +
+          "</ul>" +
+          "<br/>"
+        );
+      } else {
+        $("#task-instruction").html("<hr> <h1>Task: Place the cheezit box on the red plate</h1> <hr>");
+        objectIconTags["objects"] = ["<div><img src='/data/test_assets/objects/cracker_box.png' style='border: 3px solid grey'/><div class='img-caption'>Cheezit box</div></div>"];
+        objectIconTags["receptacles"] = ["<div><img src='/data/test_assets/objects/plate.png' style='border: 3px solid grey'/><div class='img-caption'>Red plate</div></div>"];
+      
+        $("#text-assistance-1").html(
           "<div class='object-type'> Object: </div> <ul>" +
           objectIconTags["objects"].join("\n") +
           "</ul>" +
           "<br/><div class='object-type'> Receptacle: </div> <ul>" +
           objectIconTags["receptacles"].join("\n") +
           "</ul>"
-      );
+        );
+      }
     }
 
     let step = steps[_self.iStep];
