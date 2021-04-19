@@ -38,6 +38,8 @@ def get_scene(data):
         step = row["trialdata"]
         if "event" in step.keys():
             if step["event"] == "setEpisode":
+                if "scene_id" in step["data"]["episode"]:
+                    return step["data"]["episode"]["scene_id"], step["data"]["episode"]["episode_id"]
                 return step["data"]["episode"]["sceneID"], step["data"]["episode"]["episodeID"]
     return "", ""
 

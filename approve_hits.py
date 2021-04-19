@@ -5,7 +5,7 @@ import time
 from collections import defaultdict
 
 
-API_ENDPOINT = ""
+API_ENDPOINT = "https://habitatonweb.cloudcv.org:8000/api/v0/approve_hit"
 
 
 def post_request(url, data):
@@ -15,7 +15,7 @@ def post_request(url, data):
 
 def approve_hits(hit_id):
     data = {
-        "authToken": "",
+        "authToken": "mySNBpBySb",
         "mode": "live",
         "uniqueId": hit_id,
         "isApproved": True

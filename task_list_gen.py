@@ -5,7 +5,7 @@ import time
 from collections import defaultdict
 
 
-API_ENDPOINT = ""
+API_ENDPOINT = "https://habitatonweb.cloudcv.org:8000/api/v0/create_hits"
 
 
 def post_request(url, data):
@@ -23,7 +23,7 @@ def create_hits(tasks=[], start_episode_index=0, end_episode_index=10, batch_siz
         start_episode_index += 1
 
     data = {
-        "authToken": "",
+        "authToken": "mySNBpBySb",
         "mode": "live",
         "numAssignments": 1,
         "numWorkers": 1,
@@ -47,7 +47,7 @@ def create_hits_from_list(tasks=[], episode_ids=[], batch_size=10):
             episode_data[task_id] = episode_ids[start_episode_index:batch_end_index]
 
         data = {
-            "authToken": "",
+            "authToken": "mySNBpBySb",
             "mode": "live",
             "numAssignments": 1,
             "numWorkers": 1,
@@ -71,8 +71,8 @@ def create_all_hits(tasks, start_episode_index, end_episode_index, batch_size):
 
 if __name__ == "__main__":
     task_ids = [15, 16, 17, 18, 19]
-    start_episode_index = 0
-    end_episode_index = 5
+    start_episode_index = 25
+    end_episode_index = 40
     batch_size = 5
     create_all_hits(task_ids, start_episode_index, end_episode_index, batch_size)
     # tasks = [14]

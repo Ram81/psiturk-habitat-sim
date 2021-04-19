@@ -182,7 +182,7 @@ var HabitatExperiment = function() {
     const setFlythroughTaskInstruction = function() {
       let objectIconTags = {};
       if (window.demo.task_type == "cleaning") {
-        $("#task-instruction").html("<hr> <h1>Task: Clear the floor</h1> <hr>");  
+        $("#task-instruction").html("<hr> <h4>Task: Pick up everything scattered on the floor and put them at their right locations (e.g. shoes in the shoerack, etc.). Note that the appropriate locations might not be the ones nearest to the object.</h4> <hr>");  
         objectIconTags["objects"] = [
           "<div><img src='/data/test_assets/objects/spatula.png' style='border: 3px solid grey'/><div class='img-caption'>Spatula</div></div>"
           + "<div><img src='/data/test_assets/objects/Dixie_10_ounce_Bowls_35_ct.png' style='border: 3px solid grey'/><div class='img-caption'>Dixie bowl</div></div>"
@@ -195,6 +195,11 @@ var HabitatExperiment = function() {
           "</ul>" +
           "<br/>"
         );
+      } else if (window.demo.task_type == "objectnav") {
+        $("#task-instruction").html("<hr> <h4>Task: Find cabinet.</h4> <hr>");  
+        objectIconTags["objects"] = [];
+        objectIconTags["receptacles"] = [];
+        $("#text-assistance-1").html("");
       } else {
         $("#task-instruction").html("<hr> <h1>Task: Place the cheezit box on the red plate</h1> <hr>");
         objectIconTags["objects"] = ["<div><img src='/data/test_assets/objects/cracker_box.png' style='border: 3px solid grey'/><div class='img-caption'>Cheezit box</div></div>"];
@@ -268,6 +273,8 @@ var HabitatExperiment = function() {
           } else {
             if (window.demo.task_type == "cleaning") {
               document.getElementById("hit-complete-message").innerHTML = "<h4>Objects have not been placed on the receptacles</h4>";  
+            } else if (window.demo.task_type == "objectnav") {
+              document.getElementById("hit-complete-message").innerHTML = "<h4>You are not within 1m of the object</h4>";
             } else {
               document.getElementById("hit-complete-message").innerHTML = "<h4>The object has not been placed on the receptacle</h4>";
             }

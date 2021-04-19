@@ -1,0 +1,109 @@
+{
+    "episodes": [
+        {
+            "episode_id": 0,
+            "scene_id": "remake_v0_v3_sc4_staging_17.glb",
+            "start_position": [
+                -1.0026562213897705,
+                1.124927282333374,
+                -4.97020149230957
+            ],
+            "start_rotation": [
+                0,
+                0.7394679167900243,
+                0,
+                -0.6731918003349577
+            ],
+            "task": {
+                "instruction": "Clear the floor",
+                "type": "cleaning",
+                "goals": {
+                    "objectToRoomMap": {
+                        "0": "living room",
+                        "1": "living room",
+                        "2": "kitchen",
+                        "3": "kitchen"
+                    }
+                }
+            },
+            "objects": [
+                {
+                    "object": "blue orchid pot",
+                    "objectHandle": "/data/objects/Down_To_Earth_Ceramic_Orchid_Pot_Asst_Blue.object_config.json",
+                    "objectIcon": "/data/test_assets/objects/Down_To_Earth_Ceramic_Orchid_Pot_Asst_Blue.png",
+                    "objectId": 0,
+                    "isReceptacle": false,
+                    "position": [
+                        1.5035138130187988,
+                        1.0791085958480835,
+                        2.7586669921875
+                    ],
+                    "rotation": [
+                        -0.0000011409083526814356,
+                        0.12897780537605286,
+                        -0.000002185793618991738,
+                        0.991647481918335
+                    ],
+                    "motionType": "DYNAMIC"
+                },
+                {
+                    "object": "spiderman action figure",
+                    "objectHandle": "/data/objects/SpiderMan_Titan_Hero_12Inch_Action_Figure_5Hnn4mtkFsP.object_config.json",
+                    "objectIcon": "/data/test_assets/objects/SpiderMan_Titan_Hero_12Inch_Action_Figure_5Hnn4mtkFsP.png",
+                    "objectId": 1,
+                    "isReceptacle": false,
+                    "position": [
+                        3.972161054611206,
+                        1.0502970218658447,
+                        -4.293108940124512
+                    ],
+                    "rotation": [
+                        4.2052076310028497e-7,
+                        0.11858318001031876,
+                        0.0000047169851313810796,
+                        0.9929441213607788
+                    ],
+                    "motionType": "DYNAMIC"
+                },
+                {
+                    "object": "banana",
+                    "objectHandle": "/data/objects/banana.object_config.json",
+                    "objectIcon": "/data/test_assets/objects/banana.png",
+                    "objectId": 2,
+                    "isReceptacle": false,
+                    "position": [
+                        3.0684196949005127,
+                        1.0976588726043701,
+                        -1.1721335649490356
+                    ],
+                    "rotation": [
+                        -0.00020216970006003976,
+                        -0.09550199657678604,
+                        -0.000007909801752248313,
+                        0.9954292178153992
+                    ],
+                    "motionType": "DYNAMIC"
+                },
+                {
+                    "object": "red coffee mug",
+                    "objectHandle": "/data/objects/ACE_Coffee_Mug_Kristen_16_oz_cup.object_config.json",
+                    "objectIcon": "/data/test_assets/objects/ACE_Coffee_Mug_Kristen_16_oz_cup.png",
+                    "objectId": 3,
+                    "isReceptacle": false,
+                    "position": [
+                        -1.6397792100906372,
+                        1.0801827907562256,
+                        1.0846412181854248
+                    ],
+                    "rotation": [
+                        1.2291260986785346e-7,
+                        -0.17114584147930145,
+                        0.00005814688847749494,
+                        0.9852457046508789
+                    ],
+                    "motionType": "DYNAMIC"
+                }
+            ]
+        }
+    ]
+}
