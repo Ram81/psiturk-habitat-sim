@@ -25,6 +25,7 @@ experiment_data/
 data/training_results/
 data/hit_data/video/
 feedback/
+data/tasks/
 
 # Temp files
 .DS_Store

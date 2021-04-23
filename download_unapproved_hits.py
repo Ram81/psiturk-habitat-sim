@@ -151,7 +151,7 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
         print(scene_ep_map)
 
     feedback_df = pd.DataFrame(question_data)
-    feedback_df.to_csv("feedback_{}.csv".format(from_date.strftime("%Y-%m-%d")), index=False)
+    feedback_df.to_csv("feedback/feedback_{}.csv".format(from_date.strftime("%Y-%m-%d")), index=False)
 
 
 def split_hit_data_as_csv(df, dump_path, dump_prefix):

@@ -5,7 +5,15 @@ import time
 from collections import defaultdict
 
 
+task_scenes = ["sT4fr6TAbpF.glb", "E9uDoFAP3SH.glb", "29hnd4uzFmX.glb", "ac26ZMwG7aT.glb", "i5noydFURQK.glb", "s8pcmisQ38h.glb", "rPc6DW4iMge.glb", "EDJbREhghzL.glb", "mJXqzFtmKg4.glb", "JeFG25nYj2p.glb", "82sE5b5pLXE.glb", "D7N2EKCX4Sj.glb", "7y3sRwLe3Va.glb", "HxpKQynjfin.glb", "5LpN3gDmAk7.glb", "gZ6f7yhEvPG.glb", "ur6pFq6Qu1A.glb", "qoiz87JEwZ2.glb", "PuKPg4mmafe.glb", "VLzqgDo317F.glb", "aayBHfsNo7d.glb", "XcA2TqTSSAj.glb", "8WUmhLawc2A.glb", "sKLMLpTHeUy.glb", "r47D5H71a5s.glb", "Uxmj2M2itWa.glb", "Pm6F8kyY3z2.glb", "p5wJjkQkbXX.glb", "759xd9YjKW5.glb", "JF19kD82Mey.glb", "V2XKFyX4ASd.glb", "1LXtFkjw3qL.glb", "17DRP5sb8fy.glb", "5q7pvUzZiYa.glb", "VVfe2KiqLaN.glb", "Vvot9Ly1tCj.glb", "ULsKaCPVFJR.glb", "D7G3Y4RVNrH.glb", "uNb9QFRL6hY.glb", "ZMojNkEp431.glb", "vyrNrziPKCB.glb", "e9zR4mvMWw7.glb", "r1Q1Z4BcV1o.glb", "PX4nDJXEHrG.glb", "YmJkqBEsHnH.glb", "b8cTxDM8gDG.glb", "GdvgFV5R1Z5.glb", "pRbA3pwrgk9.glb", "jh4fc5c5qoQ.glb", "1pXnuDYAj8r.glb", "S9hNv5qa7GM.glb", "VFuaQ6m2Qom.glb", "cV4RVeZvu5T.glb"]
+
 API_ENDPOINT = "https://habitatonweb.cloudcv.org:8000/api/v0/create_hits"
+
+
+def get_scene_ep_limit():
+    f = open("data/scene_ep_map.json")
+    data = json.loads(f.read())
+    return data
 
 
 def post_request(url, data):
@@ -38,27 +46,34 @@ def create_hits(tasks=[], start_episode_index=0, end_episode_index=10, batch_siz
 
 
 def create_hits_from_list(tasks=[], episode_ids=[], batch_size=10):
-    episode_data = defaultdict(list)
+    scene_ep_count_map = get_scene_ep_limit()
     start_episode_index = 0
     for i in range(0, len(episode_ids), batch_size):
         start_episode_index = i
         batch_end_index = start_episode_index + batch_size
-        for task_id in tasks:
-            episode_data[task_id] = episode_ids[start_episode_index:batch_end_index]
 
-        data = {
-            "authToken": "mySNBpBySb",
-            "mode": "live",
-            "numAssignments": 1,
-            "numWorkers": 1,
-            "reward": 0.5,
-            "duration": 1.5,
-            "taskEpsiodeMap": episode_data
-        }
-        print(data)
-        time.sleep(15)
-        response = post_request(API_ENDPOINT, json.dumps(data))
-        print(response)
+        for j in range(0, len(tasks), batch_size):
+            episode_data = defaultdict(list)
+            task_ids = tasks[j: j+batch_size]
+            for task_id in task_ids:
+                scene_id = task_scenes[task_id - 20].split(".")[0]
+                if scene_ep_count_map[scene_id] < episode_ids[start_episode_index]:
+                    continue
+                episode_data[task_id] = episode_ids[start_episode_index:batch_end_index]
+
+            data = {
+                "authToken": "mySNBpBySb",
+                "mode": "live",
+                "numAssignments": 1,
+                "numWorkers": 1,
+                "reward": 0.5,
+                "duration": 1.5,
+                "taskEpsiodeMap": episode_data
+            }
+            print(data)
+            time.sleep(15)
+            response = post_request(API_ENDPOINT, json.dumps(data))
+            print(response)
 
 
 def create_all_hits(tasks, start_episode_index, end_episode_index, batch_size):
@@ -70,12 +85,13 @@ def create_all_hits(tasks, start_episode_index, end_episode_index, batch_size):
 
 
 if __name__ == "__main__":
-    task_ids = [15, 16, 17, 18, 19]
-    start_episode_index = 25
-    end_episode_index = 40
-    batch_size = 5
-    create_all_hits(task_ids, start_episode_index, end_episode_index, batch_size)
-    # tasks = [14]
-    # episode_ids = [530, 36]
-    # create_hits_from_list(tasks, episode_ids)
+    # task_ids = [15, 16, 17, 18, 19]
+    # start_episode_index = 25
+    # end_episode_index = 40
+    # batch_size = 5
+    # create_all_hits(task_ids, start_episode_index, end_episode_index, batch_size)
+    # tasks = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30] #, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]
+    tasks = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]
+    episode_ids = [0, 1]
+    create_hits_from_list(tasks, episode_ids)
 

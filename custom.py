@@ -194,7 +194,7 @@ def get_completed_episodes():
                     all_episode_completed = False
                     # Fetch episode count and check if it is less than limit
                     episode_count = task_episode_id_hit_count_map.get(unique_task_id)
-                    if not episode_count or episode_count < task_episode_limit:
+                    if not episode_count:
                         eligible_task_episode.append(unique_task_id)
 
         if all_episode_completed:
@@ -410,7 +410,8 @@ def create_hits():
         reward = request_data["reward"]
         duration = request_data["duration"]
         task_map = request_data["taskEpsiodeMap"]
-        num_assignments = request_data["numAssignments"]
+        # num_assignments = request_data["numAssignments"]
+        num_assignments = 5
         user = get_user_auth_token(auth_token)
 
         is_sandbox = mode in ["debug", "sandbox"]

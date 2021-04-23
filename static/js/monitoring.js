@@ -80,6 +80,28 @@ function convertToInstructionMap(records) {
     return instructionMap;
 }
 
+function updateInstructionList() {
+    var instructionSelect = document.getElementById("instructionList");
+    instructionSelect.innerHTML = '';
+    var sceneId = document.getElementById("sceneList").value;
+    let uniqueInstructions = new Set();
+
+    var sortedInstructionKeys = Object.keys(instructionRecordMap[sceneId]).sort();
+    for (let instIdx in sortedInstructionKeys) {
+        var instruction = sortedInstructionKeys[instIdx];
+        uniqueInstructions.add(instruction);
+        count+=1;
+    }
+    let instructionArray = Array.from(uniqueInstructions).sort();
+    for (let instIdx in instructionArray) {
+        var instruction = instructionArray[instIdx];
+        var optionElement = document.createElement("option");
+        optionElement.value = instruction;
+        optionElement.innerHTML = instruction;
+        instructionSelect.appendChild(optionElement);
+    }
+}
+
 function populateScenes() {
     var instructionSelect = document.getElementById("sceneList");
     var scenes = ["scene_1.glb", "scene_1.glb", "scene_2.glb", "scene_3.glb", "scene_4.glb", "scene_5.glb"];
@@ -364,6 +386,7 @@ function load() {
     loadJSON(function(data) {
         jsonData = JSON.parse(data);
         instructionRecordMap = convertToInstructionMap(jsonData);
+        updateInstructionList();
         loadDataset(jsonData);
         loadList();
     }, "data/hit_data/instructions.json");
