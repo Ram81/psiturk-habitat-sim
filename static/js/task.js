@@ -14,7 +14,7 @@ window.psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 var taskTitleMap = {
   "flythrough": "Environment flythrough",
   "training": "Training task",
-  "viewer": "Final task",
+  "viewer": "ObjectGoal Navigation Experiment",
   // "instructions/instruct-general.html": "Object Rearrangement Experiment",
   "instructions/instruct-general.html": "Object Navigation Experiment",
   "instructions/instruct-flythrough.html": "Environment flythrough",
@@ -239,11 +239,15 @@ var HabitatExperiment = function() {
       _self.trainingComplete = true;
       showViewer(false);
       $("#actions-nav").html(psiTurk.getPage(stepActionMap[step]))
+      // $('#actions-nav-instructions').show();
+      // $('#actions-nav-instructions').html(psiTurk.getPage(stepActionMap[step]));
       window.demo.runTrainingTask();
     } else if(step === "viewer") {
       // Initialize experiment episode
       showViewer(false);
       $("#actions-nav").html(psiTurk.getPage(stepActionMap[step]));
+      // $('#actions-nav-instructions').show();
+      // $('#actions-nav-instructions').html(psiTurk.getPage(stepActionMap[step]));
       window.demo.runInit();
     } else {
       $("#instructions").html(psiTurk.getPage(step))
