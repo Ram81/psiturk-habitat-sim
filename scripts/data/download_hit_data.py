@@ -50,7 +50,7 @@ def get_episode_trial_data(data):
     return data
 
 
-def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False, is_sqlite=False, to_date=None):
+def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sample=False, is_sqlite=False, to_date=None, exclude_approved=False):
     db_user = os.environ.get("DB_USER", "psiturk")
     db_password = os.environ.get("DB_PASSWORD", "password")
     db_host = os.environ.get("DB_HOST", "127.0.0.1")
@@ -80,9 +80,10 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
     # if you have workers you wish to exclude, add them here
     exclude = []
 
-    # Exclude already approved hits    
-    already_approved_unique_ids = get_approved_unique_ids(session, metadata)
-    exclude.extend(already_approved_unique_ids)
+    # Exclude already approved hits
+    if exclude_approved:
+        already_approved_unique_ids = get_approved_unique_ids(session, metadata)
+        exclude.extend(already_approved_unique_ids)
 
     count = 0
     for row in rows:
@@ -148,7 +149,6 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
                 df = pd.DataFrame(output_data)
                 df.to_csv("{}/{}_{}.csv".format(dump_path, dump_prefix, i), index=False, header=False)
                 i += 1
-        print(scene_ep_map)
 
     feedback_df = pd.DataFrame(question_data)
     feedback_df.to_csv("feedback/feedback_{}.csv".format(from_date.strftime("%Y-%m-%d")), index=False)
@@ -197,6 +197,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--to-date", type=str, default="2020-11-01 00:00"
     )
+    parser.add_argument(
+        "--exclude-approved", dest='exclude_approved', action='store_true'
+    )
     args = parser.parse_args()
 
     from_date = datetime.strptime(args.from_date, "%Y-%m-%d %H:%M")
@@ -207,6 +210,6 @@ if __name__ == "__main__":
     to_date = datetime.strptime(args.to_date, "%Y-%m-%d %H:%M")
     if args.to_date == "2020-11-01 00:00":
         to_date = datetime.now()
-    print("from: " + str(from_date) + ", to: " + str(to_date))
+    print("Downloading data From: " + str(from_date) + ", to: " + str(to_date))
 
-    dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode, args.sample, args.sqlite, to_date)
+    dump_hit_data(args.db_path, args.dump_path, args.prefix, from_date, args.mode, args.sample, args.sqlite, to_date, args.exclude_approved)
