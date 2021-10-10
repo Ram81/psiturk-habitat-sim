@@ -90,7 +90,6 @@ function updateInstructionList() {
     for (let instIdx in sortedInstructionKeys) {
         var instruction = sortedInstructionKeys[instIdx];
         uniqueInstructions.add(instruction);
-        count+=1;
     }
     let instructionArray = Array.from(uniqueInstructions).sort();
     for (let instIdx in instructionArray) {

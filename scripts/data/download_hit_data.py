@@ -129,6 +129,9 @@ def dump_hit_data(db_path, dump_path, dump_prefix, from_date, mode="sandbox", sa
         i = 0
         for part in data:
             part_json = json.loads(part)
+            if len(part_json.keys()) <= 0:
+                continue
+            unique_id = "{}:{}".format(part_json["workerId"], part_json["assignmentId"])
             scene_id, episode_id = get_scene(part_json['data'])
 
             if episode_id not in ep_hit_map.keys():
